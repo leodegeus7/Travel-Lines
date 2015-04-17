@@ -1,0 +1,487 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CD160EF51AE03A4000575E06 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CD160EF41AE03A4000575E06 /* main.m */; };
+		CD160EF81AE03A4000575E06 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CD160EF71AE03A4000575E06 /* AppDelegate.m */; };
+		CD160EFB1AE03A4000575E06 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD160EFA1AE03A4000575E06 /* ViewController.m */; };
+		CD160EFE1AE03A4000575E06 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD160EFC1AE03A4000575E06 /* Main.storyboard */; };
+		CD160F001AE03A4000575E06 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD160EFF1AE03A4000575E06 /* Images.xcassets */; };
+		CD160F031AE03A4000575E06 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD160F011AE03A4000575E06 /* LaunchScreen.xib */; };
+		CD160F0F1AE03A4000575E06 /* TravelLineTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CD160F0E1AE03A4000575E06 /* TravelLineTests.m */; };
+		CDBDF26F1AE1725D004F83A1 /* PaisesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDBDF26E1AE1725D004F83A1 /* PaisesTableViewController.m */; };
+		CDBDF2721AE1726F004F83A1 /* TimeLineTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDBDF2711AE1726F004F83A1 /* TimeLineTableViewController.m */; };
+		CDBDF2751AE1734D004F83A1 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CDBDF2741AE1734D004F83A1 /* DataManager.m */; };
+		CDBDF2781AE175D7004F83A1 /* PaisesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CDBDF2771AE175D7004F83A1 /* PaisesTableViewCell.m */; };
+		CDBDF27B1AE175F1004F83A1 /* TimeLineTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CDBDF27A1AE175F1004F83A1 /* TimeLineTableViewCell.m */; };
+		CDBDF27E1AE1762A004F83A1 /* GaleriaTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDBDF27D1AE1762A004F83A1 /* GaleriaTableViewController.m */; };
+		CDBDF2811AE17771004F83A1 /* GaleriaTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CDBDF2801AE17771004F83A1 /* GaleriaTableViewCell.m */; };
+		CDBDF2831AE180ED004F83A1 /* paises.json in Resources */ = {isa = PBXBuildFile; fileRef = CDBDF2821AE180ED004F83A1 /* paises.json */; };
+		CDBDF2881AE18E74004F83A1 /* item.m in Sources */ = {isa = PBXBuildFile; fileRef = CDBDF2871AE18E74004F83A1 /* item.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CD160F091AE03A4000575E06 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CD160EE71AE03A4000575E06 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CD160EEE1AE03A4000575E06;
+			remoteInfo = TravelLine;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		CD160EEF1AE03A4000575E06 /* TravelLine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravelLine.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD160EF31AE03A4000575E06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CD160EF41AE03A4000575E06 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		CD160EF61AE03A4000575E06 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		CD160EF71AE03A4000575E06 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		CD160EF91AE03A4000575E06 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		CD160EFA1AE03A4000575E06 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		CD160EFD1AE03A4000575E06 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CD160EFF1AE03A4000575E06 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		CD160F021AE03A4000575E06 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		CD160F081AE03A4000575E06 /* TravelLineTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TravelLineTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD160F0D1AE03A4000575E06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CD160F0E1AE03A4000575E06 /* TravelLineTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TravelLineTests.m; sourceTree = "<group>"; };
+		CDBDF26D1AE1725D004F83A1 /* PaisesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaisesTableViewController.h; sourceTree = "<group>"; };
+		CDBDF26E1AE1725D004F83A1 /* PaisesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaisesTableViewController.m; sourceTree = "<group>"; };
+		CDBDF2701AE1726F004F83A1 /* TimeLineTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeLineTableViewController.h; sourceTree = "<group>"; };
+		CDBDF2711AE1726F004F83A1 /* TimeLineTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeLineTableViewController.m; sourceTree = "<group>"; };
+		CDBDF2731AE1734D004F83A1 /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
+		CDBDF2741AE1734D004F83A1 /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
+		CDBDF2761AE175D7004F83A1 /* PaisesTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaisesTableViewCell.h; sourceTree = "<group>"; };
+		CDBDF2771AE175D7004F83A1 /* PaisesTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaisesTableViewCell.m; sourceTree = "<group>"; };
+		CDBDF2791AE175F1004F83A1 /* TimeLineTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeLineTableViewCell.h; sourceTree = "<group>"; };
+		CDBDF27A1AE175F1004F83A1 /* TimeLineTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeLineTableViewCell.m; sourceTree = "<group>"; };
+		CDBDF27C1AE1762A004F83A1 /* GaleriaTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GaleriaTableViewController.h; sourceTree = "<group>"; };
+		CDBDF27D1AE1762A004F83A1 /* GaleriaTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GaleriaTableViewController.m; sourceTree = "<group>"; };
+		CDBDF27F1AE17771004F83A1 /* GaleriaTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GaleriaTableViewCell.h; sourceTree = "<group>"; };
+		CDBDF2801AE17771004F83A1 /* GaleriaTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GaleriaTableViewCell.m; sourceTree = "<group>"; };
+		CDBDF2821AE180ED004F83A1 /* paises.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = paises.json; sourceTree = "<group>"; };
+		CDBDF2861AE18E74004F83A1 /* item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = item.h; sourceTree = "<group>"; };
+		CDBDF2871AE18E74004F83A1 /* item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = item.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CD160EEC1AE03A4000575E06 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CD160F051AE03A4000575E06 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CD160EE61AE03A4000575E06 = {
+			isa = PBXGroup;
+			children = (
+				CD160EF11AE03A4000575E06 /* TravelLine */,
+				CD160F0B1AE03A4000575E06 /* TravelLineTests */,
+				CD160EF01AE03A4000575E06 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CD160EF01AE03A4000575E06 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CD160EEF1AE03A4000575E06 /* TravelLine.app */,
+				CD160F081AE03A4000575E06 /* TravelLineTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CD160EF11AE03A4000575E06 /* TravelLine */ = {
+			isa = PBXGroup;
+			children = (
+				CD160EF61AE03A4000575E06 /* AppDelegate.h */,
+				CD160EF71AE03A4000575E06 /* AppDelegate.m */,
+				CD160EF91AE03A4000575E06 /* ViewController.h */,
+				CD160EFA1AE03A4000575E06 /* ViewController.m */,
+				CD160EFC1AE03A4000575E06 /* Main.storyboard */,
+				CD160EFF1AE03A4000575E06 /* Images.xcassets */,
+				CD160F011AE03A4000575E06 /* LaunchScreen.xib */,
+				CD160EF21AE03A4000575E06 /* Supporting Files */,
+				CDBDF26D1AE1725D004F83A1 /* PaisesTableViewController.h */,
+				CDBDF26E1AE1725D004F83A1 /* PaisesTableViewController.m */,
+				CDBDF2701AE1726F004F83A1 /* TimeLineTableViewController.h */,
+				CDBDF2711AE1726F004F83A1 /* TimeLineTableViewController.m */,
+				CDBDF2731AE1734D004F83A1 /* DataManager.h */,
+				CDBDF2741AE1734D004F83A1 /* DataManager.m */,
+				CDBDF2761AE175D7004F83A1 /* PaisesTableViewCell.h */,
+				CDBDF2771AE175D7004F83A1 /* PaisesTableViewCell.m */,
+				CDBDF2791AE175F1004F83A1 /* TimeLineTableViewCell.h */,
+				CDBDF27A1AE175F1004F83A1 /* TimeLineTableViewCell.m */,
+				CDBDF27C1AE1762A004F83A1 /* GaleriaTableViewController.h */,
+				CDBDF27D1AE1762A004F83A1 /* GaleriaTableViewController.m */,
+				CDBDF27F1AE17771004F83A1 /* GaleriaTableViewCell.h */,
+				CDBDF2801AE17771004F83A1 /* GaleriaTableViewCell.m */,
+				CDBDF2821AE180ED004F83A1 /* paises.json */,
+				CDBDF2861AE18E74004F83A1 /* item.h */,
+				CDBDF2871AE18E74004F83A1 /* item.m */,
+			);
+			path = TravelLine;
+			sourceTree = "<group>";
+		};
+		CD160EF21AE03A4000575E06 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CD160EF31AE03A4000575E06 /* Info.plist */,
+				CD160EF41AE03A4000575E06 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CD160F0B1AE03A4000575E06 /* TravelLineTests */ = {
+			isa = PBXGroup;
+			children = (
+				CD160F0E1AE03A4000575E06 /* TravelLineTests.m */,
+				CD160F0C1AE03A4000575E06 /* Supporting Files */,
+			);
+			path = TravelLineTests;
+			sourceTree = "<group>";
+		};
+		CD160F0C1AE03A4000575E06 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CD160F0D1AE03A4000575E06 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CD160EEE1AE03A4000575E06 /* TravelLine */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CD160F121AE03A4000575E06 /* Build configuration list for PBXNativeTarget "TravelLine" */;
+			buildPhases = (
+				CD160EEB1AE03A4000575E06 /* Sources */,
+				CD160EEC1AE03A4000575E06 /* Frameworks */,
+				CD160EED1AE03A4000575E06 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TravelLine;
+			productName = TravelLine;
+			productReference = CD160EEF1AE03A4000575E06 /* TravelLine.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CD160F071AE03A4000575E06 /* TravelLineTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CD160F151AE03A4000575E06 /* Build configuration list for PBXNativeTarget "TravelLineTests" */;
+			buildPhases = (
+				CD160F041AE03A4000575E06 /* Sources */,
+				CD160F051AE03A4000575E06 /* Frameworks */,
+				CD160F061AE03A4000575E06 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CD160F0A1AE03A4000575E06 /* PBXTargetDependency */,
+			);
+			name = TravelLineTests;
+			productName = TravelLineTests;
+			productReference = CD160F081AE03A4000575E06 /* TravelLineTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CD160EE71AE03A4000575E06 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = "Leonardo Geus";
+				TargetAttributes = {
+					CD160EEE1AE03A4000575E06 = {
+						CreatedOnToolsVersion = 6.3;
+					};
+					CD160F071AE03A4000575E06 = {
+						CreatedOnToolsVersion = 6.3;
+						TestTargetID = CD160EEE1AE03A4000575E06;
+					};
+				};
+			};
+			buildConfigurationList = CD160EEA1AE03A4000575E06 /* Build configuration list for PBXProject "TravelLine" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CD160EE61AE03A4000575E06;
+			productRefGroup = CD160EF01AE03A4000575E06 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CD160EEE1AE03A4000575E06 /* TravelLine */,
+				CD160F071AE03A4000575E06 /* TravelLineTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CD160EED1AE03A4000575E06 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CDBDF2831AE180ED004F83A1 /* paises.json in Resources */,
+				CD160EFE1AE03A4000575E06 /* Main.storyboard in Resources */,
+				CD160F031AE03A4000575E06 /* LaunchScreen.xib in Resources */,
+				CD160F001AE03A4000575E06 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CD160F061AE03A4000575E06 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CD160EEB1AE03A4000575E06 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD160EFB1AE03A4000575E06 /* ViewController.m in Sources */,
+				CDBDF2751AE1734D004F83A1 /* DataManager.m in Sources */,
+				CDBDF27E1AE1762A004F83A1 /* GaleriaTableViewController.m in Sources */,
+				CDBDF2811AE17771004F83A1 /* GaleriaTableViewCell.m in Sources */,
+				CDBDF2721AE1726F004F83A1 /* TimeLineTableViewController.m in Sources */,
+				CD160EF81AE03A4000575E06 /* AppDelegate.m in Sources */,
+				CDBDF27B1AE175F1004F83A1 /* TimeLineTableViewCell.m in Sources */,
+				CDBDF26F1AE1725D004F83A1 /* PaisesTableViewController.m in Sources */,
+				CDBDF2881AE18E74004F83A1 /* item.m in Sources */,
+				CDBDF2781AE175D7004F83A1 /* PaisesTableViewCell.m in Sources */,
+				CD160EF51AE03A4000575E06 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CD160F041AE03A4000575E06 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD160F0F1AE03A4000575E06 /* TravelLineTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CD160F0A1AE03A4000575E06 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CD160EEE1AE03A4000575E06 /* TravelLine */;
+			targetProxy = CD160F091AE03A4000575E06 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		CD160EFC1AE03A4000575E06 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CD160EFD1AE03A4000575E06 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		CD160F011AE03A4000575E06 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CD160F021AE03A4000575E06 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CD160F101AE03A4000575E06 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CD160F111AE03A4000575E06 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CD160F131AE03A4000575E06 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = TravelLine/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		CD160F141AE03A4000575E06 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = TravelLine/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		CD160F161AE03A4000575E06 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = TravelLineTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TravelLine.app/TravelLine";
+			};
+			name = Debug;
+		};
+		CD160F171AE03A4000575E06 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = TravelLineTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TravelLine.app/TravelLine";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CD160EEA1AE03A4000575E06 /* Build configuration list for PBXProject "TravelLine" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CD160F101AE03A4000575E06 /* Debug */,
+				CD160F111AE03A4000575E06 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CD160F121AE03A4000575E06 /* Build configuration list for PBXNativeTarget "TravelLine" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CD160F131AE03A4000575E06 /* Debug */,
+				CD160F141AE03A4000575E06 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CD160F151AE03A4000575E06 /* Build configuration list for PBXNativeTarget "TravelLineTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CD160F161AE03A4000575E06 /* Debug */,
+				CD160F171AE03A4000575E06 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CD160EE71AE03A4000575E06 /* Project object */;
+}
