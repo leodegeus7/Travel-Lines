@@ -10,46 +10,31 @@
 
 @implementation DataManager
 
-+(id)getDataManager {
-    static DataManager *dm = nil;
-    if (dm == nil) {
-        dm = [[self alloc]init];
-    }
-    return dm;
++(id)sharedManager
+{
+    
+    static DataManager *sharedMyManager = nil;
+    static dispatch_once_t onceToken;
+    
+    dispatch_once(&onceToken, ^{
+        sharedMyManager = [[self alloc]init];
+    });
+    
+    return sharedMyManager;
 }
 
-- (instancetype)init {
+-(id)init
+{
     self = [super init];
     if (self) {
-        _dict = [[NSMutableDictionary alloc]init];
+        _dados= [[NSMutableDictionary alloc]init];
     }
     return self;
+    
+    
 }
 
-- (NSMutableDictionary *)LoadJsonDictionaryFromFile:(NSString *)nomeArquivo {
-    NSString *documentPath, *contentOfFile;
-    NSMutableDictionary *json;
-    NSError *error;
-    
-    documentPath = [[NSBundle mainBundle] pathForResource:nomeArquivo ofType:@"json"];
-    contentOfFile = [NSString stringWithContentsOfFile:documentPath encoding:NSUTF8StringEncoding error:&error];
-    //    NSLog(@"Erro de leitura:%@", [error description]);
-    json = [NSJSONSerialization JSONObjectWithData:[contentOfFile dataUsingEncoding: NSUTF8StringEncoding] options:NSJSONReadingMutableContainers error:&error];
-    //    NSLog(@"Erro de JSON:%@", [error description]);
-    return json;
-}
 
-- (NSMutableArray *)LoadJsonArrayFromFile:(NSString *)nomeArquivo {
-    NSString *documentPath, *contentOfFile;
-    NSMutableArray *json;
-    NSError *error;
-    
-    documentPath = [[NSBundle mainBundle] pathForResource:nomeArquivo ofType:@"json"];
-    contentOfFile = [NSString stringWithContentsOfFile:documentPath encoding:NSUTF8StringEncoding error:&error];
-    //    NSLog(@"Erro de leitura:%@", [error description]);
-    json = [NSJSONSerialization JSONObjectWithData:[contentOfFile dataUsingEncoding: NSUTF8StringEncoding] options:NSJSONReadingMutableContainers error:&error];
-    //    NSLog(@"Erro de JSON:%@", [error description]);
-    return json;
-}
+
 
 @end

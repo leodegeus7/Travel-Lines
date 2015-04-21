@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface PaisesTableViewCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UILabel *viagemLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *viagemImage;
 
 @end

@@ -10,4 +10,9 @@
 
 @interface PaisesTableViewController : UITableViewController
 
+@property (nonatomic,strong) NSManagedObjectContext* managedObjectContext;
+@property (nonatomic,strong) NSArray* failedBankInfos;
+
+- (IBAction)ClickButtonAdd:(id)sender;
+
 @end

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7549" systemVersion="14D131" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Momento" representedClassName="Momento" syncable="YES">
+        <attribute name="descricao" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="geo" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="imagem" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="texto" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="tipo" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="info" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Viagem" inverseName="details" inverseEntity="Viagem" syncable="YES"/>
+    </entity>
+    <entity name="Viagem" representedClassName="Viagem" syncable="YES">
+        <attribute name="capa" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="nome" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="details" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Momento" inverseName="info" inverseEntity="Momento" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Viagem" positionX="-63" positionY="-18" width="128" height="88"/>
+        <element name="Momento" positionX="394" positionY="-124" width="128" height="133"/>
+    </elements>
+</model>

@@ -15,5 +15,11 @@
 
 +(id)initComDicionario:(NSDictionary *)dict;
 
-
+-(NSDictionary*) lerArqJson:(NSString *)name;
+-(void)saveFileName:(NSString*)name conteudo:(NSDictionary*)dicCont;
++(NSDictionary*)LerArquivoJSon:(NSString*)Nome;
++ (void)moveFromBundleToDocuments:(NSString *)file;
++ (NSString *)getPathFromDocuments:(NSString *)file;
++ (NSString *)acharoarqfile:(NSString *)file;
+-(NSDictionary*) lerArqJson2:(NSString *)name caminho:(NSString *)path;
 @end

@@ -7,8 +7,15 @@
 //
 
 #import "TimeLineTableViewController.h"
+#import "PaisesTableViewCell.h"
+#import "DataManager.h"
+#import "Item.h"
 
-@interface TimeLineTableViewController ()
+@interface TimeLineTableViewController (){
+    NSMutableArray *_myData;
+    
+}
+
 
 @end
 
@@ -22,6 +29,26 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    //Recuperando caminho para data.json
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"paises" ofType:@".json"];
+    
+    NSLog(@"%@",path);
+    
+    //Criando NSData e preenchendo com o conteúdo do arquivo data.json
+    NSData *dataResponse = [[NSData alloc]initWithContentsOfFile:path];
+    
+    NSError *error;
+    
+    NSDictionary *jsonSerialized = [NSJSONSerialization JSONObjectWithData:dataResponse
+                                                                   options:NSJSONReadingMutableContainers
+                                                                     error:&error];
+    
+    _myData = jsonSerialized[@"viagem"];
+    
+    
+    
+    //myData = [[DataManager sharedManager]dict][@"viagem"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -34,24 +61,24 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 #warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return _myData.count;
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    PaisesTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellViagem" forIndexPath:indexPath];
+
+    cell.viagemLabel.text=[NSString stringWithFormat:@"%@",_myData[indexPath.row][@"nome"]];
     
-    // Configure the cell...
     
     return cell;
 }
-*/
 
 /*
 // Override to support conditional editing of the table view.
