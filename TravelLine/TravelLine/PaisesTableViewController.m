@@ -29,6 +29,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
     Item = [[item alloc]init];
     _data = [DataManager sharedManager]; //da um sharedmanager no ponteiro do DM
     [self atualizartabela];
@@ -84,6 +85,15 @@
     cell.viagemLabel.text=[NSString stringWithFormat:@"%@",[[myData[0] objectAtIndex:indexPath.row] objectForKey: @"nome"]];
 
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        [_data.dados[@"viagem"] removeObjectAtIndex:indexPath.row];
+        // Delete the row from the data source
+        [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    }
 }
 
 /*
@@ -167,9 +177,7 @@
     NSMutableArray *JAry=[[NSMutableArray alloc] initWithArray:[jsonDic objectForKey:@"viagem"]];//salvo o array a ser manipulado
     
     NSMutableDictionary *lugar =[[NSMutableDictionary alloc]init];//Dicionario com lugar
-    
     [lugar setObject:nome forKey:@"nome"];
-    
     
     
     
