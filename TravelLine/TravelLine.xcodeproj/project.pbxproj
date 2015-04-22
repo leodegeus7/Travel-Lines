@@ -14,14 +14,12 @@
 		CD160F001AE03A4000575E06 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD160EFF1AE03A4000575E06 /* Images.xcassets */; };
 		CD160F031AE03A4000575E06 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD160F011AE03A4000575E06 /* LaunchScreen.xib */; };
 		CD160F0F1AE03A4000575E06 /* TravelLineTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CD160F0E1AE03A4000575E06 /* TravelLineTests.m */; };
-		CD4D46451AE5A0F000AA57ED /* Metodos.m in Sources */ = {isa = PBXBuildFile; fileRef = CD4D46441AE5A0F000AA57ED /* Metodos.m */; };
+		CD17FC0B1AE6F2FE00C71364 /* TimeLineTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD17FC0A1AE6F2FE00C71364 /* TimeLineTableViewController.m */; };
+		CD17FC0E1AE6F31100C71364 /* TimeLineTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CD17FC0D1AE6F31100C71364 /* TimeLineTableViewCell.m */; };
+		CD17FC161AE8318100C71364 /* AddLugarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD17FC151AE8318100C71364 /* AddLugarViewController.m */; };
 		CDBDF26F1AE1725D004F83A1 /* PaisesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDBDF26E1AE1725D004F83A1 /* PaisesTableViewController.m */; };
-		CDBDF2721AE1726F004F83A1 /* TimeLineTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDBDF2711AE1726F004F83A1 /* TimeLineTableViewController.m */; };
 		CDBDF2751AE1734D004F83A1 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CDBDF2741AE1734D004F83A1 /* DataManager.m */; };
 		CDBDF2781AE175D7004F83A1 /* PaisesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CDBDF2771AE175D7004F83A1 /* PaisesTableViewCell.m */; };
-		CDBDF27B1AE175F1004F83A1 /* TimeLineTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CDBDF27A1AE175F1004F83A1 /* TimeLineTableViewCell.m */; };
-		CDBDF27E1AE1762A004F83A1 /* GaleriaTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDBDF27D1AE1762A004F83A1 /* GaleriaTableViewController.m */; };
-		CDBDF2811AE17771004F83A1 /* GaleriaTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CDBDF2801AE17771004F83A1 /* GaleriaTableViewCell.m */; };
 		CDBDF2831AE180ED004F83A1 /* paises.json in Resources */ = {isa = PBXBuildFile; fileRef = CDBDF2821AE180ED004F83A1 /* paises.json */; };
 		CDBDF2881AE18E74004F83A1 /* item.m in Sources */ = {isa = PBXBuildFile; fileRef = CDBDF2871AE18E74004F83A1 /* item.m */; };
 /* End PBXBuildFile section */
@@ -50,22 +48,18 @@
 		CD160F081AE03A4000575E06 /* TravelLineTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TravelLineTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD160F0D1AE03A4000575E06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CD160F0E1AE03A4000575E06 /* TravelLineTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TravelLineTests.m; sourceTree = "<group>"; };
-		CD4D46431AE5A0F000AA57ED /* Metodos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Metodos.h; path = ../../../Downloads/appFut/Metodos.h; sourceTree = "<group>"; };
-		CD4D46441AE5A0F000AA57ED /* Metodos.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Metodos.m; path = ../../../Downloads/appFut/Metodos.m; sourceTree = "<group>"; };
+		CD17FC091AE6F2FE00C71364 /* TimeLineTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeLineTableViewController.h; sourceTree = "<group>"; };
+		CD17FC0A1AE6F2FE00C71364 /* TimeLineTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeLineTableViewController.m; sourceTree = "<group>"; };
+		CD17FC0C1AE6F31100C71364 /* TimeLineTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeLineTableViewCell.h; sourceTree = "<group>"; };
+		CD17FC0D1AE6F31100C71364 /* TimeLineTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeLineTableViewCell.m; sourceTree = "<group>"; };
+		CD17FC141AE8318100C71364 /* AddLugarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddLugarViewController.h; sourceTree = "<group>"; };
+		CD17FC151AE8318100C71364 /* AddLugarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddLugarViewController.m; sourceTree = "<group>"; };
 		CDBDF26D1AE1725D004F83A1 /* PaisesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaisesTableViewController.h; sourceTree = "<group>"; };
 		CDBDF26E1AE1725D004F83A1 /* PaisesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaisesTableViewController.m; sourceTree = "<group>"; };
-		CDBDF2701AE1726F004F83A1 /* TimeLineTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeLineTableViewController.h; sourceTree = "<group>"; };
-		CDBDF2711AE1726F004F83A1 /* TimeLineTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeLineTableViewController.m; sourceTree = "<group>"; };
 		CDBDF2731AE1734D004F83A1 /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
 		CDBDF2741AE1734D004F83A1 /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
 		CDBDF2761AE175D7004F83A1 /* PaisesTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaisesTableViewCell.h; sourceTree = "<group>"; };
 		CDBDF2771AE175D7004F83A1 /* PaisesTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaisesTableViewCell.m; sourceTree = "<group>"; };
-		CDBDF2791AE175F1004F83A1 /* TimeLineTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeLineTableViewCell.h; sourceTree = "<group>"; };
-		CDBDF27A1AE175F1004F83A1 /* TimeLineTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeLineTableViewCell.m; sourceTree = "<group>"; };
-		CDBDF27C1AE1762A004F83A1 /* GaleriaTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GaleriaTableViewController.h; sourceTree = "<group>"; };
-		CDBDF27D1AE1762A004F83A1 /* GaleriaTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GaleriaTableViewController.m; sourceTree = "<group>"; };
-		CDBDF27F1AE17771004F83A1 /* GaleriaTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GaleriaTableViewCell.h; sourceTree = "<group>"; };
-		CDBDF2801AE17771004F83A1 /* GaleriaTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GaleriaTableViewCell.m; sourceTree = "<group>"; };
 		CDBDF2821AE180ED004F83A1 /* paises.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = paises.json; sourceTree = "<group>"; };
 		CDBDF2861AE18E74004F83A1 /* item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = item.h; sourceTree = "<group>"; };
 		CDBDF2871AE18E74004F83A1 /* item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = item.m; sourceTree = "<group>"; };
@@ -148,22 +142,20 @@
 		CD4D463F1AE5782800AA57ED /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				CD17FC091AE6F2FE00C71364 /* TimeLineTableViewController.h */,
+				CD17FC0A1AE6F2FE00C71364 /* TimeLineTableViewController.m */,
 				CD160EF61AE03A4000575E06 /* AppDelegate.h */,
 				CD160EF71AE03A4000575E06 /* AppDelegate.m */,
 				CD160EF91AE03A4000575E06 /* ViewController.h */,
 				CD160EFA1AE03A4000575E06 /* ViewController.m */,
 				CDBDF26D1AE1725D004F83A1 /* PaisesTableViewController.h */,
 				CDBDF26E1AE1725D004F83A1 /* PaisesTableViewController.m */,
-				CDBDF2701AE1726F004F83A1 /* TimeLineTableViewController.h */,
-				CDBDF2711AE1726F004F83A1 /* TimeLineTableViewController.m */,
 				CDBDF2761AE175D7004F83A1 /* PaisesTableViewCell.h */,
 				CDBDF2771AE175D7004F83A1 /* PaisesTableViewCell.m */,
-				CDBDF2791AE175F1004F83A1 /* TimeLineTableViewCell.h */,
-				CDBDF27A1AE175F1004F83A1 /* TimeLineTableViewCell.m */,
-				CDBDF27C1AE1762A004F83A1 /* GaleriaTableViewController.h */,
-				CDBDF27D1AE1762A004F83A1 /* GaleriaTableViewController.m */,
-				CDBDF27F1AE17771004F83A1 /* GaleriaTableViewCell.h */,
-				CDBDF2801AE17771004F83A1 /* GaleriaTableViewCell.m */,
+				CD17FC0C1AE6F31100C71364 /* TimeLineTableViewCell.h */,
+				CD17FC0D1AE6F31100C71364 /* TimeLineTableViewCell.m */,
+				CD17FC141AE8318100C71364 /* AddLugarViewController.h */,
+				CD17FC151AE8318100C71364 /* AddLugarViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -183,8 +175,6 @@
 			children = (
 				CDBDF2861AE18E74004F83A1 /* item.h */,
 				CDBDF2871AE18E74004F83A1 /* item.m */,
-				CD4D46431AE5A0F000AA57ED /* Metodos.h */,
-				CD4D46441AE5A0F000AA57ED /* Metodos.m */,
 				CDBDF2731AE1734D004F83A1 /* DataManager.h */,
 				CDBDF2741AE1734D004F83A1 /* DataManager.m */,
 			);
@@ -300,18 +290,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD17FC161AE8318100C71364 /* AddLugarViewController.m in Sources */,
 				CD160EFB1AE03A4000575E06 /* ViewController.m in Sources */,
 				CDBDF2751AE1734D004F83A1 /* DataManager.m in Sources */,
-				CDBDF27E1AE1762A004F83A1 /* GaleriaTableViewController.m in Sources */,
-				CDBDF2811AE17771004F83A1 /* GaleriaTableViewCell.m in Sources */,
-				CDBDF2721AE1726F004F83A1 /* TimeLineTableViewController.m in Sources */,
 				CD160EF81AE03A4000575E06 /* AppDelegate.m in Sources */,
-				CDBDF27B1AE175F1004F83A1 /* TimeLineTableViewCell.m in Sources */,
-				CD4D46451AE5A0F000AA57ED /* Metodos.m in Sources */,
 				CDBDF26F1AE1725D004F83A1 /* PaisesTableViewController.m in Sources */,
 				CDBDF2881AE18E74004F83A1 /* item.m in Sources */,
+				CD17FC0E1AE6F31100C71364 /* TimeLineTableViewCell.m in Sources */,
 				CDBDF2781AE175D7004F83A1 /* PaisesTableViewCell.m in Sources */,
 				CD160EF51AE03A4000575E06 /* main.m in Sources */,
+				CD17FC0B1AE6F2FE00C71364 /* TimeLineTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

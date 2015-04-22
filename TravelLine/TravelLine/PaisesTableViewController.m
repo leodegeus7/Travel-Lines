@@ -11,6 +11,9 @@
 #import "DataManager.h"
 #import "Item.h"
 #import "AppDelegate.h"
+#import "AddLugarViewController.h"
+#import "TimeLineTableViewController.h"
+
 
 @interface PaisesTableViewController (){
     NSArray *myData;
@@ -33,6 +36,9 @@
     Item = [[item alloc]init];
     _data = [DataManager sharedManager]; //da um sharedmanager no ponteiro do DM
     [self atualizartabela];
+
+
+
 
     
     
@@ -87,6 +93,28 @@
     return cell;
 }
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    TimeLineTableViewController *dvc = segue.destinationViewController;
+    dvc.viagemEscolhida = _linhaEscolhida;
+    if ([segue.identifier isEqualToString:@"oi2"]) {
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        TimeLineTableViewController *destViewController = segue.destinationViewController;
+        destViewController.viagemEscolhida = indexPath.row;
+        
+    }
+}
+
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+
+    _linhaEscolhida = indexPath.row;
+    NSLog(@"Celula Clicada %ld", _linhaEscolhida);
+    TimeLineTableViewController *vcLinha = [[TimeLineTableViewController alloc]init];
+    vcLinha.viagemEscolhida = _linhaEscolhida;
+    [self performSegueWithIdentifier:@"oi" sender:self];
+}
+
+
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
@@ -94,6 +122,10 @@
         // Delete the row from the data source
         [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
     }
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [self atualizartabela];
 }
 
 /*
@@ -153,7 +185,8 @@
                                    UITextField *myTextfield = alertController.textFields.firstObject;
                                    //_myLabel.text = myTextfield.text;
                                    //[_data.dados[@"viagem"][0] setObject:myTextfield.text forKey:@"nome"];
-                                   [self armazenarDadosViagemnome:myTextfield.text];
+                                   NSMutableArray *momento = [@[] mutableCopy];
+                                   [self armazenarDadosViagemnome:myTextfield.text array:momento];
                                    
                                }];
     [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField) {
@@ -161,9 +194,9 @@
     }];
     
     [alertController addAction:okAction];
-    
     [self presentViewController:alertController animated:YES completion:nil];
 }
+
 
 -(void)atualizartabela{
     myData = [_data.dados allValues];
@@ -171,13 +204,17 @@
     [self.tableView reloadData];
     [Item saveFileName:@"paises" conteudo:_data.dados];
 }
+- (IBAction)refresh:(id)sender {
+    [self atualizartabela];
+}
 
--(void)armazenarDadosViagemnome:(NSString*)nome{
+-(void)armazenarDadosViagemnome:(NSString*)nome array:(NSMutableArray*)array{
     NSMutableDictionary* jsonDic=[NSMutableDictionary dictionaryWithDictionary:_data.dados];//pegar nosso dicionario principal
     NSMutableArray *JAry=[[NSMutableArray alloc] initWithArray:[jsonDic objectForKey:@"viagem"]];//salvo o array a ser manipulado
-    
     NSMutableDictionary *lugar =[[NSMutableDictionary alloc]init];//Dicionario com lugar
     [lugar setObject:nome forKey:@"nome"];
+    [lugar setObject:nome forKey:@"capa"];
+    [lugar setObject:array forKey:@"momento"];
     
     
     
