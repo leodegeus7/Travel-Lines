@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A74242601AE98C7D0019150B /* images.plist in Resources */ = {isa = PBXBuildFile; fileRef = A742425F1AE98C7D0019150B /* images.plist */; };
 		CD160EF51AE03A4000575E06 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CD160EF41AE03A4000575E06 /* main.m */; };
 		CD160EF81AE03A4000575E06 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CD160EF71AE03A4000575E06 /* AppDelegate.m */; };
 		CD160EFB1AE03A4000575E06 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD160EFA1AE03A4000575E06 /* ViewController.m */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A742425F1AE98C7D0019150B /* images.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = images.plist; sourceTree = "<group>"; };
 		CD160EEF1AE03A4000575E06 /* TravelLine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravelLine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD160EF31AE03A4000575E06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CD160EF41AE03A4000575E06 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 			children = (
 				CD160EF31AE03A4000575E06 /* Info.plist */,
 				CD160EF41AE03A4000575E06 /* main.m */,
+				A742425F1AE98C7D0019150B /* images.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -283,6 +286,7 @@
 				CD160EFE1AE03A4000575E06 /* Main.storyboard in Resources */,
 				CD160F031AE03A4000575E06 /* LaunchScreen.xib in Resources */,
 				CD160F001AE03A4000575E06 /* Images.xcassets in Resources */,
+				A74242601AE98C7D0019150B /* images.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

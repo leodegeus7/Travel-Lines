@@ -13,6 +13,7 @@
 #import "PaisesTableViewController.h"
 #import "PaisesTableViewCell.h"
 
+
 @interface AddLugarViewController (){
     item *Item;
     PaisesTableViewController *_paises;
@@ -92,9 +93,6 @@
 }
 
 
-
-
-
 -(void)armazenarDadosViagemnome:(NSString*)nome array:(NSMutableArray*)array{
     NSMutableDictionary* jsonDic=[NSMutableDictionary dictionaryWithDictionary:_data.dados];//pegar nosso dicionario principal
     NSMutableArray *JAry=[[NSMutableArray alloc] initWithArray:[jsonDic objectForKey:@"viagem"]];//salvo o array a ser manipulado
@@ -115,10 +113,9 @@
 {
     [textField resignFirstResponder];
     
-    
-    
     return YES;
-    
 }
+
+
 
 @end
