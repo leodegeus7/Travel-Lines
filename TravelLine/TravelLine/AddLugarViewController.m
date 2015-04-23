@@ -1,3 +1,4 @@
+
 //
 //  AddLugarViewController.m
 //  TravelLine
@@ -10,10 +11,12 @@
 #import "DataManager.h"
 #import "item.h"
 #import "PaisesTableViewController.h"
+#import "PaisesTableViewCell.h"
 
 @interface AddLugarViewController (){
     item *Item;
-    PaisesTableViewController *paises;
+    PaisesTableViewController *_paises;
+    PaisesTableViewCell *_paisesCell;
     DataManager *_data;
 }
 
@@ -26,7 +29,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     Item = [[item alloc]init];
-    paises = [[PaisesTableViewController alloc]init];
+    _paises = [[PaisesTableViewController alloc]init];
     _data = [DataManager sharedManager];
     [_textfieldPais setDelegate:self];
 
@@ -49,13 +52,40 @@
     // Pass the selected object to the new view controller.
 }
 */
+- (IBAction)selectFoto:(id)sender {
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    picker.delegate = self;
+    picker.allowsEditing = YES;
+    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    [self presentViewController:picker animated:YES completion:NULL];
+    
+}
+- (IBAction)selectCamera:(id)sender {
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    picker.delegate = self;
+    picker.allowsEditing = YES;
+    picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    [self presentViewController:picker animated:YES completion:NULL];
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    UIImage *selectedImage = info[UIImagePickerControllerEditedImage];
+    self.imagePais.image = selectedImage;
+    UIImageWriteToSavedPhotosAlbum(selectedImage, nil, nil, nil);
+    [picker dismissViewControllerAnimated:YES completion:NULL];
+    
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    [picker dismissViewControllerAnimated:YES completion:NULL];
+}
 
 - (IBAction)addPais:(id)sender {
     
     NSMutableArray *momento = [@[] mutableCopy];
     [self armazenarDadosViagemnome:_textfieldPais.text array:momento];
-    [paises atualizartabela];
-    [paises.tableView reloadData];
+    [_paises atualizartabela];
+    [_paises.tableView reloadData];
     [self.navigationController popToRootViewControllerAnimated:YES];
 
     //[self.storyboard instantiateViewControllerWithIdentifier:@"inicialController"];
@@ -78,7 +108,7 @@
     [JAry addObject:lugar];//atribuicao do dicionario para o array
     [jsonDic setObject:JAry forKey:@"viagem"];//atribuicao do array para o dicionario principal
     _data.dados = jsonDic;
-    [paises atualizartabela];
+    [_paises atualizartabela];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
