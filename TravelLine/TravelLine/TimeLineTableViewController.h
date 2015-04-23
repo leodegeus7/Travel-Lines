@@ -11,7 +11,9 @@
 @interface TimeLineTableViewController : UITableViewController
 - (IBAction)clickAddMomento:(id)sender;
 
+- (IBAction)addTexto:(id)sender;
 
+- (IBAction)addFoto:(id)sender;
 
 @property NSInteger viagemEscolhida;
 @end

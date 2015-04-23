@@ -148,6 +148,18 @@
     [self presentViewController:alertController animated:YES completion:nil];
 }
 
+- (IBAction)addTexto:(id)sender {
+    [self.storyboard instantiateViewControllerWithIdentifier:@"texto"];
+    NSLog(@"oooi1");
+    
+    
+}
+
+- (IBAction)addFoto:(id)sender {
+    [self.storyboard instantiateViewControllerWithIdentifier:@"foto"];
+    NSLog(@"oooi2");
+}
+
 
 
 -(void)atualizartabela{
@@ -181,6 +193,9 @@
     _data.dados = jsonDic;
     [self atualizartabela];
 }
+
+
+
 
 
 @end
