@@ -11,9 +11,15 @@
 @interface TimeLineTableViewController : UITableViewController
 - (IBAction)clickAddMomento:(id)sender;
 
-- (IBAction)addTexto:(id)sender;
 
-- (IBAction)addFoto:(id)sender;
+
+@property (weak, nonatomic) IBOutlet UIView *myView2;
+
+- (IBAction)addText2:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *addImage;
+
+@property (weak, nonatomic) IBOutlet UITextView *myTextField;
 
 @property NSInteger viagemEscolhida;
+-(void)mudarTabela;
 @end

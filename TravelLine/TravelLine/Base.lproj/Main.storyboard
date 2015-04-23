@@ -153,18 +153,57 @@
                                     <state key="normal" title="Button">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <connections>
+                                        <action selector="addText2:" destination="iqY-EN-LH1" eventType="touchUpInside" id="95G-mI-PDl"/>
+                                    </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3AO-U2-iFH">
-                                    <rect key="frame" x="332" y="30" width="46" height="30"/>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KkD-nO-gPF">
+                                    <rect key="frame" x="367" y="52" width="46" height="30"/>
                                     <state key="normal" title="Button">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <connections>
+                                        <segue destination="9FM-Le-9Cj" kind="show" id="EdV-0H-Wyo"/>
+                                    </connections>
                                 </button>
                             </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" red="0.87450980389999999" green="0.20392156859999999" blue="0.1764705882" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstItem="GPr-He-k6w" firstAttribute="leading" secondItem="CEM-cJ-Vxt" secondAttribute="trailing" constant="-88" id="1i0-50-fcT"/>
+                                <constraint firstItem="GPr-He-k6w" firstAttribute="top" secondItem="CEM-cJ-Vxt" secondAttribute="bottom" constant="-6" id="5EC-Bg-eQP"/>
+                                <constraint firstItem="GPr-He-k6w" firstAttribute="leading" secondItem="CEM-cJ-Vxt" secondAttribute="trailing" constant="-79" id="7A6-oe-Sgz"/>
+                                <constraint firstItem="GPr-He-k6w" firstAttribute="leading" secondItem="CEM-cJ-Vxt" secondAttribute="trailing" constant="-50" id="ABE-TG-VBL"/>
+                                <constraint firstItem="GPr-He-k6w" firstAttribute="leading" secondItem="CEM-cJ-Vxt" secondAttribute="trailing" id="BMj-mB-cmJ"/>
+                                <constraint firstItem="GPr-He-k6w" firstAttribute="top" secondItem="CEM-cJ-Vxt" secondAttribute="bottom" constant="-50" id="KKy-Fv-E9F"/>
+                                <constraint firstItem="GPr-He-k6w" firstAttribute="top" secondItem="KkD-nO-gPF" secondAttribute="bottom" constant="-80" id="MS7-Hr-jCh"/>
+                                <constraint firstItem="CEM-cJ-Vxt" firstAttribute="top" secondItem="GPr-He-k6w" secondAttribute="bottom" constant="-80" id="R6j-D3-iXy"/>
+                                <constraint firstItem="GPr-He-k6w" firstAttribute="top" secondItem="KkD-nO-gPF" secondAttribute="bottom" constant="-30" id="SOx-Ok-hXp"/>
+                                <constraint firstItem="KkD-nO-gPF" firstAttribute="leading" secondItem="GPr-He-k6w" secondAttribute="trailing" constant="-74" id="aY7-jY-ZH5"/>
+                                <constraint firstItem="GPr-He-k6w" firstAttribute="top" secondItem="oqD-Oe-4Na" secondAttribute="top" constant="2" id="dTm-dL-JSw"/>
+                                <constraint firstItem="GPr-He-k6w" firstAttribute="top" secondItem="oqD-Oe-4Na" secondAttribute="top" constant="5" id="gYw-ct-ALW"/>
+                                <constraint firstAttribute="centerX" secondItem="GPr-He-k6w" secondAttribute="centerX" id="i7K-35-M0q"/>
+                                <constraint firstAttribute="centerX" secondItem="CEM-cJ-Vxt" secondAttribute="centerX" id="lB8-co-cxe"/>
+                                <constraint firstAttribute="centerY" secondItem="CEM-cJ-Vxt" secondAttribute="centerY" id="mCn-CE-6n3"/>
+                                <constraint firstItem="KkD-nO-gPF" firstAttribute="leading" secondItem="GPr-He-k6w" secondAttribute="trailing" constant="-87" id="qmb-wV-dPy"/>
+                                <constraint firstAttribute="centerX" secondItem="GPr-He-k6w" secondAttribute="centerX" constant="-34" id="tGX-sL-GMV"/>
+                                <constraint firstItem="KkD-nO-gPF" firstAttribute="leading" secondItem="GPr-He-k6w" secondAttribute="trailing" constant="-50" id="v47-IJ-BlI"/>
+                                <constraint firstItem="GPr-He-k6w" firstAttribute="top" secondItem="CEM-cJ-Vxt" secondAttribute="bottom" constant="-32" id="ypN-Pk-SRx"/>
+                            </constraints>
                             <variation key="default">
-                                <mask key="subviews">
-                                    <exclude reference="ZSi-Pv-i0K"/>
+                                <mask key="constraints">
+                                    <exclude reference="5EC-Bg-eQP"/>
+                                    <exclude reference="7A6-oe-Sgz"/>
+                                    <exclude reference="ABE-TG-VBL"/>
+                                    <exclude reference="BMj-mB-cmJ"/>
+                                    <exclude reference="KKy-Fv-E9F"/>
+                                    <exclude reference="SOx-Ok-hXp"/>
+                                    <exclude reference="gYw-ct-ALW"/>
+                                    <exclude reference="i7K-35-M0q"/>
+                                    <exclude reference="ypN-Pk-SRx"/>
+                                    <exclude reference="lB8-co-cxe"/>
+                                    <exclude reference="mCn-CE-6n3"/>
+                                    <exclude reference="aY7-jY-ZH5"/>
+                                    <exclude reference="v47-IJ-BlI"/>
                                 </mask>
                             </variation>
                         </view>
@@ -204,10 +243,15 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="addImage" destination="KkD-nO-gPF" id="wL3-S6-CTc"/>
+                        <outlet property="myTextField" destination="GPr-He-k6w" id="Xcc-Xe-6NP"/>
+                        <outlet property="myView2" destination="oqD-Oe-4Na" id="WGy-9C-hfB"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MY5-CQ-nda" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1286" y="19"/>
+            <point key="canvasLocation" x="1323" y="241"/>
         </scene>
         <!--Add Momento Foto View Controller-->
         <scene sceneID="Vfy-9R-th5">
