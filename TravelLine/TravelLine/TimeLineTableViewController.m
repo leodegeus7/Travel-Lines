@@ -37,6 +37,11 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     NSLog(@"testeeeee %ld",_viagemEscolhida);
+    CGRect newFrame = _myView2.frame;
+    newFrame.size.height = 40;
+    CGRect textfield = _myTextField.frame;
+    textfield.size.height = 30;
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -145,20 +150,32 @@
     
     [alertController addAction:okAction];
     
+
     [self presentViewController:alertController animated:YES completion:nil];
 }
 
-- (IBAction)addTexto:(id)sender {
-    [self.storyboard instantiateViewControllerWithIdentifier:@"texto"];
-    NSLog(@"oooi1");
-    
-    
-}
+//- (IBAction)addTexto:(id)sender {
+//    NSLog(@"oooi1");
+//    //[self.storyboard instantiateViewControllerWithIdentifier:@"texto"];
+//    CGRect newFrame = _myContainerView.frame;
+//    newFrame.size.height = 178;
+//    
+//    [UIView animateWithDuration:1.0
+//                     animations:^{
+//                         _myContainerView.frame = newFrame;
+//                     }];
+//    
+//
+//    
+//    
+//}
 
-- (IBAction)addFoto:(id)sender {
-    [self.storyboard instantiateViewControllerWithIdentifier:@"foto"];
-    NSLog(@"oooi2");
-}
+//- (IBAction)addFoto:(id)sender {
+//
+//    NSLog(@"oooi2");
+//}
+
+
 
 
 
@@ -195,7 +212,26 @@
 }
 
 
+-(void)mudarTabela{
+    NSLog(@"oooi1");
+    //[self.storyboard instantiateViewControllerWithIdentifier:@"texto"];
+    CGRect newFrame = _myView2.frame;
+    newFrame.size.height = 300;
+    
+    [UIView animateWithDuration:1.0
+                     animations:^{
+                         _myView2.frame = newFrame;
+                     }];
+
+
+}
 
 
 
+
+
+- (IBAction)addText2:(id)sender {
+    [self mudarTabela];
+    
+}
 @end
