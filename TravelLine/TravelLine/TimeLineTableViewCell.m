@@ -8,7 +8,14 @@
 
 #import "TimeLineTableViewCell.h"
 
-@implementation TimeLineTableViewCell
+
+@interface TimeLineTableViewCell (){
+    }
+
+@end
+
+@implementation TimeLineTableViewCell {
+}
 
 - (void)awakeFromNib {
     // Initialization code

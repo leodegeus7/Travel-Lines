@@ -28,6 +28,7 @@
     self = [super init];
     if (self) {
         _dados= [[NSMutableDictionary alloc]init];
+        _indiceFoto = 0;
     }
     return self;
     

@@ -71,8 +71,8 @@
     teste = _data.dados[@"viagem"][_viagemEscolhida][@"momento"];
     //cell.viagemLabel.text=[NSString stringWithFormat:@"%@",myData[indexPath.row][@"nome"]];
     
-    NSLog(@"DESCRICAO = %@",myData[0][_viagemEscolhida][@"momento"][0][@"descricao"]);
-    cell.textfieldMomento.text=[NSString stringWithFormat:@"%@",[[myData[0][_viagemEscolhida][@"momento"] objectAtIndex:indexPath.row] objectForKey: @"descricao"]];
+    NSLog(@"DESCRICAO = %@",myData[1][_viagemEscolhida][@"momento"][0][@"descricao"]);
+    cell.textfieldMomento.text=[NSString stringWithFormat:@"%@",[[myData[1][_viagemEscolhida][@"momento"] objectAtIndex:indexPath.row] objectForKey: @"descricao"]];
     
     return cell;
 }

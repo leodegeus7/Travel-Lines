@@ -7,10 +7,18 @@
 //
 
 #import "PaisesTableViewCell.h"
+#import "AddLugarViewController.h"
+
+@interface PaisesTableViewCell () {
+    AddLugarViewController *_addLugar;
+}
+
+@end
 
 @implementation PaisesTableViewCell
 
 - (void)awakeFromNib {
+    [[AddLugarViewController alloc]init];
     // Initialization code
 }
 
@@ -19,5 +27,7 @@
 
     // Configure the view for the selected state
 }
+
+
 
 @end

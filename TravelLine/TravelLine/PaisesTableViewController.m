@@ -20,6 +20,7 @@
     DataManager *_data;
     NSArray *viagem;
     item *Item;
+    
 }
 
 @end
@@ -36,7 +37,6 @@
     Item = [[item alloc]init];
     _data = [DataManager sharedManager]; //da um sharedmanager no ponteiro do DM
     [self atualizartabela];
-
 
 
     
@@ -85,11 +85,38 @@
     NSMutableDictionary *teste;
     teste = _data.dados;
     //cell.viagemLabel.text=[NSString stringWithFormat:@"%@",myData[indexPath.row][@"nome"]];
-    
-    
-    cell.viagemLabel.text=[NSString stringWithFormat:@"%@",[[myData[0] objectAtIndex:indexPath.row] objectForKey: @"nome"]];
+    NSString *nomeArquivo = [NSString stringWithFormat:@"%@",[[myData[1] objectAtIndex:indexPath.row] objectForKey: @"capa" ]];
+    NSString *caminho = [item acharoarqfile:nomeArquivo];
+    //NSString *caminho = [[myData[1] objectAtIndex:indexPath.row] objectForKey: @"capa"];
+    NSLog(@"%@",caminho);
+    cell.viagemImage.image = [self loadImage:caminho];
+    UIImage *testeF = [self loadImage:caminho];
+    NSLog(@"%@", testeF);
+    cell.viagemLabel.text=[NSString stringWithFormat:@"%@",[[myData[1] objectAtIndex:indexPath.row] objectForKey: @"nome"]];
 
     return cell;
+}
+
+//- (void)saveImage: (UIImage*)image
+//{
+//    if (image != nil)
+//    {
+//        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
+//                                                             NSUserDomainMask, YES);
+//        NSString *documentsDirectory = [paths objectAtIndex:0];
+//        NSString* path = [documentsDirectory stringByAppendingPathComponent:
+//                          @"test.png" ];
+//        NSData* data = UIImagePNGRepresentation(image);
+//        [data writeToFile:path atomically:YES];
+//        NSLog(@"caminho %@",path);
+//    }
+//}
+//
+- (UIImage*)loadImage:(NSString *)caminho;
+{
+
+    UIImage* image = [UIImage imageWithContentsOfFile:caminho];
+    return image;
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
@@ -120,6 +147,7 @@
         [_data.dados[@"viagem"] removeObjectAtIndex:indexPath.row];
         // Delete the row from the data source
         [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+        [self atualizartabela];
     }
 }
 

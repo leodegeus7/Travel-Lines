@@ -20,6 +20,8 @@
 
 
 @property NSMutableDictionary *dados;
+@property NSInteger *indiceFoto;
+
 
 
 @end

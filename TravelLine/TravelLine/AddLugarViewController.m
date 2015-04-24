@@ -60,6 +60,7 @@
     picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     [self presentViewController:picker animated:YES completion:NULL];
     
+    
 }
 - (IBAction)selectCamera:(id)sender {
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
@@ -73,6 +74,10 @@
     UIImage *selectedImage = info[UIImagePickerControllerEditedImage];
     self.imagePais.image = selectedImage;
     UIImageWriteToSavedPhotosAlbum(selectedImage, nil, nil, nil);
+//    [self saveImage:selectedImage :@"oi"];
+    NSString *path;
+    path = [self saveImage:selectedImage];
+    NSLog(@"%@",path);
     [picker dismissViewControllerAnimated:YES completion:NULL];
     
 }
@@ -88,7 +93,6 @@
     [_paises atualizartabela];
     [_paises.tableView reloadData];
     [self.navigationController popToRootViewControllerAnimated:YES];
-
     //[self.storyboard instantiateViewControllerWithIdentifier:@"inicialController"];
 }
 
@@ -97,8 +101,9 @@
     NSMutableDictionary* jsonDic=[NSMutableDictionary dictionaryWithDictionary:_data.dados];//pegar nosso dicionario principal
     NSMutableArray *JAry=[[NSMutableArray alloc] initWithArray:[jsonDic objectForKey:@"viagem"]];//salvo o array a ser manipulado
     NSMutableDictionary *lugar =[[NSMutableDictionary alloc]init];//Dicionario com lugar
+    NSString *caminhoFoto = [self retornarCaminhoDaFotoAtual];
     [lugar setObject:nome forKey:@"nome"];
-    [lugar setObject:nome forKey:@"capa"];
+    [lugar setObject:caminhoFoto forKey:@"capa"];
     [lugar setObject:array forKey:@"momento"];
     
     
@@ -116,6 +121,83 @@
     return YES;
 }
 
+//- (void)saveImage:(UIImage*)image:(NSString*)imageName{
+//    NSData *imageData = UIImagePNGRepresentation(image); //convert image into .png format.
+//    
+//    NSFileManager *fileManager = [NSFileManager defaultManager];//create instance of NSFileManager
+//    
+//    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES); //create an array and store result of our search for the documents directory in it
+//    
+//    NSString *documentsDirectory = [paths objectAtIndex:0]; //create NSString object, that holds our exact path to the documents directory
+//    
+//    NSString *fullPath = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.png", imageName]]; //add our image to the path
+//    
+//    [fileManager createFileAtPath:fullPath contents:imageData attributes:nil]; //finally save the path (image)
+//    
+//    NSLog(@"image saved");}
 
+- (NSString *)saveImage: (UIImage*)image
+{
+    if (image != nil)
+    {
+        NSString *indiceFotoString= [NSString stringWithFormat:@"%@",_data.dados[@"indiceFoto"]];
+        int indiceInteiro = [indiceFotoString intValue];
+        indiceInteiro++;
+        NSString *indiceStringFormatada = [NSString stringWithFormat:@"%d",indiceInteiro];
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
+                                                             NSUserDomainMask, YES);
+        NSString *documentsDirectory = [paths objectAtIndex:0];
+        NSString *nomeFoto = [NSString stringWithFormat:@"%d.png",indiceInteiro];
+        NSString* path = [documentsDirectory stringByAppendingPathComponent:
+                          nomeFoto ];
+        NSData* data = UIImagePNGRepresentation(image);
+        [data writeToFile:path atomically:YES];
+        NSLog(@"caminho %@",path);
+        
+        [self armazenarDadosIndice:indiceStringFormatada];
+        return path;
+
+    }
+    return nil;
+}
+
+-(NSString *)retornarCaminhoDaFotoAtual{
+    NSString *indiceFotoString= [NSString stringWithFormat:@"%@",_data.dados[@"indiceFoto"]];
+    int indiceInteiro = [indiceFotoString intValue];
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
+                                                         NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *nomeFoto = [NSString stringWithFormat:@"%d.png",indiceInteiro];
+    NSString* path = [documentsDirectory stringByAppendingPathComponent:
+                      nomeFoto ];
+    NSLog(@"%@",path);
+
+    return nomeFoto;
+}
+
+
+-(void)armazenarDadosIndice:(NSString*)descricao{
+    NSMutableDictionary* jsonDic=[NSMutableDictionary dictionaryWithDictionary:_data.dados];//pegar nosso dicionario principal
+
+
+    [jsonDic setObject:descricao forKey:@"indiceFoto"];//atribuicao do array para o dicionario principal
+    _data.dados = jsonDic;
+    [Item saveFileName:@"paises" conteudo:_data.dados];
+}
+
+
+
+- (UIImage*)loadImage
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
+                                                         NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString* path = [documentsDirectory stringByAppendingPathComponent:
+                      @"test.png" ];
+    UIImage* image = [UIImage imageWithContentsOfFile:path];
+    return image;
+}
+
+ 
 
 @end
