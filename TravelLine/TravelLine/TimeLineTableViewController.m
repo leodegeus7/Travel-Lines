@@ -12,6 +12,7 @@
 #import "DataManager.h"
 #import "Item.h"
 #import "AppDelegate.h"
+#import "ImageTableViewCell.h"
 
 @interface TimeLineTableViewController (){
     NSArray *myData;
@@ -66,30 +67,39 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    TimeLineTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellMomento" forIndexPath:indexPath];
-    NSMutableDictionary *teste;
-    teste = _data.dados[@"viagem"][_viagemEscolhida][@"momento"];
-    //cell.viagemLabel.text=[NSString stringWithFormat:@"%@",myData[indexPath.row][@"nome"]];
+    NSString *testeDoTipo = [NSString stringWithFormat:@"%@",[[myData[1][_viagemEscolhida][@"momento"] objectAtIndex:indexPath.row] objectForKey: @"tipo"]];
+    if ([testeDoTipo isEqualToString:@"texto"]) {
+        TimeLineTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellMomento" forIndexPath:indexPath];
+        cell.textfieldMomento.text=[NSString stringWithFormat:@"%@",[[myData[1][_viagemEscolhida][@"momento"] objectAtIndex:indexPath.row] objectForKey: @"descricao"]];
+        return cell;
+
+    }
+    else if ([testeDoTipo isEqualToString:@"imagem"]) {
+        ImageTableViewCell *imageCell = [tableView dequeueReusableCellWithIdentifier:@"imageMomento" forIndexPath:indexPath];
+        NSString *nomeArquivo = [NSString stringWithFormat:@"%@",[[myData[1][_viagemEscolhida][@"momento"] objectAtIndex:indexPath.row] objectForKey: @"imagem"]];
+        NSString *caminho = [item acharoarqfile:nomeArquivo];
+        imageCell.imageMomento.image = [self loadImage:caminho];
+        
+        return imageCell;
+    }
     
-    NSLog(@"DESCRICAO = %@",myData[1][_viagemEscolhida][@"momento"][0][@"descricao"]);
-    cell.textfieldMomento.text=[NSString stringWithFormat:@"%@",[[myData[1][_viagemEscolhida][@"momento"] objectAtIndex:indexPath.row] objectForKey: @"descricao"]];
+//    NSMutableDictionary *teste;
+//    teste = _data.dados[@"viagem"][_viagemEscolhida][@"momento"];
+//    //cell.viagemLabel.text=[NSString stringWithFormat:@"%@",myData[indexPath.row][@"nome"]];
     
-    return cell;
+   // NSLog(@"DESCRICAO = %@",myData[1][_viagemEscolhida][@"momento"][0][@"descricao"]);
+    return nil;
 }
 - (IBAction)addImage:(id)sender {
     NSLog(@"oioioioioi");
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    picker.delegate = self;
+    picker.allowsEditing = YES;
+    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    [self presentViewController:picker animated:YES completion:NULL];
     
 }
-//
-//- (IBAction)selectFoto:(id)sender {
-//    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
-//    picker.delegate = self;
-//    picker.allowsEditing = YES;
-//    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-//    [self presentViewController:picker animated:YES completion:NULL];
-//    
-//    
-//}
+
 //- (IBAction)selectCamera:(id)sender {
 //    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
 //    picker.delegate = self;
@@ -97,18 +107,74 @@
 //    picker.sourceType = UIImagePickerControllerSourceTypeCamera;
 //    [self presentViewController:picker animated:YES completion:NULL];
 //}
-//
-//- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-//    UIImage *selectedImage = info[UIImagePickerControllerEditedImage];
-//    self.imagePais.image = selectedImage;
-//    UIImageWriteToSavedPhotosAlbum(selectedImage, nil, nil, nil);
-//    //    [self saveImage:selectedImage :@"oi"];
-//    NSString *path;
-//    path = [self saveImage:selectedImage];
-//    NSLog(@"%@",path);
-//    [picker dismissViewControllerAnimated:YES completion:NULL];
-//    
-//}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    UIImage *selectedImage = info[UIImagePickerControllerEditedImage];
+//    self..image = selectedImage;
+    UIImageWriteToSavedPhotosAlbum(selectedImage, nil, nil, nil);
+    //    [self saveImage:selectedImage :@"oi"];
+    NSString *path;
+    path = [self saveImage:selectedImage];
+    NSString *nomeFoto = [self retornarCaminhoDaFotoAtual];
+    
+    [picker dismissViewControllerAnimated:YES completion:NULL];
+    [self armazenarDadosMomentoImage:nomeFoto];
+    
+}
+
+- (UIImage*)loadImage:(NSString *)caminho;
+{
+    UIImage* image = [UIImage imageWithContentsOfFile:caminho];
+    return image;
+}
+
+-(NSString *)retornarCaminhoDaFotoAtual{
+    NSString *indiceFotoString= [NSString stringWithFormat:@"%@",_data.dados[@"indiceFoto"]];
+    int indiceInteiro = [indiceFotoString intValue];
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
+                                                         NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *nomeFoto = [NSString stringWithFormat:@"%d.png",indiceInteiro];
+    NSString* path = [documentsDirectory stringByAppendingPathComponent:
+                      nomeFoto ];
+    NSLog(@"%@",path);
+    
+    return nomeFoto;
+}
+
+- (NSString *)saveImage: (UIImage*)image
+{
+    if (image != nil)
+    {
+        NSString *indiceFotoString= [NSString stringWithFormat:@"%@",_data.dados[@"indiceFoto"]];
+        int indiceInteiro = [indiceFotoString intValue];
+        indiceInteiro++;
+        NSString *indiceStringFormatada = [NSString stringWithFormat:@"%d",indiceInteiro];
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
+                                                             NSUserDomainMask, YES);
+        NSString *documentsDirectory = [paths objectAtIndex:0];
+        NSString *nomeFoto = [NSString stringWithFormat:@"%d.png",indiceInteiro];
+        NSString* path = [documentsDirectory stringByAppendingPathComponent:
+                          nomeFoto];
+        NSData* data = UIImagePNGRepresentation(image);
+        [data writeToFile:path atomically:YES];
+        NSLog(@"caminho %@",path);
+        
+        [self armazenarDadosIndice:indiceStringFormatada];
+//        _data.temFoto=true;
+        return path;
+        
+    }
+    return nil;
+}
+
+-(void)armazenarDadosIndice:(NSString*)descricao{
+    NSMutableDictionary* jsonDic=[NSMutableDictionary dictionaryWithDictionary:_data.dados];//pegar nosso dicionario principal
+    [jsonDic setObject:descricao forKey:@"indiceFoto"];//atribuicao do array para o dicionario principal
+    _data.dados = jsonDic;
+    [Item saveFileName:@"paises" conteudo:_data.dados];
+}
+
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -118,6 +184,8 @@
         [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
     }
 }
+
+
 
 /*
 // Override to support conditional editing of the table view.
@@ -236,6 +304,31 @@
     //NSMutableDictionary *mom =[[NSMutableDictionary alloc]init];//Dicionario com lugar
     NSString *tipo = @"texto";
     [jMomentoEspecifico setObject:descricao forKey:@"descricao"];
+    [jMomentoEspecifico setObject:tipo forKey:@"tipo"];
+    
+    [JMomentoGeral addObject:jMomentoEspecifico];
+    [JDic setObject:JMomentoGeral forKey:@"momento"];
+    [JAry setObject:JDic atIndexedSubscript:_viagemEscolhida];
+    [jsonDic setObject:JAry forKey:@"viagem"];
+    //[JAry addObject:mom];//atribuicao do dicionario para o array
+    //[jsonDic setObject:JAry forKey:@"viagem"];//atribuicao do array para o dicionario principal
+    _data.dados = jsonDic;
+    [self atualizartabela];
+}
+
+-(void)armazenarDadosMomentoImage:(NSString*)descricao{
+    NSMutableDictionary* jsonDic=[NSMutableDictionary dictionaryWithDictionary:_data.dados];//pegar nosso dicionario principal
+    NSMutableArray *JAry=[[NSMutableArray alloc] initWithArray:[jsonDic objectForKey:@"viagem"]];//salvo o array a ser manipulado
+    NSMutableDictionary *JDic=[[NSMutableDictionary alloc]initWithDictionary:[JAry objectAtIndex:_viagemEscolhida]];
+    NSMutableArray *JMomentoGeral=[[NSMutableArray alloc]initWithArray:[JDic objectForKey:@"momento"]];
+    NSMutableDictionary *jMomentoEspecifico =[[NSMutableDictionary alloc]init];
+    
+    
+    //NSMutableArray *JAry=[[NSMutableArray alloc] initWithArray:[jsonDic[@"viagem"][_viagemEscolhida] objectForKey:@"momento"]];//salvo o array a ser manipulado
+    
+    //NSMutableDictionary *mom =[[NSMutableDictionary alloc]init];//Dicionario com lugar
+    NSString *tipo = @"imagem";
+    [jMomentoEspecifico setObject:descricao forKey:@"imagem"];
     [jMomentoEspecifico setObject:tipo forKey:@"tipo"];
     
     [JMomentoGeral addObject:jMomentoEspecifico];

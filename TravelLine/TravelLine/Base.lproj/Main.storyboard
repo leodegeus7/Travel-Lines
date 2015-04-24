@@ -275,6 +275,27 @@
                                     <outlet property="textfieldMomento" destination="86S-9d-21I" id="0Md-y4-WxU"/>
                                 </connections>
                             </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="imageMomento" id="7H8-vG-6TD" customClass="ImageTableViewCell">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7H8-vG-6TD" id="BTN-cp-BkT">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Wa8-fq-x2Z">
+                                            <rect key="frame" x="8" y="8" width="584" height="136"/>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Wa8-fq-x2Z" firstAttribute="leading" secondItem="BTN-cp-BkT" secondAttribute="leadingMargin" id="HJM-DC-Bw4"/>
+                                        <constraint firstItem="Wa8-fq-x2Z" firstAttribute="top" secondItem="BTN-cp-BkT" secondAttribute="topMargin" id="e82-XZ-WNG"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="Wa8-fq-x2Z" secondAttribute="bottom" id="teY-1F-f1n"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="Wa8-fq-x2Z" secondAttribute="trailing" id="ziI-6C-vcl"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="imageMomento" destination="Wa8-fq-x2Z" id="a8B-zA-sdC"/>
+                                </connections>
+                            </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="iqY-EN-LH1" id="AXS-ST-pSx"/>

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		A74242601AE98C7D0019150B /* images.plist in Resources */ = {isa = PBXBuildFile; fileRef = A742425F1AE98C7D0019150B /* images.plist */; };
 		A74242621AEAD6820019150B /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A74242611AEAD6820019150B /* 1.jpg */; };
+		A74242651AEAE6F70019150B /* ImageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A74242641AEAE6F70019150B /* ImageTableViewCell.m */; };
 		CD160EF51AE03A4000575E06 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CD160EF41AE03A4000575E06 /* main.m */; };
 		CD160EF81AE03A4000575E06 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CD160EF71AE03A4000575E06 /* AppDelegate.m */; };
 		CD160EFB1AE03A4000575E06 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD160EFA1AE03A4000575E06 /* ViewController.m */; };
@@ -41,6 +42,8 @@
 /* Begin PBXFileReference section */
 		A742425F1AE98C7D0019150B /* images.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = images.plist; sourceTree = "<group>"; };
 		A74242611AEAD6820019150B /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
+		A74242631AEAE6F70019150B /* ImageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageTableViewCell.h; sourceTree = "<group>"; };
+		A74242641AEAE6F70019150B /* ImageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageTableViewCell.m; sourceTree = "<group>"; };
 		CD160EEF1AE03A4000575E06 /* TravelLine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravelLine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD160EF31AE03A4000575E06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CD160EF41AE03A4000575E06 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -153,6 +156,8 @@
 		CD4D463F1AE5782800AA57ED /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				A74242631AEAE6F70019150B /* ImageTableViewCell.h */,
+				A74242641AEAE6F70019150B /* ImageTableViewCell.m */,
 				CD17FC091AE6F2FE00C71364 /* TimeLineTableViewController.h */,
 				CD17FC0A1AE6F2FE00C71364 /* TimeLineTableViewController.m */,
 				CD160EF61AE03A4000575E06 /* AppDelegate.h */,
@@ -312,6 +317,7 @@
 				CD17FC1F1AE8458D00C71364 /* AddMomentoTextoViewController.m in Sources */,
 				CD160EFB1AE03A4000575E06 /* ViewController.m in Sources */,
 				CDBDF2751AE1734D004F83A1 /* DataManager.m in Sources */,
+				A74242651AEAE6F70019150B /* ImageTableViewCell.m in Sources */,
 				CD160EF81AE03A4000575E06 /* AppDelegate.m in Sources */,
 				CDBDF26F1AE1725D004F83A1 /* PaisesTableViewController.m in Sources */,
 				CDBDF2881AE18E74004F83A1 /* item.m in Sources */,
