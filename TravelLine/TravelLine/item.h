@@ -22,4 +22,5 @@
 + (NSString *)getPathFromDocuments:(NSString *)file;
 + (NSString *)acharoarqfile:(NSString *)file;
 -(NSDictionary*) lerArqJson2:(NSString *)name caminho:(NSString *)path;
+-(NSString *)horaAtual;
 @end

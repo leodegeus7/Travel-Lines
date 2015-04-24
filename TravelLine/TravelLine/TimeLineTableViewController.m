@@ -303,6 +303,7 @@
 
     //NSMutableDictionary *mom =[[NSMutableDictionary alloc]init];//Dicionario com lugar
     NSString *tipo = @"texto";
+    
     [jMomentoEspecifico setObject:descricao forKey:@"descricao"];
     [jMomentoEspecifico setObject:tipo forKey:@"tipo"];
     
@@ -328,8 +329,11 @@
     
     //NSMutableDictionary *mom =[[NSMutableDictionary alloc]init];//Dicionario com lugar
     NSString *tipo = @"imagem";
+    NSString *dataAtual = [Item horaAtual];
+    
     [jMomentoEspecifico setObject:descricao forKey:@"imagem"];
     [jMomentoEspecifico setObject:tipo forKey:@"tipo"];
+    [jMomentoEspecifico setObject:dataAtual forKey:@"data"];
     
     [JMomentoGeral addObject:jMomentoEspecifico];
     [JDic setObject:JMomentoGeral forKey:@"momento"];
