@@ -89,7 +89,7 @@
     NSString *caminho = [item acharoarqfile:nomeArquivo];
     //NSString *caminho = [[myData[1] objectAtIndex:indexPath.row] objectForKey: @"capa"];
     NSLog(@"%@",caminho);
-    cell.viagemImage.image = [self loadImage:caminho];
+    cell.viagemImage2.image = [self loadImage:caminho];
     UIImage *testeF = [self loadImage:caminho];
     NSLog(@"%@", testeF);
     cell.viagemLabel.text=[NSString stringWithFormat:@"%@",[[myData[1] objectAtIndex:indexPath.row] objectForKey: @"nome"]];
@@ -138,6 +138,7 @@
     TimeLineTableViewController *vcLinha = [[TimeLineTableViewController alloc]init];
     vcLinha.viagemEscolhida = _linhaEscolhida;
     [self performSegueWithIdentifier:@"oi" sender:self];
+    
 }
 
 
@@ -153,6 +154,7 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [self atualizartabela];
+    _data.temFoto=false;
 }
 
 /*
@@ -242,7 +244,7 @@
     [lugar setObject:nome forKey:@"nome"];
     [lugar setObject:nome forKey:@"capa"];
     [lugar setObject:array forKey:@"momento"];
-    
+
     
     
     [JAry addObject:lugar];//atribuicao do dicionario para o array

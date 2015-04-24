@@ -88,16 +88,50 @@
 
 - (IBAction)addPais:(id)sender {
     
-    NSMutableArray *momento = [@[] mutableCopy];
-    [self armazenarDadosViagemnome:_textfieldPais.text array:momento];
-    [_paises atualizartabela];
-    [_paises.tableView reloadData];
-    [self.navigationController popToRootViewControllerAnimated:YES];
+//    if (_data.temFoto) {
+//        NSLog(@"DEEEEU CERTOOO");
+//    }
+    
+    if (![_textfieldPais.text isEqualToString:@""]) {
+        if (![_textFieldAno.text isEqualToString:@""]) {
+            if (_data.temFoto) {
+                NSMutableArray *momento = [@[] mutableCopy];
+                NSString *data=  _textFieldAno.text;
+                [self armazenarDadosViagemnome:_textfieldPais.text array:momento ano:data];
+                [_paises atualizartabela];
+                [_paises.tableView reloadData];
+                [self.navigationController popToRootViewControllerAnimated:YES];
+            }
+            else {
+                UIAlertView* alert;
+                alert = [[UIAlertView alloc] initWithTitle:@"Aviso!" message:[NSString stringWithFormat:@"Escolha uma foto de capa!"] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+                [alert show];
+            
+            
+            }
+
+            }
+        else{
+            UIAlertView* alert;
+            alert = [[UIAlertView alloc] initWithTitle:@"Aviso!" message:[NSString stringWithFormat:@"Insira o ano da viagem!"] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+            [alert show];
+        }
+
+    }
+    else{
+        UIAlertView* alert;
+        alert = [[UIAlertView alloc] initWithTitle:@"Aviso!" message:[NSString stringWithFormat:@"Insira o título da viagem"] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [alert show];
+    
+    
+    }
+    
+
     //[self.storyboard instantiateViewControllerWithIdentifier:@"inicialController"];
 }
 
 
--(void)armazenarDadosViagemnome:(NSString*)nome array:(NSMutableArray*)array{
+-(void)armazenarDadosViagemnome:(NSString*)nome array:(NSMutableArray*)array ano:(NSString*)ano{
     NSMutableDictionary* jsonDic=[NSMutableDictionary dictionaryWithDictionary:_data.dados];//pegar nosso dicionario principal
     NSMutableArray *JAry=[[NSMutableArray alloc] initWithArray:[jsonDic objectForKey:@"viagem"]];//salvo o array a ser manipulado
     NSMutableDictionary *lugar =[[NSMutableDictionary alloc]init];//Dicionario com lugar
@@ -105,6 +139,7 @@
     [lugar setObject:nome forKey:@"nome"];
     [lugar setObject:caminhoFoto forKey:@"capa"];
     [lugar setObject:array forKey:@"momento"];
+    [lugar setObject:ano forKey:@"ano"];
     
     
     
@@ -120,6 +155,8 @@
     
     return YES;
 }
+
+
 
 //- (void)saveImage:(UIImage*)image:(NSString*)imageName{
 //    NSData *imageData = UIImagePNGRepresentation(image); //convert image into .png format.
@@ -155,6 +192,7 @@
         NSLog(@"caminho %@",path);
         
         [self armazenarDadosIndice:indiceStringFormatada];
+        _data.temFoto=true;
         return path;
 
     }

@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="xuK-M9-vqw">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Add Lugar View Controller-->
@@ -29,16 +30,10 @@
                                 <rect key="frame" x="175" y="301" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xky-eR-dKK">
-                                <rect key="frame" x="137" y="373" width="46" height="30"/>
-                                <state key="normal" title="Button">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
                                 <connections>
-                                    <action selector="addPais:" destination="Tyv-6w-cMQ" eventType="touchUpInside" id="LE5-qN-nUM"/>
+                                    <outlet property="delegate" destination="Tyv-6w-cMQ" id="D0r-yu-gkd"/>
                                 </connections>
-                            </button>
+                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eYo-xb-QAh">
                                 <rect key="frame" x="68" y="475" width="78" height="30"/>
                                 <state key="normal" title="ButtonFoto">
@@ -57,11 +52,29 @@
                                     <action selector="selectCamera:" destination="Tyv-6w-cMQ" eventType="touchUpInside" id="f1D-zH-F7Z"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QHo-ve-Kyw">
+                                <rect key="frame" x="175" y="346" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Tyv-6w-cMQ" id="v1M-2g-T3V"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xky-eR-dKK">
+                                <rect key="frame" x="137" y="398" width="46" height="30"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addPais:" destination="Tyv-6w-cMQ" eventType="touchUpInside" id="LE5-qN-nUM"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="imagePais" destination="Fi7-Qu-8HW" id="d6K-la-8Hq"/>
+                        <outlet property="textFieldAno" destination="QHo-ve-Kyw" id="s1d-cb-Uer"/>
                         <outlet property="textfieldPais" destination="l5J-Pj-dtl" id="Gmg-TN-ydp"/>
                     </connections>
                 </viewController>
@@ -83,9 +96,8 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PST-jv-XiX" id="EcP-rs-FAy">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qqA-Ad-nLq">
-                                            <rect key="frame" x="0.0" y="8" width="600" height="136"/>
-                                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CqM-t6-Pev">
+                                            <rect key="frame" x="8" y="8" width="551" height="136"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TaF-Cb-5BC">
                                             <rect key="frame" x="279" y="66" width="42" height="21"/>
@@ -97,10 +109,22 @@
                                     <constraints>
                                         <constraint firstAttribute="centerX" secondItem="TaF-Cb-5BC" secondAttribute="centerX" id="2G9-EM-vxe"/>
                                         <constraint firstAttribute="centerY" secondItem="TaF-Cb-5BC" secondAttribute="centerY" id="2Ot-Af-jQ7"/>
+                                        <constraint firstAttribute="centerY" secondItem="CqM-t6-Pev" secondAttribute="centerY" id="4N0-Re-cEM"/>
+                                        <constraint firstItem="CqM-t6-Pev" firstAttribute="top" secondItem="EcP-rs-FAy" secondAttribute="topMargin" id="6jt-dF-A2q"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="CqM-t6-Pev" secondAttribute="trailing" id="Wu6-xd-gYu"/>
+                                        <constraint firstItem="CqM-t6-Pev" firstAttribute="leading" secondItem="EcP-rs-FAy" secondAttribute="leadingMargin" id="kgu-Hh-3df"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="CqM-t6-Pev" secondAttribute="bottom" id="vpc-7Z-h7P"/>
+                                        <constraint firstAttribute="centerX" secondItem="CqM-t6-Pev" secondAttribute="centerX" constant="104.5" id="wAI-5C-QAD"/>
                                     </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="4N0-Re-cEM"/>
+                                            <exclude reference="wAI-5C-QAD"/>
+                                        </mask>
+                                    </variation>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="viagemImage" destination="qqA-Ad-nLq" id="7w0-62-LyZ"/>
+                                    <outlet property="viagemImage2" destination="CqM-t6-Pev" id="dwk-SQ-duq"/>
                                     <outlet property="viagemLabel" destination="TaF-Cb-5BC" id="gmQ-GC-wgw"/>
                                 </connections>
                             </tableViewCell>
@@ -110,9 +134,7 @@
                             <outlet property="delegate" destination="5Da-S2-gzO" id="hp8-8U-89T"/>
                         </connections>
                     </tableView>
-                    <toolbarItems>
-                        <barButtonItem title="Item" id="xKd-T1-WbZ"/>
-                    </toolbarItems>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" title="Root View Controller" id="cqS-9O-pVw">
                         <barButtonItem key="leftBarButtonItem" systemItem="add" id="vk1-Gx-wFZ">
                             <connections>
@@ -165,7 +187,7 @@
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
                                     <connections>
-                                        <segue destination="9FM-Le-9Cj" kind="show" id="EdV-0H-Wyo"/>
+                                        <action selector="addImage:" destination="iqY-EN-LH1" eventType="touchUpInside" id="b1Q-Ve-TbJ"/>
                                     </connections>
                                 </button>
                                 <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I1c-cv-SWe">

@@ -14,4 +14,5 @@
 @property (weak, nonatomic) IBOutlet UITextField *textfieldPais;
 @property NSInteger *viagemEscolhida;
 - (IBAction)addPais:(id)sender;
+@property (weak, nonatomic) IBOutlet UITextField *textFieldAno;
 @end

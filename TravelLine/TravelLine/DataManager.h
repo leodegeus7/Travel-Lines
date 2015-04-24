@@ -21,6 +21,7 @@
 
 @property NSMutableDictionary *dados;
 @property NSInteger *indiceFoto;
+@property BOOL temFoto;
 
 
 

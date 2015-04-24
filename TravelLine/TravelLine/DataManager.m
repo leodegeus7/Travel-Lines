@@ -29,6 +29,7 @@
     if (self) {
         _dados= [[NSMutableDictionary alloc]init];
         _indiceFoto = 0;
+        _temFoto = false;
     }
     return self;
     

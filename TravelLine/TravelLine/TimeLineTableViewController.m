@@ -76,6 +76,39 @@
     
     return cell;
 }
+- (IBAction)addImage:(id)sender {
+    NSLog(@"oioioioioi");
+    
+}
+//
+//- (IBAction)selectFoto:(id)sender {
+//    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+//    picker.delegate = self;
+//    picker.allowsEditing = YES;
+//    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+//    [self presentViewController:picker animated:YES completion:NULL];
+//    
+//    
+//}
+//- (IBAction)selectCamera:(id)sender {
+//    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+//    picker.delegate = self;
+//    picker.allowsEditing = YES;
+//    picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+//    [self presentViewController:picker animated:YES completion:NULL];
+//}
+//
+//- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+//    UIImage *selectedImage = info[UIImagePickerControllerEditedImage];
+//    self.imagePais.image = selectedImage;
+//    UIImageWriteToSavedPhotosAlbum(selectedImage, nil, nil, nil);
+//    //    [self saveImage:selectedImage :@"oi"];
+//    NSString *path;
+//    path = [self saveImage:selectedImage];
+//    NSLog(@"%@",path);
+//    [picker dismissViewControllerAnimated:YES completion:NULL];
+//    
+//}
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A74242601AE98C7D0019150B /* images.plist in Resources */ = {isa = PBXBuildFile; fileRef = A742425F1AE98C7D0019150B /* images.plist */; };
+		A74242621AEAD6820019150B /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A74242611AEAD6820019150B /* 1.jpg */; };
 		CD160EF51AE03A4000575E06 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CD160EF41AE03A4000575E06 /* main.m */; };
 		CD160EF81AE03A4000575E06 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CD160EF71AE03A4000575E06 /* AppDelegate.m */; };
 		CD160EFB1AE03A4000575E06 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD160EFA1AE03A4000575E06 /* ViewController.m */; };
@@ -39,6 +40,7 @@
 
 /* Begin PBXFileReference section */
 		A742425F1AE98C7D0019150B /* images.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = images.plist; sourceTree = "<group>"; };
+		A74242611AEAD6820019150B /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
 		CD160EEF1AE03A4000575E06 /* TravelLine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravelLine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD160EF31AE03A4000575E06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CD160EF41AE03A4000575E06 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 		CD4D46421AE5786100AA57ED /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A74242611AEAD6820019150B /* 1.jpg */,
 				CDBDF2821AE180ED004F83A1 /* paises.json */,
 			);
 			name = Resources;
@@ -286,6 +289,7 @@
 				CD160EFE1AE03A4000575E06 /* Main.storyboard in Resources */,
 				CD160F031AE03A4000575E06 /* LaunchScreen.xib in Resources */,
 				CD160F001AE03A4000575E06 /* Images.xcassets in Resources */,
+				A74242621AEAD6820019150B /* 1.jpg in Resources */,
 				A74242601AE98C7D0019150B /* images.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
