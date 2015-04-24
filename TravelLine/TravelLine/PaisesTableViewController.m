@@ -39,7 +39,6 @@
 
 
 
-
     
     
     //Recuperando caminho para data.json

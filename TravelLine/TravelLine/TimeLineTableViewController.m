@@ -41,6 +41,9 @@
     newFrame.size.height = 40;
     CGRect textfield = _myTextField.frame;
     textfield.size.height = 30;
+    self.navigationItem.rightBarButtonItem.tintColor = [UIColor clearColor];
+    self.navigationItem.rightBarButtonItem.enabled = NO;
+    
 
 }
 
@@ -69,7 +72,7 @@
     //cell.viagemLabel.text=[NSString stringWithFormat:@"%@",myData[indexPath.row][@"nome"]];
     
     NSLog(@"DESCRICAO = %@",myData[0][_viagemEscolhida][@"momento"][0][@"descricao"]);
-    cell.nomeMomento.text=[NSString stringWithFormat:@"%@",[[myData[0][_viagemEscolhida][@"momento"] objectAtIndex:indexPath.row] objectForKey: @"descricao"]];
+    cell.textfieldMomento.text=[NSString stringWithFormat:@"%@",[[myData[0][_viagemEscolhida][@"momento"] objectAtIndex:indexPath.row] objectForKey: @"descricao"]];
     
     return cell;
 }
@@ -198,8 +201,9 @@
     //NSMutableArray *JAry=[[NSMutableArray alloc] initWithArray:[jsonDic[@"viagem"][_viagemEscolhida] objectForKey:@"momento"]];//salvo o array a ser manipulado
 
     //NSMutableDictionary *mom =[[NSMutableDictionary alloc]init];//Dicionario com lugar
-
+    NSString *tipo = @"texto";
     [jMomentoEspecifico setObject:descricao forKey:@"descricao"];
+    [jMomentoEspecifico setObject:tipo forKey:@"tipo"];
     
     [JMomentoGeral addObject:jMomentoEspecifico];
     [JDic setObject:JMomentoGeral forKey:@"momento"];
@@ -216,7 +220,7 @@
     NSLog(@"oooi1");
     //[self.storyboard instantiateViewControllerWithIdentifier:@"texto"];
     CGRect newFrame = _myView2.frame;
-    newFrame.size.height = 300;
+    newFrame.size.height = 180;
     
     [UIView animateWithDuration:1.0
                      animations:^{
@@ -226,12 +230,40 @@
 
 }
 
+-(void)textFieldDidEndEditing:(UITextField *)textField{
+    [self armazenarDadosViagemnome:_myTextField.text];
+    CGRect newFrame = _myView2.frame;
+    newFrame.size.height = 20;
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    
+    return YES;
+}
 
 
 
+- (IBAction)buttonOk:(id)sender {
+    CGRect newFrame = _myView2.frame;
+    newFrame.size.height = 38;
+    
+    [UIView animateWithDuration:0.5
+                     animations:^{
+                         _myView2.frame = newFrame;
+                     }];
+    [self armazenarDadosViagemnome:_myTextField.text];
+    [_myTextField resignFirstResponder];
+    _myTextField.text = nil;
+    self.navigationItem.rightBarButtonItem.tintColor = [UIColor clearColor];
+    self.navigationItem.rightBarButtonItem.enabled = NO;
+}
 
 - (IBAction)addText2:(id)sender {
     [self mudarTabela];
+    self.navigationItem.rightBarButtonItem.tintColor = [UIColor blackColor];
+    self.navigationItem.rightBarButtonItem.enabled = YES;
     
 }
 @end

@@ -8,12 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TimeLineTableViewController : UITableViewController
-- (IBAction)clickAddMomento:(id)sender;
+@interface TimeLineTableViewController : UITableViewController <UITextFieldDelegate>
 
 
 
 @property (weak, nonatomic) IBOutlet UIView *myView2;
+- (IBAction)buttonOk:(id)sender;
+
 
 - (IBAction)addText2:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *addImage;

@@ -10,5 +10,6 @@
 
 @interface TimeLineTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *nomeMomento;
+@property (weak, nonatomic) IBOutlet UITextView *textfieldMomento;
 
 @end

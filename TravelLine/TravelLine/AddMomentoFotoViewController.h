@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface AddMomentoFotoViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet UIButton *buttonCarregarFoto;
 
 @end
