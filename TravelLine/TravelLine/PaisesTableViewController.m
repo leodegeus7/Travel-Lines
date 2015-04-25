@@ -41,7 +41,9 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:btn];
     [btn addTarget:self action:@selector(showInfoScreen) forControlEvents:UIControlEventTouchUpInside];
 
-
+//    UILongPressGestureRecognizer *longPressGesture = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(longPressRecognizer:)];
+//    [self.tableView addGestureRecognizer:longPressGesture];
+    
     
     
     //Recuperando caminho para data.json
@@ -87,6 +89,29 @@
     [self performSegueWithIdentifier:@"info" sender:self];
 }
 
+-(void)longPressRecognizer:(UISwipeGestureRecognizer *)gestureRecognizer{
+    PaisesTableViewCell *cellViagem = [[PaisesTableViewCell alloc]init];
+    CGPoint location = [gestureRecognizer locationInView:self.tableView];
+    NSIndexPath *longGestureIndexPath = [self.tableView indexPathForRowAtPoint:location];
+    
+
+    if(self.editing)
+    {
+        [super setEditing:NO animated:NO];
+        [self.tableView setEditing:NO animated:NO];
+        [self.tableView reloadData];
+        [self.navigationItem.leftBarButtonItem setTitle:@"Edit"];
+        [self.navigationItem.leftBarButtonItem setStyle:UIBarButtonItemStylePlain];
+    }
+    else
+    {
+        [super setEditing:YES animated:YES];
+        [self.tableView setEditing:YES animated:YES];
+        [self.tableView reloadData];
+        [self.navigationItem.leftBarButtonItem setTitle:@"Done"];
+        [self.navigationItem.leftBarButtonItem setStyle:UIBarButtonItemStyleDone];
+    }
+}
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

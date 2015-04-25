@@ -19,6 +19,7 @@
     DataManager *_data;
     NSArray *momento;
     item *Item;
+    UIBarButtonItem *addButton;
 }
 
 @end
@@ -44,15 +45,48 @@
     textfield.size.height = 30;
     self.navigationItem.rightBarButtonItem.tintColor = [UIColor clearColor];
     self.navigationItem.rightBarButtonItem.enabled = false;
-    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithTitle:@"Edit" style:UIBarButtonItemStyleDone target:self action:@selector(EditTable:)];
+    addButton = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(EditTable:)];
+
     [self.navigationItem setRightBarButtonItem:addButton];
-    
+    addButton.enabled =false;
+    addButton.tintColor = [UIColor clearColor];
+    UILongPressGestureRecognizer *longPressGesture = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(longPressRecognizer:)];
+    [self.tableView addGestureRecognizer:longPressGesture];
+    longPressGesture.minimumPressDuration = 1.0f;
     
     
 
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 
 
+}
+
+-(void)longPressRecognizer:(UISwipeGestureRecognizer *)gestureRecognizer{
+    TimeLineTableViewCell *cellMomento = [[TimeLineTableViewCell alloc]init];
+    CGPoint location = [gestureRecognizer locationInView:self.tableView];
+    NSIndexPath *longGestureIndexPath = [self.tableView indexPathForRowAtPoint:location];
+    if (gestureRecognizer.state != UIGestureRecognizerStateEnded) {
+        return;
+    }
+    
+    if(self.editing)
+    {
+        [super setEditing:NO animated:NO];
+        [self.tableView setEditing:NO animated:NO];
+        [self.tableView reloadData];
+        [self.navigationItem.leftBarButtonItem setTitle:@"Edit"];
+        [self.navigationItem.leftBarButtonItem setStyle:UIBarButtonItemStylePlain];
+    }
+    else
+    {
+        [super setEditing:YES animated:YES];
+        [self.tableView setEditing:YES animated:YES];
+        [self.tableView reloadData];
+        [self.navigationItem.leftBarButtonItem setTitle:@"Done"];
+        [self.navigationItem.leftBarButtonItem setStyle:UIBarButtonItemStyleDone];
+        addButton.enabled =true;
+        addButton.tintColor = [UIColor blackColor];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -116,6 +150,8 @@
         [self.tableView reloadData];
         [self.navigationItem.leftBarButtonItem setTitle:@"Edit"];
         [self.navigationItem.leftBarButtonItem setStyle:UIBarButtonItemStylePlain];
+        addButton.enabled =false;
+        addButton.tintColor = [UIColor clearColor];
     }
     else
     {
