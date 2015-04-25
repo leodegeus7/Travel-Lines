@@ -346,11 +346,30 @@
                         <outlet property="addImage" destination="KkD-nO-gPF" id="wL3-S6-CTc"/>
                         <outlet property="myTextField" destination="GPr-He-k6w" id="Xcc-Xe-6NP"/>
                         <outlet property="myView2" destination="oqD-Oe-4Na" id="WGy-9C-hfB"/>
+                        <segue destination="sVJ-BV-GTP" kind="show" id="vba-xT-Zhc"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MY5-CQ-nda" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1323" y="241"/>
+            <point key="canvasLocation" x="1336" y="235"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="3lE-YI-b5p">
+            <objects>
+                <viewController id="sVJ-BV-GTP" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="E1d-4P-gQG"/>
+                        <viewControllerLayoutGuide type="bottom" id="a23-lD-Glf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="QZg-WB-dN5">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YBH-Zr-ETk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1323" y="994"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ssx-B2-T34">

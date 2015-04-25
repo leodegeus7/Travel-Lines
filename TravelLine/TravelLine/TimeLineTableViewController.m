@@ -55,6 +55,7 @@
     longPressGesture.minimumPressDuration = 1.0f;
     
     
+    
 
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 
@@ -62,9 +63,6 @@
 }
 
 -(void)longPressRecognizer:(UISwipeGestureRecognizer *)gestureRecognizer{
-    TimeLineTableViewCell *cellMomento = [[TimeLineTableViewCell alloc]init];
-    CGPoint location = [gestureRecognizer locationInView:self.tableView];
-    NSIndexPath *longGestureIndexPath = [self.tableView indexPathForRowAtPoint:location];
     if (gestureRecognizer.state != UIGestureRecognizerStateEnded) {
         return;
     }
