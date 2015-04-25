@@ -22,6 +22,10 @@
 		CD17FC161AE8318100C71364 /* AddLugarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD17FC151AE8318100C71364 /* AddLugarViewController.m */; };
 		CD17FC1C1AE8453000C71364 /* AddMomentoFotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD17FC1B1AE8453000C71364 /* AddMomentoFotoViewController.m */; };
 		CD17FC1F1AE8458D00C71364 /* AddMomentoTextoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD17FC1E1AE8458D00C71364 /* AddMomentoTextoViewController.m */; };
+		CD623DF91AEC0A5C00A03604 /* info.png in Resources */ = {isa = PBXBuildFile; fileRef = CD623DF81AEC0A5C00A03604 /* info.png */; };
+		CD623DFB1AEC0AA100A03604 /* icon_family_2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD623DFA1AEC0AA100A03604 /* icon_family_2x.png */; };
+		CD623DFE1AEC12F200A03604 /* CreditosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD623DFD1AEC12F200A03604 /* CreditosViewController.m */; };
+		CD623E001AEC168C00A03604 /* bepid.png in Resources */ = {isa = PBXBuildFile; fileRef = CD623DFF1AEC168C00A03604 /* bepid.png */; };
 		CDBDF26F1AE1725D004F83A1 /* PaisesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDBDF26E1AE1725D004F83A1 /* PaisesTableViewController.m */; };
 		CDBDF2751AE1734D004F83A1 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CDBDF2741AE1734D004F83A1 /* DataManager.m */; };
 		CDBDF2781AE175D7004F83A1 /* PaisesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CDBDF2771AE175D7004F83A1 /* PaisesTableViewCell.m */; };
@@ -67,6 +71,11 @@
 		CD17FC1B1AE8453000C71364 /* AddMomentoFotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddMomentoFotoViewController.m; sourceTree = "<group>"; };
 		CD17FC1D1AE8458D00C71364 /* AddMomentoTextoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddMomentoTextoViewController.h; sourceTree = "<group>"; };
 		CD17FC1E1AE8458D00C71364 /* AddMomentoTextoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddMomentoTextoViewController.m; sourceTree = "<group>"; };
+		CD623DF81AEC0A5C00A03604 /* info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info.png; sourceTree = "<group>"; };
+		CD623DFA1AEC0AA100A03604 /* icon_family_2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_family_2x.png; sourceTree = "<group>"; };
+		CD623DFC1AEC12F200A03604 /* CreditosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreditosViewController.h; sourceTree = "<group>"; };
+		CD623DFD1AEC12F200A03604 /* CreditosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreditosViewController.m; sourceTree = "<group>"; };
+		CD623DFF1AEC168C00A03604 /* bepid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bepid.png; sourceTree = "<group>"; };
 		CDBDF26D1AE1725D004F83A1 /* PaisesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaisesTableViewController.h; sourceTree = "<group>"; };
 		CDBDF26E1AE1725D004F83A1 /* PaisesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaisesTableViewController.m; sourceTree = "<group>"; };
 		CDBDF2731AE1734D004F83A1 /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
@@ -176,6 +185,8 @@
 				CD17FC1B1AE8453000C71364 /* AddMomentoFotoViewController.m */,
 				CD17FC1D1AE8458D00C71364 /* AddMomentoTextoViewController.h */,
 				CD17FC1E1AE8458D00C71364 /* AddMomentoTextoViewController.m */,
+				CD623DFC1AEC12F200A03604 /* CreditosViewController.h */,
+				CD623DFD1AEC12F200A03604 /* CreditosViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -204,7 +215,10 @@
 		CD4D46421AE5786100AA57ED /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CD623DF81AEC0A5C00A03604 /* info.png */,
 				A74242611AEAD6820019150B /* 1.jpg */,
+				CD623DFF1AEC168C00A03604 /* bepid.png */,
+				CD623DFA1AEC0AA100A03604 /* icon_family_2x.png */,
 				CDBDF2821AE180ED004F83A1 /* paises.json */,
 			);
 			name = Resources;
@@ -290,7 +304,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD623E001AEC168C00A03604 /* bepid.png in Resources */,
+				CD623DFB1AEC0AA100A03604 /* icon_family_2x.png in Resources */,
 				CDBDF2831AE180ED004F83A1 /* paises.json in Resources */,
+				CD623DF91AEC0A5C00A03604 /* info.png in Resources */,
 				CD160EFE1AE03A4000575E06 /* Main.storyboard in Resources */,
 				CD160F031AE03A4000575E06 /* LaunchScreen.xib in Resources */,
 				CD160F001AE03A4000575E06 /* Images.xcassets in Resources */,
@@ -320,6 +337,7 @@
 				A74242651AEAE6F70019150B /* ImageTableViewCell.m in Sources */,
 				CD160EF81AE03A4000575E06 /* AppDelegate.m in Sources */,
 				CDBDF26F1AE1725D004F83A1 /* PaisesTableViewController.m in Sources */,
+				CD623DFE1AEC12F200A03604 /* CreditosViewController.m in Sources */,
 				CDBDF2881AE18E74004F83A1 /* item.m in Sources */,
 				CD17FC0E1AE6F31100C71364 /* TimeLineTableViewCell.m in Sources */,
 				CD17FC1C1AE8453000C71364 /* AddMomentoFotoViewController.m in Sources */,

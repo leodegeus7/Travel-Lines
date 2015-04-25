@@ -144,11 +144,43 @@
                     </navigationItem>
                     <connections>
                         <segue destination="iqY-EN-LH1" kind="show" identifier="oi" id="fer-P5-sSM"/>
+                        <segue destination="auu-XR-m8T" kind="show" identifier="info" id="jga-HC-1ha"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JB6-bk-PKA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="452" y="241"/>
+            <point key="canvasLocation" x="501" y="241"/>
+        </scene>
+        <!--Add Lugar View Controller-->
+        <scene sceneID="ZfR-sn-4Zn">
+            <objects>
+                <viewController id="auu-XR-m8T" customClass="AddLugarViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="tzP-I0-nNx"/>
+                        <viewControllerLayoutGuide type="bottom" id="rwR-PT-SRW"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Hib-jx-ssB">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bepid.png" translatesAutoresizingMaskIntoConstraints="NO" id="d29-WD-mSE">
+                                <rect key="frame" x="132" y="102" width="337" height="126"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="126" id="OVX-PZ-548"/>
+                                    <constraint firstAttribute="width" constant="337" id="hTC-xx-SXJ"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="d29-WD-mSE" firstAttribute="top" secondItem="tzP-I0-nNx" secondAttribute="bottom" constant="38" id="TYj-ft-fjS"/>
+                            <constraint firstAttribute="centerX" secondItem="d29-WD-mSE" secondAttribute="centerX" constant="-0.5" id="ypi-If-qqG"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="soH-A4-7Fz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="501" y="994"/>
         </scene>
         <!--Root View Controller-->
         <scene sceneID="TId-vv-4ft">
@@ -383,4 +415,7 @@
             <point key="canvasLocation" x="-283" y="228"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="bepid.png" width="2488" height="1080"/>
+    </resources>
 </document>

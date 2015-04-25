@@ -37,6 +37,10 @@
     Item = [[item alloc]init];
     _data = [DataManager sharedManager]; //da um sharedmanager no ponteiro do DM
     [self atualizartabela];
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeInfoDark];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:btn];
+    [btn addTarget:self action:@selector(showInfoScreen) forControlEvents:UIControlEventTouchUpInside];
+
 
 
     
@@ -78,6 +82,12 @@
     // Return the number of rows in the section.
     return viagem.count;
 }
+
+-(void)showInfoScreen{
+
+    [self performSegueWithIdentifier:@"info" sender:self];
+}
+
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -200,6 +210,7 @@
     // Pass the selected object to the new view controller.
 }
 */
+
 
 - (IBAction)ClickButtonAdd:(id)sender {
     

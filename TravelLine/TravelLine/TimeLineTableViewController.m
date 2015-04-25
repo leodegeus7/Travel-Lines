@@ -296,6 +296,7 @@
     NSMutableArray *JAry=[[NSMutableArray alloc] initWithArray:[jsonDic objectForKey:@"viagem"]];//salvo o array a ser manipulado
     NSMutableDictionary *JDic=[[NSMutableDictionary alloc]initWithDictionary:[JAry objectAtIndex:_viagemEscolhida]];
     NSMutableArray *JMomentoGeral=[[NSMutableArray alloc]initWithArray:[JDic objectForKey:@"momento"]];
+    NSMutableArray *reversedArray = [NSMutableArray arrayWithArray:[[JMomentoGeral reverseObjectEnumerator] allObjects]];
     NSMutableDictionary *jMomentoEspecifico =[[NSMutableDictionary alloc]init];
     
     
@@ -306,9 +307,18 @@
     
     [jMomentoEspecifico setObject:descricao forKey:@"descricao"];
     [jMomentoEspecifico setObject:tipo forKey:@"tipo"];
+    NSString *dataAtual = [Item horaAtual];
+    [jMomentoEspecifico setObject:dataAtual forKey:@"data"];
     
-    [JMomentoGeral addObject:jMomentoEspecifico];
-    [JDic setObject:JMomentoGeral forKey:@"momento"];
+    [reversedArray addObject:jMomentoEspecifico];
+    
+    NSArray *reversedArray2 = [NSMutableArray arrayWithArray:[[reversedArray reverseObjectEnumerator] allObjects]];
+//    NSArray *reversedArray = [[JMomentoGeral reverseObjectEnumerator] allObjects];
+
+    
+
+    
+    [JDic setObject:reversedArray2 forKey:@"momento"];
     [JAry setObject:JDic atIndexedSubscript:_viagemEscolhida];
     [jsonDic setObject:JAry forKey:@"viagem"];
     //[JAry addObject:mom];//atribuicao do dicionario para o array
@@ -317,11 +327,20 @@
     [self atualizartabela];
 }
 
+-(NSMutableArray*)sortArrayList:(NSMutableArray*)arrDeviceList filterKeyName:(NSString*)sortKeyName ascending:(BOOL)isAscending{
+    
+    NSSortDescriptor *sorter = [[NSSortDescriptor alloc] initWithKey:sortKeyName ascending:isAscending];
+    [arrDeviceList sortUsingDescriptors:[NSArray arrayWithObject:sorter]];
+    
+    return arrDeviceList;
+}
+
 -(void)armazenarDadosMomentoImage:(NSString*)descricao{
     NSMutableDictionary* jsonDic=[NSMutableDictionary dictionaryWithDictionary:_data.dados];//pegar nosso dicionario principal
     NSMutableArray *JAry=[[NSMutableArray alloc] initWithArray:[jsonDic objectForKey:@"viagem"]];//salvo o array a ser manipulado
     NSMutableDictionary *JDic=[[NSMutableDictionary alloc]initWithDictionary:[JAry objectAtIndex:_viagemEscolhida]];
     NSMutableArray *JMomentoGeral=[[NSMutableArray alloc]initWithArray:[JDic objectForKey:@"momento"]];
+    NSMutableArray *reversedArray = [NSMutableArray arrayWithArray:[[JMomentoGeral reverseObjectEnumerator] allObjects]];
     NSMutableDictionary *jMomentoEspecifico =[[NSMutableDictionary alloc]init];
     
     
@@ -335,8 +354,11 @@
     [jMomentoEspecifico setObject:tipo forKey:@"tipo"];
     [jMomentoEspecifico setObject:dataAtual forKey:@"data"];
     
-    [JMomentoGeral addObject:jMomentoEspecifico];
-    [JDic setObject:JMomentoGeral forKey:@"momento"];
+    [reversedArray addObject:jMomentoEspecifico];
+    
+    NSArray *reversedArray2 = [NSMutableArray arrayWithArray:[[reversedArray reverseObjectEnumerator] allObjects]];
+
+    [JDic setObject:reversedArray2 forKey:@"momento"];
     [JAry setObject:JDic atIndexedSubscript:_viagemEscolhida];
     [jsonDic setObject:JAry forKey:@"viagem"];
     //[JAry addObject:mom];//atribuicao do dicionario para o array
