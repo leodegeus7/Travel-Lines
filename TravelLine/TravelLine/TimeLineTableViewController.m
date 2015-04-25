@@ -44,6 +44,11 @@
     textfield.size.height = 30;
     self.navigationItem.rightBarButtonItem.tintColor = [UIColor clearColor];
     self.navigationItem.rightBarButtonItem.enabled = false;
+    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithTitle:@"Edit" style:UIBarButtonItemStyleDone target:self action:@selector(EditTable:)];
+    [self.navigationItem setRightBarButtonItem:addButton];
+    
+    
+    
 
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 
@@ -68,16 +73,16 @@
     return momento.count;
 }
 
--(void)acaoDoBotao{
-    [super setEditing:YES animated:YES];
-    [self.tableView setEditing:YES animated:YES];
-    [self.tableView reloadData];
-    [self.navigationItem.leftBarButtonItem setTitle:@"Done"];
-    [self.navigationItem.leftBarButtonItem setStyle:UIBarButtonItemStyleDone];
-
-
-
-}
+//-(void)acaoDoBotao{
+//    [super setEditing:YES animated:YES];
+//    [self.tableView setEditing:YES animated:YES];
+//    [self.tableView reloadData];
+//    [self.navigationItem.leftBarButtonItem setTitle:@"Done"];
+//    [self.navigationItem.leftBarButtonItem setStyle:UIBarButtonItemStyleDone];
+//
+//
+//
+//}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *testeDoTipo = [NSString stringWithFormat:@"%@",[[myData[1][_viagemEscolhida][@"momento"] objectAtIndex:indexPath.row] objectForKey: @"tipo"]];
@@ -103,6 +108,25 @@
    // NSLog(@"DESCRICAO = %@",myData[1][_viagemEscolhida][@"momento"][0][@"descricao"]);
     return nil;
 }
+- (IBAction) EditTable:(id)sender{
+    if(self.editing)
+    {
+        [super setEditing:NO animated:NO];
+        [self.tableView setEditing:NO animated:NO];
+        [self.tableView reloadData];
+        [self.navigationItem.leftBarButtonItem setTitle:@"Edit"];
+        [self.navigationItem.leftBarButtonItem setStyle:UIBarButtonItemStylePlain];
+    }
+    else
+    {
+        [super setEditing:YES animated:YES];
+        [self.tableView setEditing:YES animated:YES];
+        [self.tableView reloadData];
+        [self.navigationItem.leftBarButtonItem setTitle:@"Done"];
+        [self.navigationItem.leftBarButtonItem setStyle:UIBarButtonItemStyleDone];
+    }
+}
+
 - (IBAction)addImage:(id)sender {
     NSLog(@"oioioioioi");
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
@@ -412,8 +436,11 @@
     return YES;
 }
 
--(void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath
-     toIndexPath:(NSIndexPath *)toIndexPath {
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
+    NSString *stringToMove = [myData[1][_viagemEscolhida][@"momento"] objectAtIndex:sourceIndexPath.row];
+    [myData[1][_viagemEscolhida][@"momento"] removeObjectAtIndex:sourceIndexPath.row];
+    [myData[1][_viagemEscolhida][@"momento"] insertObject:stringToMove atIndex:destinationIndexPath.row];
+    [self atualizartabela];
 }
 
 
