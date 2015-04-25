@@ -42,7 +42,6 @@
     [btn addTarget:self action:@selector(showInfoScreen) forControlEvents:UIControlEventTouchUpInside];
 
 
-
     
     
     //Recuperando caminho para data.json
@@ -263,5 +262,21 @@
     _data.dados = jsonDic;
     [self atualizartabela];
 }
+
+#pragma mark Row reordering
+// Determine whether a given row is eligible for reordering or not.
+- (BOOL)tableView:(UITableView *)tableview canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+- (void) tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)targetIndexPath
+{
+    NSUInteger sourceIndex = [sourceIndexPath row];
+    NSUInteger targetIndex = [targetIndexPath row];
+    if (sourceIndex != targetIndex)
+    {
+        NSLog(@"LOOOOOCOOO");
+    }
+}
+
 
 @end

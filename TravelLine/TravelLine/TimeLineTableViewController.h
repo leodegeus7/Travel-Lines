@@ -21,6 +21,8 @@
 
 @property (weak, nonatomic) IBOutlet UITextView *myTextField;
 
+-(IBAction)AddButtonCancel:(id)sender;
+
 @property NSInteger viagemEscolhida;
 -(void)mudarTabela;
 @end

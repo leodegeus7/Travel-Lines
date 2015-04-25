@@ -43,8 +43,10 @@
     CGRect textfield = _myTextField.frame;
     textfield.size.height = 30;
     self.navigationItem.rightBarButtonItem.tintColor = [UIColor clearColor];
-    self.navigationItem.rightBarButtonItem.enabled = NO;
-    
+    self.navigationItem.rightBarButtonItem.enabled = false;
+
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+
 
 }
 
@@ -64,6 +66,17 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
     return momento.count;
+}
+
+-(void)acaoDoBotao{
+    [super setEditing:YES animated:YES];
+    [self.tableView setEditing:YES animated:YES];
+    [self.tableView reloadData];
+    [self.navigationItem.leftBarButtonItem setTitle:@"Done"];
+    [self.navigationItem.leftBarButtonItem setStyle:UIBarButtonItemStyleDone];
+
+
+
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -395,6 +408,15 @@
     return YES;
 }
 
+-(BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+
+-(void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath
+     toIndexPath:(NSIndexPath *)toIndexPath {
+}
+
+
 
 
 - (IBAction)buttonOk:(id)sender {
@@ -417,5 +439,28 @@
     self.navigationItem.rightBarButtonItem.tintColor = [UIColor blackColor];
     self.navigationItem.rightBarButtonItem.enabled = YES;
     
+
+}
+
+- (IBAction)AddButtonCancel:(id)sender;
+{
+    CGRect newFrame = _myView2.frame;
+    newFrame.size.height = 38;
+    
+    [UIView animateWithDuration:0.5
+                     animations:^{
+                         _myView2.frame = newFrame;
+                     }];
+    [_myTextField resignFirstResponder];
+    _myTextField.text = nil;
+    self.navigationItem.rightBarButtonItem.tintColor = [UIColor clearColor];
+    self.navigationItem.rightBarButtonItem.enabled = NO;
+    self.navigationItem.leftBarButtonItem.tintColor = [UIColor clearColor];
+
+}
+
+- (IBAction)Back
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 @end
