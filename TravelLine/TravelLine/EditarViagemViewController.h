@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface EditarViagemViewController : UIViewController <UITextFieldDelegate,UIImagePickerControllerDelegate>
+@interface EditarViagemViewController : UIViewController <UITextFieldDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
 @property NSInteger viagemEscolhidaEditar;
 @property (weak, nonatomic) IBOutlet UIImageView *imagePais;

@@ -30,6 +30,8 @@
     [_textfieldPais setDelegate:self];
     // Do any additional setup after loading the view.
     NSLog(@"%li",(long)_viagemEscolhidaEditar);
+
+    self.title=[NSString stringWithFormat:@"Editar %@",_data.dados[@"viagem"][_viagemEscolhidaEditar][@"nome"]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -191,10 +193,6 @@
     
     return nomeFoto;
 }
-
-
-
-
 
 - (UIImage*)loadImage
 {

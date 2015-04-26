@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AddLugarViewController : UIViewController <UITextFieldDelegate,UIImagePickerControllerDelegate>
+@interface AddLugarViewController : UIViewController <UITextFieldDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *imagePais;
 @property (weak, nonatomic) IBOutlet UITextField *textfieldPais;
