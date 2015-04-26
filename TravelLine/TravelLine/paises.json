@@ -1,19 +1,5 @@
 {
     "viagem": [
-               {
-               "nome": "",
-               "capa": "",
-               "momento": [
-                           {
-                           "data": "",
-                           "tipo": "",
-                           "imagem": "",
-                           "descricao": "",
-                           "label": "",
-                           "local": ""
-                           }
-                           ]
-               }
                ],
     "indiceFoto": "0"
 }

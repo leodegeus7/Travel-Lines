@@ -375,11 +375,13 @@
 
     //NSMutableDictionary *mom =[[NSMutableDictionary alloc]init];//Dicionario com lugar
     NSString *tipo = @"texto";
+    NSString *tamanhoCell=@"";
     
     [jMomentoEspecifico setObject:descricao forKey:@"descricao"];
     [jMomentoEspecifico setObject:tipo forKey:@"tipo"];
     NSString *dataAtual = [Item horaAtual];
     [jMomentoEspecifico setObject:dataAtual forKey:@"data"];
+    [jMomentoEspecifico setObject:tamanhoCell forKey:@"tamanhoCell"];
     
     [reversedArray addObject:jMomentoEspecifico];
     
@@ -420,10 +422,12 @@
     //NSMutableDictionary *mom =[[NSMutableDictionary alloc]init];//Dicionario com lugar
     NSString *tipo = @"imagem";
     NSString *dataAtual = [Item horaAtual];
+    NSString *tamanhoCell = @"";
     
     [jMomentoEspecifico setObject:descricao forKey:@"imagem"];
     [jMomentoEspecifico setObject:tipo forKey:@"tipo"];
     [jMomentoEspecifico setObject:dataAtual forKey:@"data"];
+    [jMomentoEspecifico setObject:tamanhoCell forKey:@"tamanhoCell"];
     
     [reversedArray addObject:jMomentoEspecifico];
     
