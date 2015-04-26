@@ -23,6 +23,7 @@
     UIBarButtonItem *addButton;
     UIBarButtonItem *salvarTexto;
     UIBarButtonItem *editarViagem;
+    UIToolbar *toolBar;
 }
 
 @end
@@ -110,6 +111,42 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [self atualizartabela];
+    _data.temFoto=false;
+    
+    [self.navigationController setToolbarHidden:NO animated:YES];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [self.navigationController setToolbarHidden:YES animated:YES];
+}
+- (IBAction)camera:(id)sender {
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    picker.delegate = self;
+    picker.allowsEditing = YES;
+    picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    [self presentViewController:picker animated:YES completion:NULL];
+    
+}
+
+
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    UIImage *selectedImage = info[UIImagePickerControllerEditedImage];
+    //    self..image = selectedImage;
+    UIImageWriteToSavedPhotosAlbum(selectedImage, nil, nil, nil);
+    //    [self saveImage:selectedImage :@"oi"];
+    NSString *path;
+    path = [self saveImage:selectedImage];
+    NSString *nomeFoto = [self retornarCaminhoDaFotoAtual];
+    
+    [picker dismissViewControllerAnimated:YES completion:NULL];
+    [self armazenarDadosMomentoImage:nomeFoto];
+    
 }
 
 #pragma mark - Table view data source
@@ -207,15 +244,14 @@
 
 }
 
-- (IBAction)addImage:(id)sender {
-    NSLog(@"oioioioioi");
+- (IBAction)tirarFoto:(id)sender {
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
     picker.delegate = self;
     picker.allowsEditing = YES;
-    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    picker.sourceType = UIImagePickerControllerSourceTypeCamera;
     [self presentViewController:picker animated:YES completion:NULL];
-    
 }
+
 
 //- (IBAction)selectCamera:(id)sender {
 //    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
@@ -225,19 +261,7 @@
 //    [self presentViewController:picker animated:YES completion:NULL];
 //}
 
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-    UIImage *selectedImage = info[UIImagePickerControllerEditedImage];
-//    self..image = selectedImage;
-    UIImageWriteToSavedPhotosAlbum(selectedImage, nil, nil, nil);
-    //    [self saveImage:selectedImage :@"oi"];
-    NSString *path;
-    path = [self saveImage:selectedImage];
-    NSString *nomeFoto = [self retornarCaminhoDaFotoAtual];
-    
-    [picker dismissViewControllerAnimated:YES completion:NULL];
-    [self armazenarDadosMomentoImage:nomeFoto];
-    
-}
+
 
 - (UIImage*)loadImage:(NSString *)caminho;
 {

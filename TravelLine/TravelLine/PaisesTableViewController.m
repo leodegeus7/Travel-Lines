@@ -20,6 +20,7 @@
     DataManager *_data;
     NSArray *viagem;
     item *Item;
+    UIToolbar *toolBar;
     
 }
 
@@ -41,6 +42,11 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:btn];
     [btn addTarget:self action:@selector(showInfoScreen) forControlEvents:UIControlEventTouchUpInside];
 
+ 
+    
+    
+    
+    
 //    UILongPressGestureRecognizer *longPressGesture = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(longPressRecognizer:)];
 //    [self.tableView addGestureRecognizer:longPressGesture];
     
@@ -90,9 +96,8 @@
 }
 
 -(void)longPressRecognizer:(UISwipeGestureRecognizer *)gestureRecognizer{
-    PaisesTableViewCell *cellViagem = [[PaisesTableViewCell alloc]init];
-    CGPoint location = [gestureRecognizer locationInView:self.tableView];
-    NSIndexPath *longGestureIndexPath = [self.tableView indexPathForRowAtPoint:location];
+//    PaisesTableViewCell *cellViagem = [[PaisesTableViewCell alloc]init];
+//    NSIndexPath *longGestureIndexPath = [self.tableView indexPathForRowAtPoint:location];
     
 
     if(self.editing)
@@ -190,6 +195,13 @@
 -(void)viewWillAppear:(BOOL)animated{
     [self atualizartabela];
     _data.temFoto=false;
+
+    [self.navigationController setToolbarHidden:NO animated:YES];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [self.navigationController setToolbarHidden:YES animated:YES];
 }
 
 /*
