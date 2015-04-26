@@ -14,13 +14,16 @@
 #import "AppDelegate.h"
 #import "ImageTableViewCell.h"
 
-@interface TimeLineTableViewController (){
+@interface TimeLineTableViewController ()
+
+{
     NSArray *myData;
     DataManager *_data;
     NSArray *momento;
     item *Item;
     UIBarButtonItem *addButton;
     UIBarButtonItem *salvarTexto;
+    TimeLineTableViewCell *celulaPrototipo;
 }
 
 @end
@@ -61,12 +64,34 @@
     [self.tableView addGestureRecognizer:longPressGesture];
     longPressGesture.minimumPressDuration = 1.0f;
     
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(didChangePreferredContentSize:)
+                                                 name:UIContentSizeCategoryDidChangeNotification object:nil];
     
 
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 
 
+}
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:UIContentSizeCategoryDidChangeNotification
+                                                  object:nil];
+}
+
+- (void)didChangePreferredContentSize:(NSNotification *)notification
+{
+    [self.tableView reloadData];
+}
+
+- (TimeLineTableViewCell *)CelulaPrototipo
+{
+    if (!_celulaPrototipo)
+    {
+        _celulaPrototipo = [self.tableView dequeueReusableCellWithIdentifier:@"cellMomento"];
+    }
+    return _celulaPrototipo;
 }
 
 -(void)longPressRecognizer:(UISwipeGestureRecognizer *)gestureRecognizer{
@@ -128,10 +153,13 @@
 //}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     NSString *testeDoTipo = [NSString stringWithFormat:@"%@",[[myData[1][_viagemEscolhida][@"momento"] objectAtIndex:indexPath.row] objectForKey: @"tipo"]];
     if ([testeDoTipo isEqualToString:@"texto"]) {
         TimeLineTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellMomento" forIndexPath:indexPath];
         cell.textfieldMomento.text=[NSString stringWithFormat:@"%@",[[myData[1][_viagemEscolhida][@"momento"] objectAtIndex:indexPath.row] objectForKey: @"descricao"]];
+       
+        
         return cell;
 
     }
@@ -143,7 +171,8 @@
         
         return imageCell;
     }
-    
+
+
 //    NSMutableDictionary *teste;
 //    teste = _data.dados[@"viagem"][_viagemEscolhida][@"momento"];
 //    //cell.viagemLabel.text=[NSString stringWithFormat:@"%@",myData[indexPath.row][@"nome"]];
@@ -274,7 +303,7 @@
 
 
 /*
-// Override to support conditional editing of the table view.
+// Override to support conditional editing of the table view.FH
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     // Return NO if you do not want the specified item to be editable.
     return YES;
@@ -455,6 +484,41 @@
     //[jsonDic setObject:JAry forKey:@"viagem"];//atribuicao do array para o dicionario principal
     _data.dados = jsonDic;
     [self atualizartabela];
+    
+    }
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.tableView.estimatedRowHeight = 70.0; // for example. Set your average height
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    [self.tableView layoutIfNeeded];
+    [self.tableView autoresizingMask];
+    [self.tableView reloadData];
+}
+-(void)viewDidAppear:(BOOL)animated
+{
+    [self.tableView layoutIfNeeded];
+    [self.tableView autoresizingMask];
+    [self.tableView reloadData];
+}
+
+
+//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    
+//    int  height = (int) _celulaPrototipo.textfieldMomento.frame.size.height;
+//    _celulaPrototipo.bounds = CGRectMake(0.0f, 0.0f, CGRectGetWidth(tableView.bounds), height);
+//    
+//    [_celulaPrototipo layoutIfNeeded];
+//    
+//    CGSize size = [_celulaPrototipo.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+//    NSLog(@"HEIGHT%f",_celulaPrototipo.contentView.frame.size.height);
+//    NSLog(@"height = %f",size.height);
+//    return size.height+100;
+//}
+
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return UITableViewAutomaticDimension;
 }
 
 

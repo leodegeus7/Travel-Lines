@@ -9,7 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface TimeLineTableViewCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UILabel *nomeMomento;
-@property (weak, nonatomic) IBOutlet UITextView *textfieldMomento;
+
+@property (weak, nonatomic) IBOutlet UILabel *textfieldMomento;
+
+
 
 @end

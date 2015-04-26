@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="xuK-M9-vqw">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="xuK-M9-vqw">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -277,34 +277,22 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xZJ-vT-68U" id="Yiu-u5-tzc">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="18T-JN-iMF">
-                                            <rect key="frame" x="279" y="65" width="42" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="749" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="14W-5U-eZ5">
+                                            <rect key="frame" x="9" y="8" width="583" height="135"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="86S-9d-21I">
-                                            <rect key="frame" x="150" y="13" width="300" height="125"/>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="300" id="pL9-J0-gJH"/>
-                                                <constraint firstAttribute="height" constant="125" id="pSJ-I6-c5k"/>
-                                            </constraints>
-                                            <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                        </textView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="centerY" secondItem="18T-JN-iMF" secondAttribute="centerY" constant="0.5" id="0lJ-gO-LmY"/>
-                                        <constraint firstAttribute="centerY" secondItem="86S-9d-21I" secondAttribute="centerY" id="HRs-NV-4Yb"/>
-                                        <constraint firstAttribute="centerX" secondItem="18T-JN-iMF" secondAttribute="centerX" id="XG5-L7-cwl"/>
-                                        <constraint firstAttribute="centerX" secondItem="86S-9d-21I" secondAttribute="centerX" id="cAS-cl-Ulr"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="14W-5U-eZ5" secondAttribute="bottom" constant="1" id="6x1-zY-pSC"/>
+                                        <constraint firstItem="14W-5U-eZ5" firstAttribute="top" secondItem="Yiu-u5-tzc" secondAttribute="topMargin" id="KQC-Ef-7Wb"/>
+                                        <constraint firstItem="14W-5U-eZ5" firstAttribute="leading" secondItem="Yiu-u5-tzc" secondAttribute="leadingMargin" constant="1" id="O6Q-0j-ILh"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="14W-5U-eZ5" secondAttribute="trailing" id="ntC-To-A5X"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="nomeMomento" destination="18T-JN-iMF" id="jaW-GU-psa"/>
-                                    <outlet property="textfieldMomento" destination="86S-9d-21I" id="0Md-y4-WxU"/>
+                                    <outlet property="textfieldMomento" destination="14W-5U-eZ5" id="PqZ-qZ-Ytt"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="imageMomento" id="7H8-vG-6TD" customClass="ImageTableViewCell">
