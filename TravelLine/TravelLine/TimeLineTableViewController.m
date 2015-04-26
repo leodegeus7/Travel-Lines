@@ -20,6 +20,7 @@
     NSArray *momento;
     item *Item;
     UIBarButtonItem *addButton;
+    UIBarButtonItem *salvarTexto;
 }
 
 @end
@@ -43,13 +44,19 @@
     newFrame.size.height = 40;
     CGRect textfield = _myTextField.frame;
     textfield.size.height = 30;
-    self.navigationItem.rightBarButtonItem.tintColor = [UIColor clearColor];
-    self.navigationItem.rightBarButtonItem.enabled = false;
-    addButton = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(EditTable:)];
+//    self.navigationItem.rightBarButtonItem.tintColor = [UIColor clearColor];
+//    self.navigationItem.rightBarButtonItem.enabled = false;
+    
+//    salvarTexto = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(SalvarTexto:)];
+//    
+//    [self.navigationItem setRightBarButtonItem:salvarTexto];
+//
+//    salvarTexto.enabled =false;
+//    salvarTexto.tintColor = [UIColor clearColor];
+    
+    
+    
 
-    [self.navigationItem setRightBarButtonItem:addButton];
-    addButton.enabled =false;
-    addButton.tintColor = [UIColor clearColor];
     UILongPressGestureRecognizer *longPressGesture = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(longPressRecognizer:)];
     [self.tableView addGestureRecognizer:longPressGesture];
     longPressGesture.minimumPressDuration = 1.0f;
@@ -82,8 +89,12 @@
         [self.tableView reloadData];
         [self.navigationItem.leftBarButtonItem setTitle:@"Done"];
         [self.navigationItem.leftBarButtonItem setStyle:UIBarButtonItemStyleDone];
+        addButton = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(EditTable:)];
+        
+        [self.navigationItem setRightBarButtonItem:addButton];
         addButton.enabled =true;
         addButton.tintColor = [UIColor blackColor];
+
     }
 }
 
@@ -148,8 +159,12 @@
         [self.tableView reloadData];
         [self.navigationItem.leftBarButtonItem setTitle:@"Edit"];
         [self.navigationItem.leftBarButtonItem setStyle:UIBarButtonItemStylePlain];
+        addButton = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(EditTable:)];
+        
+        [self.navigationItem setRightBarButtonItem:addButton];
         addButton.enabled =false;
         addButton.tintColor = [UIColor clearColor];
+
     }
     else
     {
@@ -482,9 +497,7 @@
 }
 
 
-
-
-- (IBAction)buttonOk:(id)sender {
+-(IBAction)SalvarTexto:(id)sender{
     CGRect newFrame = _myView2.frame;
     newFrame.size.height = 38;
     
@@ -497,12 +510,35 @@
     _myTextField.text = nil;
     self.navigationItem.rightBarButtonItem.tintColor = [UIColor clearColor];
     self.navigationItem.rightBarButtonItem.enabled = NO;
+
+
 }
+
+
+
+//- (IBAction)buttonOk:(id)sender {
+//    CGRect newFrame = _myView2.frame;
+//    newFrame.size.height = 38;
+//    
+//    [UIView animateWithDuration:0.5
+//                     animations:^{
+//                         _myView2.frame = newFrame;
+//                     }];
+//    [self armazenarDadosViagemnome:_myTextField.text];
+//    [_myTextField resignFirstResponder];
+//    _myTextField.text = nil;
+//    self.navigationItem.rightBarButtonItem.tintColor = [UIColor clearColor];
+//    self.navigationItem.rightBarButtonItem.enabled = NO;
+//}
 
 - (IBAction)addText2:(id)sender {
     [self mudarTabela];
-    self.navigationItem.rightBarButtonItem.tintColor = [UIColor blackColor];
-    self.navigationItem.rightBarButtonItem.enabled = YES;
+    salvarTexto = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(SalvarTexto:)];
+    
+    [self.navigationItem setRightBarButtonItem:salvarTexto];
+    
+    salvarTexto.enabled =true;
+    salvarTexto.tintColor = [UIColor blackColor];
     
 
 }

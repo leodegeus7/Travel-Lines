@@ -335,13 +335,7 @@
                         </connections>
                     </tableView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="9q8-pq-qQR">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="82O-Yz-gII">
-                            <connections>
-                                <action selector="buttonOk:" destination="iqY-EN-LH1" id="fQ9-Fn-p39"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="9q8-pq-qQR"/>
                     <connections>
                         <outlet property="addImage" destination="KkD-nO-gPF" id="wL3-S6-CTc"/>
                         <outlet property="myTextField" destination="GPr-He-k6w" id="Xcc-Xe-6NP"/>
