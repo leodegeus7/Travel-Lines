@@ -22,6 +22,7 @@
 		CD17FC161AE8318100C71364 /* AddLugarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD17FC151AE8318100C71364 /* AddLugarViewController.m */; };
 		CD17FC1C1AE8453000C71364 /* AddMomentoFotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD17FC1B1AE8453000C71364 /* AddMomentoFotoViewController.m */; };
 		CD17FC1F1AE8458D00C71364 /* AddMomentoTextoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD17FC1E1AE8458D00C71364 /* AddMomentoTextoViewController.m */; };
+		CD1CB2401AED39EE00CDBA1A /* EditarViagemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1CB23F1AED39EE00CDBA1A /* EditarViagemViewController.m */; };
 		CD623DF91AEC0A5C00A03604 /* info.png in Resources */ = {isa = PBXBuildFile; fileRef = CD623DF81AEC0A5C00A03604 /* info.png */; };
 		CD623DFB1AEC0AA100A03604 /* icon_family_2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD623DFA1AEC0AA100A03604 /* icon_family_2x.png */; };
 		CD623DFE1AEC12F200A03604 /* CreditosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD623DFD1AEC12F200A03604 /* CreditosViewController.m */; };
@@ -71,6 +72,8 @@
 		CD17FC1B1AE8453000C71364 /* AddMomentoFotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddMomentoFotoViewController.m; sourceTree = "<group>"; };
 		CD17FC1D1AE8458D00C71364 /* AddMomentoTextoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddMomentoTextoViewController.h; sourceTree = "<group>"; };
 		CD17FC1E1AE8458D00C71364 /* AddMomentoTextoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddMomentoTextoViewController.m; sourceTree = "<group>"; };
+		CD1CB23E1AED39EE00CDBA1A /* EditarViagemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditarViagemViewController.h; sourceTree = "<group>"; };
+		CD1CB23F1AED39EE00CDBA1A /* EditarViagemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditarViagemViewController.m; sourceTree = "<group>"; };
 		CD623DF81AEC0A5C00A03604 /* info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info.png; sourceTree = "<group>"; };
 		CD623DFA1AEC0AA100A03604 /* icon_family_2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_family_2x.png; sourceTree = "<group>"; };
 		CD623DFC1AEC12F200A03604 /* CreditosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreditosViewController.h; sourceTree = "<group>"; };
@@ -187,6 +190,8 @@
 				CD17FC1E1AE8458D00C71364 /* AddMomentoTextoViewController.m */,
 				CD623DFC1AEC12F200A03604 /* CreditosViewController.h */,
 				CD623DFD1AEC12F200A03604 /* CreditosViewController.m */,
+				CD1CB23E1AED39EE00CDBA1A /* EditarViagemViewController.h */,
+				CD1CB23F1AED39EE00CDBA1A /* EditarViagemViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -344,6 +349,7 @@
 				CDBDF2781AE175D7004F83A1 /* PaisesTableViewCell.m in Sources */,
 				CD160EF51AE03A4000575E06 /* main.m in Sources */,
 				CD17FC0B1AE6F2FE00C71364 /* TimeLineTableViewController.m in Sources */,
+				CD1CB2401AED39EE00CDBA1A /* EditarViagemViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

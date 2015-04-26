@@ -13,6 +13,7 @@
 #import "Item.h"
 #import "AppDelegate.h"
 #import "ImageTableViewCell.h"
+#import "EditarViagemViewController.h"
 
 @interface TimeLineTableViewController (){
     NSArray *myData;
@@ -21,6 +22,7 @@
     item *Item;
     UIBarButtonItem *addButton;
     UIBarButtonItem *salvarTexto;
+    UIBarButtonItem *editarViagem;
 }
 
 @end
@@ -53,18 +55,20 @@
 //
 //    salvarTexto.enabled =false;
 //    salvarTexto.tintColor = [UIColor clearColor];
-    
-    
-    
-
     UILongPressGestureRecognizer *longPressGesture = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(longPressRecognizer:)];
     [self.tableView addGestureRecognizer:longPressGesture];
     longPressGesture.minimumPressDuration = 1.0f;
-    
-    
-    
-
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    
+//    editarViagem = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(SalvarTexto:)];
+    editarViagem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(editarViagem:)];
+
+    [self.navigationItem setRightBarButtonItem:editarViagem];
+    editarViagem.enabled =true;
+    editarViagem.tintColor = [UIColor blueColor];
+    
+    
 
 
 }
@@ -93,7 +97,8 @@
         
         [self.navigationItem setRightBarButtonItem:addButton];
         addButton.enabled =true;
-        addButton.tintColor = [UIColor blackColor];
+        addButton.tintColor = [UIColor blueColor];
+        
 
     }
 }
@@ -151,6 +156,17 @@
    // NSLog(@"DESCRICAO = %@",myData[1][_viagemEscolhida][@"momento"][0][@"descricao"]);
     return nil;
 }
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    EditarViagemViewController *dvc = segue.destinationViewController;
+    dvc.viagemEscolhidaEditar = _viagemEscolhida;
+    if ([segue.identifier isEqualToString:@"editarViagem"]) {
+//        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        EditarViagemViewController *destViewController = segue.destinationViewController;
+        destViewController.viagemEscolhidaEditar = _viagemEscolhida;
+        
+    }
+}
 - (IBAction) EditTable:(id)sender{
     if(self.editing)
     {
@@ -164,6 +180,11 @@
         [self.navigationItem setRightBarButtonItem:addButton];
         addButton.enabled =false;
         addButton.tintColor = [UIColor clearColor];
+        editarViagem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(editarViagem:)];
+        
+        [self.navigationItem setRightBarButtonItem:editarViagem];
+        editarViagem.enabled =true;
+        editarViagem.tintColor = [UIColor blueColor];
 
     }
     else
@@ -174,6 +195,12 @@
         [self.navigationItem.leftBarButtonItem setTitle:@"Done"];
         [self.navigationItem.leftBarButtonItem setStyle:UIBarButtonItemStyleDone];
     }
+}
+
+-(IBAction)editarViagem:(id)sender{
+    
+    [self performSegueWithIdentifier:@"editarViagem" sender:self];
+
 }
 
 - (IBAction)addImage:(id)sender {
@@ -476,6 +503,7 @@
     [self armazenarDadosViagemnome:_myTextField.text];
     CGRect newFrame = _myView2.frame;
     newFrame.size.height = 20;
+
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
@@ -510,6 +538,11 @@
     _myTextField.text = nil;
     self.navigationItem.rightBarButtonItem.tintColor = [UIColor clearColor];
     self.navigationItem.rightBarButtonItem.enabled = NO;
+    editarViagem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(editarViagem:)];
+    
+    [self.navigationItem setRightBarButtonItem:editarViagem];
+    editarViagem.enabled =true;
+    editarViagem.tintColor = [UIColor blueColor];
 
 
 }
@@ -538,7 +571,8 @@
     [self.navigationItem setRightBarButtonItem:salvarTexto];
     
     salvarTexto.enabled =true;
-    salvarTexto.tintColor = [UIColor blackColor];
+    salvarTexto.tintColor = [UIColor blueColor];
+    
     
 
 }
@@ -557,6 +591,11 @@
     self.navigationItem.rightBarButtonItem.tintColor = [UIColor clearColor];
     self.navigationItem.rightBarButtonItem.enabled = NO;
     self.navigationItem.leftBarButtonItem.tintColor = [UIColor clearColor];
+    editarViagem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(editarViagem:)];
+    
+    [self.navigationItem setRightBarButtonItem:editarViagem];
+    editarViagem.enabled =true;
+    editarViagem.tintColor = [UIColor blueColor];
 
 }
 

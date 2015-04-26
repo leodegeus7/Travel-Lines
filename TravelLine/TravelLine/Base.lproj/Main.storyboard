@@ -340,17 +340,17 @@
                         <outlet property="addImage" destination="KkD-nO-gPF" id="wL3-S6-CTc"/>
                         <outlet property="myTextField" destination="GPr-He-k6w" id="Xcc-Xe-6NP"/>
                         <outlet property="myView2" destination="oqD-Oe-4Na" id="WGy-9C-hfB"/>
-                        <segue destination="sVJ-BV-GTP" kind="show" id="vba-xT-Zhc"/>
+                        <segue destination="sVJ-BV-GTP" kind="show" identifier="editarViagem" id="vba-xT-Zhc"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MY5-CQ-nda" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1336" y="235"/>
         </scene>
-        <!--View Controller-->
+        <!--Editar Viagem View Controller-->
         <scene sceneID="3lE-YI-b5p">
             <objects>
-                <viewController id="sVJ-BV-GTP" sceneMemberID="viewController">
+                <viewController id="sVJ-BV-GTP" customClass="EditarViagemViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="E1d-4P-gQG"/>
                         <viewControllerLayoutGuide type="bottom" id="a23-lD-Glf"/>
@@ -358,8 +358,79 @@
                     <view key="view" contentMode="scaleToFill" id="QZg-WB-dN5">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yxo-he-QZM">
+                                <rect key="frame" x="63" y="252" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eBU-jL-7GJ">
+                                <rect key="frame" x="163" y="248" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="t1y-f9-0KN">
+                                <rect key="frame" x="63" y="82" width="240" height="128"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zPl-dB-17h">
+                                <rect key="frame" x="136" y="343" width="64" height="30"/>
+                                <state key="normal" title="GALERIA">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wKs-4o-k13">
+                                <rect key="frame" x="136" y="391" width="64" height="30"/>
+                                <state key="normal" title="CAMERA">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rbe-UB-HqT">
+                                <rect key="frame" x="257" y="348" width="30" height="30"/>
+                                <state key="normal" title="ok">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addPais:" destination="sVJ-BV-GTP" eventType="touchUpInside" id="wuG-OV-lsQ"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8cU-m5-gdC">
+                                <rect key="frame" x="163" y="299" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ywz-BU-tkm">
+                                <rect key="frame" x="63" y="308" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UBL-Ni-JJ9">
+                                <rect key="frame" x="136" y="343" width="64" height="30"/>
+                                <state key="normal" title="GALERIA">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="selectPhoto:" destination="sVJ-BV-GTP" eventType="touchUpInside" id="aXX-6f-sfX"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cBx-VY-z02">
+                                <rect key="frame" x="136" y="391" width="64" height="30"/>
+                                <state key="normal" title="CAMERA">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="selectCamera:" destination="sVJ-BV-GTP" eventType="touchUpInside" id="bOA-3a-Rld"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="imagePais" destination="t1y-f9-0KN" id="yNS-ud-FcV"/>
+                        <outlet property="textfieldAno" destination="8cU-m5-gdC" id="w4q-js-git"/>
+                        <outlet property="textfieldPais" destination="eBU-jL-7GJ" id="6eX-rL-rWI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YBH-Zr-ETk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
