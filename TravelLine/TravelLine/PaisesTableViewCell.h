@@ -11,5 +11,6 @@
 @interface PaisesTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *viagemLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *viagemImage2;
+@property (weak, nonatomic) IBOutlet UILabel *anoLabel;
 
 @end

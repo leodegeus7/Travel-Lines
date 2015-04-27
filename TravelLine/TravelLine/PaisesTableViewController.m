@@ -21,6 +21,8 @@
     NSArray *viagem;
     item *Item;
     UIToolbar *toolBar;
+    UIBarButtonItem *addButton;
+    UIBarButtonItem *editarViagem;
     
 }
 
@@ -42,7 +44,9 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:btn];
     [btn addTarget:self action:@selector(showInfoScreen) forControlEvents:UIControlEventTouchUpInside];
 
- 
+    UILongPressGestureRecognizer *longPressGesture = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(longPressRecognizer:)];
+    [self.tableView addGestureRecognizer:longPressGesture];
+    longPressGesture.minimumPressDuration = 1.0f;
     
     
     
@@ -78,6 +82,66 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)longPressRecognizer:(UISwipeGestureRecognizer *)gestureRecognizer{
+    if (gestureRecognizer.state != UIGestureRecognizerStateEnded) {
+        return;
+    }
+    
+    if(self.editing)
+    {
+        [super setEditing:NO animated:NO];
+        [self.tableView setEditing:NO animated:NO];
+        [self.tableView reloadData];
+        [self.navigationItem.leftBarButtonItem setTitle:@"Edit"];
+        [self.navigationItem.leftBarButtonItem setStyle:UIBarButtonItemStylePlain];
+    }
+    else
+    {
+        [super setEditing:YES animated:YES];
+        [self.tableView setEditing:YES animated:YES];
+        [self.tableView reloadData];
+        [self.navigationItem.leftBarButtonItem setTitle:@"Done"];
+        [self.navigationItem.leftBarButtonItem setStyle:UIBarButtonItemStyleDone];
+        addButton = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(EditTable:)];
+        
+        [self.navigationItem setRightBarButtonItem:addButton];
+        addButton.enabled =true;
+        addButton.tintColor = [UIColor blueColor];
+        
+        
+    }
+}
+
+- (IBAction) EditTable:(id)sender{
+    if(self.editing)
+    {
+        [super setEditing:NO animated:NO];
+        [self.tableView setEditing:NO animated:NO];
+        [self.tableView reloadData];
+        [self.navigationItem.leftBarButtonItem setTitle:@"Edit"];
+        [self.navigationItem.leftBarButtonItem setStyle:UIBarButtonItemStylePlain];
+        addButton = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(EditTable:)];
+        
+        [self.navigationItem setRightBarButtonItem:addButton];
+        addButton.enabled =false;
+        addButton.tintColor = [UIColor clearColor];
+        UIButton *btn = [UIButton buttonWithType:UIButtonTypeInfoDark];
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:btn];
+        [btn addTarget:self action:@selector(showInfoScreen) forControlEvents:UIControlEventTouchUpInside];
+        
+
+        
+    }
+    else
+    {
+        [super setEditing:YES animated:YES];
+        [self.tableView setEditing:YES animated:YES];
+        [self.tableView reloadData];
+        [self.navigationItem.leftBarButtonItem setTitle:@"Done"];
+        [self.navigationItem.leftBarButtonItem setStyle:UIBarButtonItemStyleDone];
+    }
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -95,28 +159,7 @@
     [self performSegueWithIdentifier:@"info" sender:self];
 }
 
--(void)longPressRecognizer:(UISwipeGestureRecognizer *)gestureRecognizer{
-//    PaisesTableViewCell *cellViagem = [[PaisesTableViewCell alloc]init];
-//    NSIndexPath *longGestureIndexPath = [self.tableView indexPathForRowAtPoint:location];
-    
 
-    if(self.editing)
-    {
-        [super setEditing:NO animated:NO];
-        [self.tableView setEditing:NO animated:NO];
-        [self.tableView reloadData];
-        [self.navigationItem.leftBarButtonItem setTitle:@"Edit"];
-        [self.navigationItem.leftBarButtonItem setStyle:UIBarButtonItemStylePlain];
-    }
-    else
-    {
-        [super setEditing:YES animated:YES];
-        [self.tableView setEditing:YES animated:YES];
-        [self.tableView reloadData];
-        [self.navigationItem.leftBarButtonItem setTitle:@"Done"];
-        [self.navigationItem.leftBarButtonItem setStyle:UIBarButtonItemStyleDone];
-    }
-}
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -133,6 +176,7 @@
     UIImage *testeF = [self loadImage:caminho];
     NSLog(@"%@", testeF);
     cell.viagemLabel.text=[NSString stringWithFormat:@"%@",[[myData[1] objectAtIndex:indexPath.row] objectForKey: @"nome"]];
+    cell.anoLabel.text=[NSString stringWithFormat:@"%@",[[myData[1] objectAtIndex:indexPath.row] objectForKey: @"ano"]];
 
     return cell;
 }
@@ -190,6 +234,13 @@
         [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
         [self atualizartabela];
     }
+}
+
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
+    NSString *stringToMove = [myData[1] objectAtIndex:sourceIndexPath.row];
+    [myData[1] removeObjectAtIndex:sourceIndexPath.row];
+    [myData[1] insertObject:stringToMove atIndex:destinationIndexPath.row];
+    [self atualizartabela];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -306,15 +357,15 @@
 - (BOOL)tableView:(UITableView *)tableview canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
     return YES;
 }
-- (void) tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)targetIndexPath
-{
-    NSUInteger sourceIndex = [sourceIndexPath row];
-    NSUInteger targetIndex = [targetIndexPath row];
-    if (sourceIndex != targetIndex)
-    {
-        NSLog(@"LOOOOOCOOO");
-    }
-}
+//- (void) tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)targetIndexPath
+//{
+//    NSUInteger sourceIndex = [sourceIndexPath row];
+//    NSUInteger targetIndex = [targetIndexPath row];
+//    if (sourceIndex != targetIndex)
+//    {
+//        NSLog(@"LOOOOOCOOO");
+//    }
+//}
 
 
 @end

@@ -16,6 +16,9 @@
     item *Item;
     PaisesTableViewController *_paises;
     DataManager *_data;
+    NSArray *_pickerData;
+    NSMutableArray *_pickerDataAnos;
+    NSString *_anoEscohido;
 }
 
 @end
@@ -32,12 +35,56 @@
     NSLog(@"%li",(long)_viagemEscolhidaEditar);
 
     self.title=[NSString stringWithFormat:@"Editar %@",_data.dados[@"viagem"][_viagemEscolhidaEditar][@"nome"]];
+    //Inicializando os dados do PickerView
+    _pickerData = @[@"Item 1", @"Item 2", @"Item 3", @"Item 4", @"Item 5", @"Item 6"];
+    
+    //Conectando os dados do PickerView
+    self.picker.dataSource = self;
+    self.picker.delegate = self;
+    
+    // Pegando o ano atual
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
+    [dateFormatter setDateFormat:@"YYYY"];
+    int i2 = [[dateFormatter stringFromDate:[NSDate date]] intValue];
+    NSLog(@"%d",i2);
+    _pickerDataAnos = [[NSMutableArray alloc] init];
+    for (int i1=i2; i1<=i2 & i1>=1920; i1--) {
+        [_pickerDataAnos addObject:[NSString stringWithFormat:@"%d",i1]];
+    }
+
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+// Número de clounas
+- (long)numberOfComponentsInPickerView:(UIPickerView *)pickerView
+{
+    return 1;
+}
+
+// Número de linhas
+- (long)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
+{
+    return _pickerDataAnos.count;
+}
+
+// Povoando o PickerView
+- (NSString*)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+{
+    return _pickerDataAnos[row];
+    
+}
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
+{
+    _anoEscohido= [NSString stringWithFormat:@"%@",_pickerDataAnos[row]];
+    
+}
+
+
 - (IBAction)selectPhoto:(id)sender {
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
     picker.delegate = self;
@@ -56,13 +103,23 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     UIImage *selectedImage = info[UIImagePickerControllerEditedImage];
     self.imagePais.image = selectedImage;
-    UIImageWriteToSavedPhotosAlbum(selectedImage, nil, nil, nil);
+    
+    if (picker.sourceType == UIImagePickerControllerSourceTypeCamera) {
+        
+        UIImageWriteToSavedPhotosAlbum(selectedImage, nil, nil, nil);
+        
+    }
+    
     //    [self saveImage:selectedImage :@"oi"];
     NSString *path;
     path = [self saveImage:selectedImage];
     NSLog(@"%@",path);
     [picker dismissViewControllerAnimated:YES completion:NULL];
     
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    [picker dismissViewControllerAnimated:YES completion:NULL];
 }
 
 - (NSString *)saveImage: (UIImage*)image
@@ -111,17 +168,11 @@
 */
 
 - (IBAction)addPais:(id)sender {
-    
-    //    if (_data.temFoto) {
-    //        NSLog(@"DEEEEU CERTOOO");
-    //    }
-    
     if (![_textfieldPais.text isEqualToString:@""]) {
-        if (![_textfieldAno.text isEqualToString:@""]) {
+        if (![_anoEscohido isEqualToString:@""]) {
             if (_data.temFoto) {
                 NSMutableArray *momento = [@[] mutableCopy];
-                NSString *data=  _textfieldAno.text;
-                [self armazenarDadosViagemnome:_textfieldPais.text array:momento ano:data];
+                [self armazenarDadosViagemnome:_textfieldPais.text array:momento ano:_anoEscohido];
                 [_paises atualizartabela];
                 [_paises.tableView reloadData];
                 [self.navigationController popToRootViewControllerAnimated:YES];
@@ -150,7 +201,10 @@
         
     }
     
+    
+    //[self.storyboard instantiateViewControllerWithIdentifier:@"inicialController"];
 }
+
 
 -(void)armazenarDadosViagemnome:(NSString*)nome array:(NSMutableArray*)array ano:(NSString*)ano{
     NSMutableDictionary* jsonDic=[NSMutableDictionary dictionaryWithDictionary:_data.dados];//pegar nosso dicionario principal
@@ -173,9 +227,23 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    [textField resignFirstResponder];
     
-    return YES;
+    NSInteger nextTag = textField.tag + 1;
+    // Aqui ele encontra o next responder
+    UIResponder* nextResponder = [textField.superview viewWithTag:nextTag];
+    if (nextResponder) {
+        // Se encontrou, set
+        [nextResponder becomeFirstResponder];
+    } else {
+        // Não encontrou, ele esconde o teclado
+        [textField resignFirstResponder];
+    }
+    return NO;
+    
+    
+    //    [textField resignFirstResponder];
+    //
+    //    return YES;
 }
 
 

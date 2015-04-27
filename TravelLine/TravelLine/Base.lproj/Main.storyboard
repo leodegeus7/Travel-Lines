@@ -18,16 +18,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y0Q-lS-tId">
-                                <rect key="frame" x="83" y="305" width="42" height="21"/>
+                                <rect key="frame" x="68" y="212" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fi7-Qu-8HW">
-                                <rect key="frame" x="40" y="95" width="240" height="128"/>
+                                <rect key="frame" x="40" y="72" width="240" height="128"/>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="l5J-Pj-dtl">
-                                <rect key="frame" x="175" y="301" width="97" height="30"/>
+                                <rect key="frame" x="160" y="208" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
@@ -52,16 +52,11 @@
                                     <action selector="selectCamera:" destination="Tyv-6w-cMQ" eventType="touchUpInside" id="f1D-zH-F7Z"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QHo-ve-Kyw">
-                                <rect key="frame" x="175" y="346" width="97" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="Tyv-6w-cMQ" id="v1M-2g-T3V"/>
-                                </connections>
-                            </textField>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pjc-XK-mrG">
+                                <rect key="frame" x="40" y="277" width="600" height="113"/>
+                            </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xky-eR-dKK">
-                                <rect key="frame" x="137" y="398" width="46" height="30"/>
+                                <rect key="frame" x="73" y="432" width="46" height="30"/>
                                 <state key="normal" title="Button">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -74,7 +69,7 @@
                     </view>
                     <connections>
                         <outlet property="imagePais" destination="Fi7-Qu-8HW" id="d6K-la-8Hq"/>
-                        <outlet property="textFieldAno" destination="QHo-ve-Kyw" id="s1d-cb-Uer"/>
+                        <outlet property="picker" destination="Pjc-XK-mrG" id="C64-Qf-vye"/>
                         <outlet property="textfieldPais" destination="l5J-Pj-dtl" id="Gmg-TN-ydp"/>
                     </connections>
                 </viewController>
@@ -105,6 +100,12 @@
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PiR-jf-sxs">
+                                            <rect key="frame" x="263" y="95" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="centerX" secondItem="TaF-Cb-5BC" secondAttribute="centerX" id="2G9-EM-vxe"/>
@@ -124,6 +125,7 @@
                                     </variation>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="anoLabel" destination="PiR-jf-sxs" id="noX-hn-zPb"/>
                                     <outlet property="viagemImage2" destination="CqM-t6-Pev" id="dwk-SQ-duq"/>
                                     <outlet property="viagemLabel" destination="TaF-Cb-5BC" id="gmQ-GC-wgw"/>
                                 </connections>
@@ -143,7 +145,7 @@
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="Ie8-CB-ofd"/>
                     </toolbarItems>
-                    <navigationItem key="navigationItem" id="cqS-9O-pVw">
+                    <navigationItem key="navigationItem" prompt="" id="cqS-9O-pVw">
                         <barButtonItem key="leftBarButtonItem" systemItem="add" id="vk1-Gx-wFZ">
                             <connections>
                                 <segue destination="Tyv-6w-cMQ" kind="show" identifier="addLugar" id="l6Y-qJ-arL"/>
@@ -401,20 +403,6 @@
                                     <action selector="addPais:" destination="sVJ-BV-GTP" eventType="touchUpInside" id="wuG-OV-lsQ"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8cU-m5-gdC">
-                                <rect key="frame" x="163" y="299" width="97" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="sVJ-BV-GTP" id="Teq-4I-dol"/>
-                                </connections>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ywz-BU-tkm">
-                                <rect key="frame" x="63" y="308" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UBL-Ni-JJ9">
                                 <rect key="frame" x="136" y="343" width="64" height="30"/>
                                 <state key="normal" title="GALERIA">
@@ -433,12 +421,15 @@
                                     <action selector="selectCamera:" destination="sVJ-BV-GTP" eventType="touchUpInside" id="bOA-3a-Rld"/>
                                 </connections>
                             </button>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LYw-pG-CZ0">
+                                <rect key="frame" x="-89" y="403" width="600" height="162"/>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="imagePais" destination="t1y-f9-0KN" id="yNS-ud-FcV"/>
-                        <outlet property="textfieldAno" destination="8cU-m5-gdC" id="w4q-js-git"/>
+                        <outlet property="picker" destination="LYw-pG-CZ0" id="4f0-px-E01"/>
                         <outlet property="textfieldPais" destination="eBU-jL-7GJ" id="6eX-rL-rWI"/>
                     </connections>
                 </viewController>

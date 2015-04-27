@@ -19,6 +19,9 @@
     PaisesTableViewController *_paises;
     PaisesTableViewCell *_paisesCell;
     DataManager *_data;
+    NSArray *_pickerData;
+    NSMutableArray *_pickerDataAnos;
+    NSString *_anoEscohido;
 }
 
 @end
@@ -33,8 +36,26 @@
     _paises = [[PaisesTableViewController alloc]init];
     _data = [DataManager sharedManager];
     [_textfieldPais setDelegate:self];
-
+    _textFieldAno.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
+    _textfieldPais.keyboardType = UIKeyboardTypeDefault;
+    //Inicializando os dados do PickerView
+    _pickerData = @[@"Item 1", @"Item 2", @"Item 3", @"Item 4", @"Item 5", @"Item 6"];
     
+    //Conectando os dados do PickerView
+    self.picker.dataSource = self;
+    self.picker.delegate = self;
+    
+    // Pegando o ano atual
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
+    [dateFormatter setDateFormat:@"YYYY"];
+    int i2 = [[dateFormatter stringFromDate:[NSDate date]] intValue];
+    NSLog(@"%d",i2);
+    _pickerDataAnos = [[NSMutableArray alloc] init];
+    for (int i1=i2; i1<=i2 & i1>=1920; i1--) {
+        [_pickerDataAnos addObject:[NSString stringWithFormat:@"%d",i1]];
+    }
+    
+    NSLog(@"%@",_pickerDataAnos);
     
     // Do any additional setup after loading the view.
 }
@@ -43,6 +64,33 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+// Número de clounas
+- (long)numberOfComponentsInPickerView:(UIPickerView *)pickerView
+{
+    return 1;
+}
+
+// Número de linhas
+- (long)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
+{
+    return _pickerDataAnos.count;
+}
+
+// Povoando o PickerView
+- (NSString*)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+{
+    return _pickerDataAnos[row];
+    
+}
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
+{
+    _anoEscohido= [NSString stringWithFormat:@"%@",_pickerDataAnos[row]];
+    
+}
+
+
+
 
 /*
 #pragma mark - Navigation
@@ -70,11 +118,18 @@
     [self presentViewController:picker animated:YES completion:NULL];
 }
 
+
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     UIImage *selectedImage = info[UIImagePickerControllerEditedImage];
     self.imagePais.image = selectedImage;
-    UIImageWriteToSavedPhotosAlbum(selectedImage, nil, nil, nil);
-//    [self saveImage:selectedImage :@"oi"];
+    
+    if (picker.sourceType == UIImagePickerControllerSourceTypeCamera) {
+        
+        UIImageWriteToSavedPhotosAlbum(selectedImage, nil, nil, nil);
+        
+    }
+    
+    //    [self saveImage:selectedImage :@"oi"];
     NSString *path;
     path = [self saveImage:selectedImage];
     NSLog(@"%@",path);
@@ -92,12 +147,15 @@
 //        NSLog(@"DEEEEU CERTOOO");
 //    }
     
+    //    if (_data.temFoto) {
+    //        NSLog(@"DEEEEU CERTOOO");
+    //    }
+
     if (![_textfieldPais.text isEqualToString:@""]) {
-        if (![_textFieldAno.text isEqualToString:@""]) {
+        if (![_anoEscohido isEqualToString:@""]) {
             if (_data.temFoto) {
                 NSMutableArray *momento = [@[] mutableCopy];
-                NSString *data=  _textFieldAno.text;
-                [self armazenarDadosViagemnome:_textfieldPais.text array:momento ano:data];
+                [self armazenarDadosViagemnome:_textfieldPais.text array:momento ano:_anoEscohido];
                 [_paises atualizartabela];
                 [_paises.tableView reloadData];
                 [self.navigationController popToRootViewControllerAnimated:YES];
@@ -106,29 +164,30 @@
                 UIAlertView* alert;
                 alert = [[UIAlertView alloc] initWithTitle:@"Aviso!" message:[NSString stringWithFormat:@"Escolha uma foto de capa!"] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
                 [alert show];
-            
-            
+                
+                
             }
-
-            }
+            
+        }
         else{
             UIAlertView* alert;
             alert = [[UIAlertView alloc] initWithTitle:@"Aviso!" message:[NSString stringWithFormat:@"Insira o ano da viagem!"] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
             [alert show];
         }
-
+        
     }
     else{
         UIAlertView* alert;
         alert = [[UIAlertView alloc] initWithTitle:@"Aviso!" message:[NSString stringWithFormat:@"Insira o título da viagem"] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
         [alert show];
-    
-    
+        
+        
     }
     
-
+    
     //[self.storyboard instantiateViewControllerWithIdentifier:@"inicialController"];
 }
+
 
 
 -(void)armazenarDadosViagemnome:(NSString*)nome array:(NSMutableArray*)array ano:(NSString*)ano{
@@ -151,9 +210,23 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    [textField resignFirstResponder];
     
-    return YES;
+    NSInteger nextTag = textField.tag + 1;
+    // Aqui ele encontra o next responder
+    UIResponder* nextResponder = [textField.superview viewWithTag:nextTag];
+    if (nextResponder) {
+        // Se encontrou, set
+        [nextResponder becomeFirstResponder];
+    } else {
+        // Não encontrou, ele esconde o teclado
+        [textField resignFirstResponder];
+    }
+    return NO;
+    
+    
+    //    [textField resignFirstResponder];
+    //
+    //    return YES;
 }
 
 

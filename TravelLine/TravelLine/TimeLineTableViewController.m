@@ -30,7 +30,7 @@
     UIBarButtonItem *editarViagem;
     UIToolbar *toolBar;
 
-    NSIndexPath * indexPath;
+
     
 }
 @property (nonatomic, retain) NSIndexPath * indexPath;
@@ -198,7 +198,11 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     UIImage *selectedImage = info[UIImagePickerControllerEditedImage];
     //    self..image = selectedImage;
-    UIImageWriteToSavedPhotosAlbum(selectedImage, nil, nil, nil);
+    
+    if (picker.sourceType == UIImagePickerControllerSourceTypeCamera) {
+        UIImageWriteToSavedPhotosAlbum(selectedImage, nil, nil, nil);
+    }
+    
     //    [self saveImage:selectedImage :@"oi"];
     NSString *path;
     path = [self saveImage:selectedImage];
