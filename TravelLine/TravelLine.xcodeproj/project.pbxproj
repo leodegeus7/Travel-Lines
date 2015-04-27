@@ -44,6 +44,7 @@
 		CDBDF2781AE175D7004F83A1 /* PaisesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CDBDF2771AE175D7004F83A1 /* PaisesTableViewCell.m */; };
 		CDBDF2831AE180ED004F83A1 /* paises.json in Resources */ = {isa = PBXBuildFile; fileRef = CDBDF2821AE180ED004F83A1 /* paises.json */; };
 		CDBDF2881AE18E74004F83A1 /* item.m in Sources */ = {isa = PBXBuildFile; fileRef = CDBDF2871AE18E74004F83A1 /* item.m */; };
+		CDE45D3B1AEECF160077F647 /* right-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = CDE45D3A1AEECF160077F647 /* right-arrow.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,6 +115,7 @@
 		CDBDF2821AE180ED004F83A1 /* paises.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = paises.json; sourceTree = "<group>"; };
 		CDBDF2861AE18E74004F83A1 /* item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = item.h; sourceTree = "<group>"; };
 		CDBDF2871AE18E74004F83A1 /* item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = item.m; sourceTree = "<group>"; };
+		CDE45D3A1AEECF160077F647 /* right-arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "right-arrow.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -264,6 +266,7 @@
 				CDB7F3851AEE6BF40033A541 /* camera.png */,
 				CD623DFA1AEC0AA100A03604 /* icon_family_2x.png */,
 				CDB7F3981AEEBCE20033A541 /* tirarfoto.png */,
+				CDE45D3A1AEECF160077F647 /* right-arrow.png */,
 				CDBDF2821AE180ED004F83A1 /* paises.json */,
 			);
 			name = Resources;
@@ -349,6 +352,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDE45D3B1AEECF160077F647 /* right-arrow.png in Resources */,
 				CD623E001AEC168C00A03604 /* bepid.png in Resources */,
 				CDB7F38B1AEEAD850033A541 /* fundobotao.png in Resources */,
 				CDB7F38D1AEEAEB10033A541 /* fundobotao2.png in Resources */,
