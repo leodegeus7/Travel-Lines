@@ -29,6 +29,16 @@
 		CD623DFE1AEC12F200A03604 /* CreditosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD623DFD1AEC12F200A03604 /* CreditosViewController.m */; };
 		CD623E001AEC168C00A03604 /* bepid.png in Resources */ = {isa = PBXBuildFile; fileRef = CD623DFF1AEC168C00A03604 /* bepid.png */; };
 		CDB7F3861AEE6BF40033A541 /* camera.png in Resources */ = {isa = PBXBuildFile; fileRef = CDB7F3851AEE6BF40033A541 /* camera.png */; };
+		CDB7F3891AEEA5A60033A541 /* CRGradientNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = CDB7F3881AEEA5A60033A541 /* CRGradientNavigationBar.m */; };
+		CDB7F38B1AEEAD850033A541 /* fundobotao.png in Resources */ = {isa = PBXBuildFile; fileRef = CDB7F38A1AEEAD850033A541 /* fundobotao.png */; };
+		CDB7F38D1AEEAEB10033A541 /* fundobotao2.png in Resources */ = {isa = PBXBuildFile; fileRef = CDB7F38C1AEEAEB10033A541 /* fundobotao2.png */; };
+		CDB7F38F1AEEB34A0033A541 /* Image 27-04-15 at 15.10.png in Resources */ = {isa = PBXBuildFile; fileRef = CDB7F38E1AEEB34A0033A541 /* Image 27-04-15 at 15.10.png */; };
+		CDB7F3911AEEB3BF0033A541 /* Image 27-04-15 at 15.10 (1).png in Resources */ = {isa = PBXBuildFile; fileRef = CDB7F3901AEEB3BF0033A541 /* Image 27-04-15 at 15.10 (1).png */; };
+		CDB7F3931AEEB55C0033A541 /* Travel Line_Toolbar.png in Resources */ = {isa = PBXBuildFile; fileRef = CDB7F3921AEEB55C0033A541 /* Travel Line_Toolbar.png */; };
+		CDB7F3991AEEBCE20033A541 /* tirarfoto.png in Resources */ = {isa = PBXBuildFile; fileRef = CDB7F3981AEEBCE20033A541 /* tirarfoto.png */; };
+		CDB7F39B1AEEC0140033A541 /* fundoGradiente.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CDB7F39A1AEEC0140033A541 /* fundoGradiente.jpg */; };
+		CDB7F39D1AEEC05B0033A541 /* fundoGradienteBaixo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CDB7F39C1AEEC05B0033A541 /* fundoGradienteBaixo.jpg */; };
+		CDB7F39F1AEEC0C40033A541 /* Splash@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDB7F39E1AEEC0C40033A541 /* Splash@2x.png */; };
 		CDBDF26F1AE1725D004F83A1 /* PaisesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDBDF26E1AE1725D004F83A1 /* PaisesTableViewController.m */; };
 		CDBDF2751AE1734D004F83A1 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CDBDF2741AE1734D004F83A1 /* DataManager.m */; };
 		CDBDF2781AE175D7004F83A1 /* PaisesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CDBDF2771AE175D7004F83A1 /* PaisesTableViewCell.m */; };
@@ -84,6 +94,17 @@
 		CD623DFD1AEC12F200A03604 /* CreditosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreditosViewController.m; sourceTree = "<group>"; };
 		CD623DFF1AEC168C00A03604 /* bepid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bepid.png; sourceTree = "<group>"; };
 		CDB7F3851AEE6BF40033A541 /* camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camera.png; sourceTree = "<group>"; };
+		CDB7F3871AEEA5A60033A541 /* CRGradientNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRGradientNavigationBar.h; sourceTree = "<group>"; };
+		CDB7F3881AEEA5A60033A541 /* CRGradientNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRGradientNavigationBar.m; sourceTree = "<group>"; };
+		CDB7F38A1AEEAD850033A541 /* fundobotao.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fundobotao.png; sourceTree = "<group>"; };
+		CDB7F38C1AEEAEB10033A541 /* fundobotao2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fundobotao2.png; sourceTree = "<group>"; };
+		CDB7F38E1AEEB34A0033A541 /* Image 27-04-15 at 15.10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Image 27-04-15 at 15.10.png"; sourceTree = "<group>"; };
+		CDB7F3901AEEB3BF0033A541 /* Image 27-04-15 at 15.10 (1).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Image 27-04-15 at 15.10 (1).png"; sourceTree = "<group>"; };
+		CDB7F3921AEEB55C0033A541 /* Travel Line_Toolbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Travel Line_Toolbar.png"; sourceTree = "<group>"; };
+		CDB7F3981AEEBCE20033A541 /* tirarfoto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tirarfoto.png; sourceTree = "<group>"; };
+		CDB7F39A1AEEC0140033A541 /* fundoGradiente.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = fundoGradiente.jpg; sourceTree = "<group>"; };
+		CDB7F39C1AEEC05B0033A541 /* fundoGradienteBaixo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = fundoGradienteBaixo.jpg; sourceTree = "<group>"; };
+		CDB7F39E1AEEC0C40033A541 /* Splash@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Splash@2x.png"; sourceTree = "<group>"; };
 		CDBDF26D1AE1725D004F83A1 /* PaisesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaisesTableViewController.h; sourceTree = "<group>"; };
 		CDBDF26E1AE1725D004F83A1 /* PaisesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaisesTableViewController.m; sourceTree = "<group>"; };
 		CDBDF2731AE1734D004F83A1 /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
@@ -173,6 +194,8 @@
 		CD4D463F1AE5782800AA57ED /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				CDB7F3871AEEA5A60033A541 /* CRGradientNavigationBar.h */,
+				CDB7F3881AEEA5A60033A541 /* CRGradientNavigationBar.m */,
 				A74242631AEAE6F70019150B /* ImageTableViewCell.h */,
 				A74242641AEAE6F70019150B /* ImageTableViewCell.m */,
 				CD17FC091AE6F2FE00C71364 /* TimeLineTableViewController.h */,
@@ -227,11 +250,20 @@
 		CD4D46421AE5786100AA57ED /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CDB7F39E1AEEC0C40033A541 /* Splash@2x.png */,
 				CD623DF81AEC0A5C00A03604 /* info.png */,
+				CDB7F3901AEEB3BF0033A541 /* Image 27-04-15 at 15.10 (1).png */,
 				A74242611AEAD6820019150B /* 1.jpg */,
+				CDB7F3921AEEB55C0033A541 /* Travel Line_Toolbar.png */,
+				CDB7F38A1AEEAD850033A541 /* fundobotao.png */,
+				CDB7F39A1AEEC0140033A541 /* fundoGradiente.jpg */,
 				CD623DFF1AEC168C00A03604 /* bepid.png */,
+				CDB7F39C1AEEC05B0033A541 /* fundoGradienteBaixo.jpg */,
+				CDB7F38E1AEEB34A0033A541 /* Image 27-04-15 at 15.10.png */,
+				CDB7F38C1AEEAEB10033A541 /* fundobotao2.png */,
 				CDB7F3851AEE6BF40033A541 /* camera.png */,
 				CD623DFA1AEC0AA100A03604 /* icon_family_2x.png */,
+				CDB7F3981AEEBCE20033A541 /* tirarfoto.png */,
 				CDBDF2821AE180ED004F83A1 /* paises.json */,
 			);
 			name = Resources;
@@ -318,15 +350,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				CD623E001AEC168C00A03604 /* bepid.png in Resources */,
+				CDB7F38B1AEEAD850033A541 /* fundobotao.png in Resources */,
+				CDB7F38D1AEEAEB10033A541 /* fundobotao2.png in Resources */,
 				CD623DFB1AEC0AA100A03604 /* icon_family_2x.png in Resources */,
+				CDB7F39D1AEEC05B0033A541 /* fundoGradienteBaixo.jpg in Resources */,
+				CDB7F39B1AEEC0140033A541 /* fundoGradiente.jpg in Resources */,
 				CDBDF2831AE180ED004F83A1 /* paises.json in Resources */,
 				CD623DF91AEC0A5C00A03604 /* info.png in Resources */,
+				CDB7F3911AEEB3BF0033A541 /* Image 27-04-15 at 15.10 (1).png in Resources */,
 				CDB7F3861AEE6BF40033A541 /* camera.png in Resources */,
 				CD160EFE1AE03A4000575E06 /* Main.storyboard in Resources */,
 				CD160F031AE03A4000575E06 /* LaunchScreen.xib in Resources */,
+				CDB7F3991AEEBCE20033A541 /* tirarfoto.png in Resources */,
 				CD160F001AE03A4000575E06 /* Images.xcassets in Resources */,
 				A74242621AEAD6820019150B /* 1.jpg in Resources */,
+				CDB7F39F1AEEC0C40033A541 /* Splash@2x.png in Resources */,
 				A74242601AE98C7D0019150B /* images.plist in Resources */,
+				CDB7F38F1AEEB34A0033A541 /* Image 27-04-15 at 15.10.png in Resources */,
+				CDB7F3931AEEB55C0033A541 /* Travel Line_Toolbar.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -347,6 +388,7 @@
 				CD17FC161AE8318100C71364 /* AddLugarViewController.m in Sources */,
 				CD17FC1F1AE8458D00C71364 /* AddMomentoTextoViewController.m in Sources */,
 				CD160EFB1AE03A4000575E06 /* ViewController.m in Sources */,
+				CDB7F3891AEEA5A60033A541 /* CRGradientNavigationBar.m in Sources */,
 				CDBDF2751AE1734D004F83A1 /* DataManager.m in Sources */,
 				A74242651AEAE6F70019150B /* ImageTableViewCell.m in Sources */,
 				CD160EF81AE03A4000575E06 /* AppDelegate.m in Sources */,
@@ -486,7 +528,7 @@
 		CD160F131AE03A4000575E06 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				INFOPLIST_FILE = TravelLine/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -496,7 +538,7 @@
 		CD160F141AE03A4000575E06 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				INFOPLIST_FILE = TravelLine/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";

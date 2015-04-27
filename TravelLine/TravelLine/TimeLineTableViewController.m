@@ -86,9 +86,9 @@
 
     [self.navigationItem setRightBarButtonItem:editarViagem];
     editarViagem.enabled =true;
-    editarViagem.tintColor = [UIColor blueColor];
+    editarViagem.tintColor = [UIColor whiteColor];
     
-    
+    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
 
 
 }
@@ -138,7 +138,7 @@
         
         [self.navigationItem setRightBarButtonItem:addButton];
         addButton.enabled =true;
-        addButton.tintColor = [UIColor blueColor];
+        addButton.tintColor = [UIColor whiteColor];
         
 
     }
@@ -298,7 +298,7 @@
         
         [self.navigationItem setRightBarButtonItem:editarViagem];
         editarViagem.enabled =true;
-        editarViagem.tintColor = [UIColor blueColor];
+        editarViagem.tintColor = [UIColor whiteColor];
 
     }
     else
@@ -396,6 +396,7 @@
         [_data.dados[@"viagem"][_viagemEscolhida][@"momento"] removeObjectAtIndex:indexPath.row];
         // Delete the row from the data source
         [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+        [self atualizartabela];
     }
 }
 
@@ -635,6 +636,7 @@
     [self armazenarDadosViagemnome:_myTextField.text];
     CGRect newFrame = _myView2.frame;
     newFrame.size.height = 20;
+    
 
 }
 
@@ -674,7 +676,7 @@
     
     [self.navigationItem setRightBarButtonItem:editarViagem];
     editarViagem.enabled =true;
-    editarViagem.tintColor = [UIColor blueColor];
+    editarViagem.tintColor = [UIColor whiteColor];
 
 
 }
@@ -703,7 +705,7 @@
     [self.navigationItem setRightBarButtonItem:salvarTexto];
     
     salvarTexto.enabled =true;
-    salvarTexto.tintColor = [UIColor blueColor];
+    salvarTexto.tintColor = [UIColor whiteColor];
     
     
 
@@ -727,7 +729,7 @@
     
     [self.navigationItem setRightBarButtonItem:editarViagem];
     editarViagem.enabled =true;
-    editarViagem.tintColor = [UIColor blueColor];
+    editarViagem.tintColor = [UIColor whiteColor];
 
 }
 

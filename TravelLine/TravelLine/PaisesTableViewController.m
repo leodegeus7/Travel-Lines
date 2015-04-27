@@ -13,6 +13,7 @@
 #import "AppDelegate.h"
 #import "AddLugarViewController.h"
 #import "TimeLineTableViewController.h"
+#import "CRGradientNavigationBar.h"
 
 
 @interface PaisesTableViewController (){
@@ -47,48 +48,49 @@
     UILongPressGestureRecognizer *longPressGesture = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(longPressRecognizer:)];
     [self.tableView addGestureRecognizer:longPressGesture];
     longPressGesture.minimumPressDuration = 1.0f;
+    
+//    UIColor *firstColor = [UIColor colorWithRed:255.0f/255.0f green:42.0f/255.0f blue:104.0f/255.0f alpha:1.0f];
+//    UIColor *secondColor = [UIColor colorWithRed:255.0f/255.0f green:90.0f/255.0f blue:58.0f/255.0f alpha:1.0f];
+//    
+//    NSArray *colors = [NSArray arrayWithObjects:(id)firstColor.CGColor, (id)secondColor.CGColor, nil];
+//    //NSArray *colors = [NSArray arrayWithObjects:(id)UIColorFromRGB(0xf16149).CGColor, (id)UIColorFromRGB(0xf14959).CGColor, nil];
+//    
+//    [[CRGradientNavigationBar appearance] setBarTintGradientColors:colors];
+//    [[self.navigationController navigationBar] setTranslucent:NO]; // Remember, the default value is YES.
 
-//    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:117.0/255.0 green:4.0/255.0 blue:32.0/255.0 alpha:1];
-//    self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:1];
-//    self.navigationController.toolbar.barTintColor = [UIColor colorWithRed:117.0/255.0 green:4.0/255.0 blue:32.0/255.0 alpha:1];
+//    
+//      UIColor *firstColor = [UIColor colorWithRed:0.0f/255.0f green:0.0f/255.0f blue:0.0f/255.0f alpha:1.0f];
+//      UIColor *secondColor = [UIColor colorWithRed:255.0f/255.0f green:90.0f/255.0f blue:58.0f/255.0f alpha:1.0f];
+//      CAGradientLayer *gradient = [CAGradientLayer layer];
+//      gradient.frame = self.navigationController.navigationBar.bounds;
+//      gradient.colors = [NSArray arrayWithObjects:(id)[firstColor CGColor], (id)[secondColor CGColor], nil];
+//    
+//      [self.navigationController.navigationBar.layer insertSublayer:gradient atIndex:0];    
+    
+    
+    
+    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:117.0/255.0 green:4.0/255.0 blue:32.0/255.0 alpha:1];
+    self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:1];
 
-    CAGradientLayer *gradient = [CAGradientLayer layer];
-    gradient.frame            = self.navigationController.navigationBar.bounds;
+    self.navigationController.toolbar.barTintColor = [UIColor colorWithRed:117.0/255.0 green:4.0/255.0 blue:32.0/255.0 alpha:1];
+
+    [self.navigationController.toolbar setBackgroundImage:[UIImage imageNamed:@"fundoGradienteBaixo.jpg"] forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsDefault];
+
+
+
+
     
-    UIColor *cor1 = [UIColor colorWithRed:223/255.0 green:70/255.0 blue:96/255.0 alpha:1];
-    UIColor *cor2 = [UIColor colorWithRed:234/255.0 green:98/255.0 blue:90/255.0 alpha:1];
-    gradient.colors           = [NSArray arrayWithObjects:(id)[[UIColor redColor] CGColor], (id)[[UIColor magentaColor] CGColor], nil];
-    [self.navigationController.navigationBar.layer insertSublayer:gradient atIndex:0];
+    
 
     
     
     
     
-//    UILongPressGestureRecognizer *longPressGesture = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(longPressRecognizer:)];
-//    [self.tableView addGestureRecognizer:longPressGesture];
-    
-    
-    
-    //Recuperando caminho para data.json
-//    NSString *path = [[NSBundle mainBundle] pathForResource:@"paises" ofType:@".json"];
-//    
-//    NSLog(@"%@",path);
-//    
-//    //Criando NSData e preenchendo com o conteúdo do arquivo data.json
-//    NSData *dataResponse = [[NSData alloc]initWithContentsOfFile:path];
-//    
-//    NSError *error;
-//    
-//    NSDictionary *jsonSerialized = [NSJSONSerialization JSONObjectWithData:dataResponse
-//                                                                   options:NSJSONReadingMutableContainers
-//                                                                     error:&error];
-//    
-//    _myData = jsonSerialized[@"viagem"];
-    
-    
-    
-    //myData = [[DataManager sharedManager]dict][@"viagem"];
+
 }
+
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

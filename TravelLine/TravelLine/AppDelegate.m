@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 #import "DataManager.h"
 #import "item.h"
-
+#import "CRGradientNavigationBar.h"
 
 @interface AppDelegate (){
     item* Item;
@@ -18,6 +18,8 @@
 @end
 
 @implementation AppDelegate
+
+
 
 DataManager *_data;
 
@@ -35,8 +37,9 @@ DataManager *_data;
     pathjson = [item acharoarqfile:@"paises.json"]; //achar o caminho do json nos documents
     _data.dados = [Item lerArqJson2:@"paises" caminho:pathjson]; //alimentar meu NSDictionary com o json dos documents
     NSLog(@"TESTE DE DATAMANAGER %@",_data.dados);
-    
-    
+    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"fundoGradiente.jpg"] forBarMetrics:UIBarMetricsDefault];
+
+
     
 //    NSDictionary *myDict;
 //    Item = [[item alloc] init];
