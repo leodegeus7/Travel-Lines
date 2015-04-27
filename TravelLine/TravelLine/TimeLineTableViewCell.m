@@ -28,7 +28,6 @@
     _textfieldMomento.numberOfLines = 0;
    
     //[_textfieldMomento sizeToFit];
-    NSLog(@"HEIGHT NA CELULA%f",_textfieldMomento.frame.size.height);
     
     [self.contentView layoutIfNeeded];
     self.textfieldMomento.preferredMaxLayoutWidth = CGRectGetWidth(self.textfieldMomento.frame);

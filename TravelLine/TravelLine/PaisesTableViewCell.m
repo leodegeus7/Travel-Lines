@@ -18,7 +18,6 @@
 @implementation PaisesTableViewCell
 
 - (void)awakeFromNib {
-    [[AddLugarViewController alloc]init];
     // Initialization code
 }
 

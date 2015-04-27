@@ -16,7 +16,8 @@
 
 
 @property (weak, nonatomic) IBOutlet UIView *myView2;
-- (IBAction)buttonOk:(id)sender;
+
+@property (weak, nonatomic) IBOutlet UINavigationItem *titleView;
 
 
 - (IBAction)addText2:(id)sender;

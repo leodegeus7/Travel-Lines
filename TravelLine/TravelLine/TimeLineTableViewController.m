@@ -13,6 +13,7 @@
 #import "Item.h"
 #import "AppDelegate.h"
 #import "ImageTableViewCell.h"
+#import "EditarViagemViewController.h"
 
 @interface TimeLineTableViewController ()
 
@@ -23,8 +24,16 @@
     item *Item;
     UIBarButtonItem *addButton;
     UIBarButtonItem *salvarTexto;
+
     TimeLineTableViewCell *celulaPrototipo;
+
+    UIBarButtonItem *editarViagem;
+    UIToolbar *toolBar;
+
+    NSIndexPath * indexPath;
+    
 }
+@property (nonatomic, retain) NSIndexPath * indexPath;
 
 @end
 
@@ -32,10 +41,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+ ;
     Item = [[item alloc]init];
     _data = [DataManager sharedManager]; //da um sharedmanager no ponteiro do DM
     [self atualizartabela];
+    self.title=[NSString stringWithFormat:@"%@",myData[1][_viagemEscolhida][@"nome"]];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -56,20 +66,29 @@
 //
 //    salvarTexto.enabled =false;
 //    salvarTexto.tintColor = [UIColor clearColor];
-    
-    
-    
-
     UILongPressGestureRecognizer *longPressGesture = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(longPressRecognizer:)];
     [self.tableView addGestureRecognizer:longPressGesture];
     longPressGesture.minimumPressDuration = 1.0f;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
+
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(didChangePreferredContentSize:)
                                                  name:UIContentSizeCategoryDidChangeNotification object:nil];
     
 
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+//    editarViagem = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(SalvarTexto:)];
+//    editarViagem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(editarViagem:)];
+//    UIBarButtonItem *settingsButton = [[UIBarButtonItem alloc] initWithTitle:@"\u2699" style:UIBarButtonItemStylePlain target:self action:@selector(showSettings)];
+    editarViagem = [[UIBarButtonItem alloc] initWithTitle:@"\u2699" style:UIBarButtonItemStyleDone target:self action:@selector(editarViagem:)];
+
+
+    [self.navigationItem setRightBarButtonItem:editarViagem];
+    editarViagem.enabled =true;
+    editarViagem.tintColor = [UIColor blueColor];
+    
+    
 
 
 }
@@ -93,6 +112,7 @@
     }
     return _celulaPrototipo;
 }
+
 
 -(void)longPressRecognizer:(UISwipeGestureRecognizer *)gestureRecognizer{
     if (gestureRecognizer.state != UIGestureRecognizerStateEnded) {
@@ -118,7 +138,8 @@
         
         [self.navigationItem setRightBarButtonItem:addButton];
         addButton.enabled =true;
-        addButton.tintColor = [UIColor blackColor];
+        addButton.tintColor = [UIColor blueColor];
+        
 
     }
 }
@@ -126,6 +147,57 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+
+-(void)viewWillAppear:(BOOL)animated{
+    [self atualizartabela];
+    _data.temFoto=false;
+    self.tableView.estimatedRowHeight = 30.0; // for example. Set your average height
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    
+//    NSString *testeDoTipo = [NSString stringWithFormat:@"%@",[[myData[0][_viagemEscolhida][@"momento"] objectAtIndex:indexPath.row] objectForKey: @"tipo"]];
+//    if ([testeDoTipo isEqualToString:@"imagem"])
+//    {
+//        self.tableView.rowHeight =
+//    }
+    
+    
+    [self.tableView layoutIfNeeded];
+    [self.tableView autoresizingMask];
+    [self.tableView reloadData];
+    
+    [self.navigationController setToolbarHidden:NO animated:YES];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [self.navigationController setToolbarHidden:YES animated:YES];
+}
+- (IBAction)camera:(id)sender {
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    picker.delegate = self;
+    picker.allowsEditing = YES;
+    picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    [self presentViewController:picker animated:YES completion:NULL];
+    
+}
+
+
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    UIImage *selectedImage = info[UIImagePickerControllerEditedImage];
+    //    self..image = selectedImage;
+    UIImageWriteToSavedPhotosAlbum(selectedImage, nil, nil, nil);
+    //    [self saveImage:selectedImage :@"oi"];
+    NSString *path;
+    path = [self saveImage:selectedImage];
+    NSString *nomeFoto = [self retornarCaminhoDaFotoAtual];
+    
+    [picker dismissViewControllerAnimated:YES completion:NULL];
+    [self armazenarDadosMomentoImage:nomeFoto];
+    
 }
 
 #pragma mark - Table view data source
@@ -158,6 +230,9 @@
     if ([testeDoTipo isEqualToString:@"texto"]) {
         TimeLineTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellMomento" forIndexPath:indexPath];
         cell.textfieldMomento.text=[NSString stringWithFormat:@"%@",[[myData[1][_viagemEscolhida][@"momento"] objectAtIndex:indexPath.row] objectForKey: @"descricao"]];
+        TimeLineTableViewController * vc = [TimeLineTableViewController alloc];
+        [vc setIndexPath:_indexPath];
+        
        
         
         return cell;
@@ -180,6 +255,17 @@
    // NSLog(@"DESCRICAO = %@",myData[1][_viagemEscolhida][@"momento"][0][@"descricao"]);
     return nil;
 }
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    EditarViagemViewController *dvc = segue.destinationViewController;
+    dvc.viagemEscolhidaEditar = _viagemEscolhida;
+    if ([segue.identifier isEqualToString:@"editarViagem"]) {
+//        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        EditarViagemViewController *destViewController = segue.destinationViewController;
+        destViewController.viagemEscolhidaEditar = _viagemEscolhida;
+        
+    }
+}
 - (IBAction) EditTable:(id)sender{
     if(self.editing)
     {
@@ -193,6 +279,11 @@
         [self.navigationItem setRightBarButtonItem:addButton];
         addButton.enabled =false;
         addButton.tintColor = [UIColor clearColor];
+        editarViagem = [[UIBarButtonItem alloc] initWithTitle:@"\u2699" style:UIBarButtonItemStyleDone target:self action:@selector(editarViagem:)];
+        
+        [self.navigationItem setRightBarButtonItem:editarViagem];
+        editarViagem.enabled =true;
+        editarViagem.tintColor = [UIColor blueColor];
 
     }
     else
@@ -205,15 +296,20 @@
     }
 }
 
-- (IBAction)addImage:(id)sender {
-    NSLog(@"oioioioioi");
+-(IBAction)editarViagem:(id)sender{
+    
+    [self performSegueWithIdentifier:@"editarViagem" sender:self];
+
+}
+
+- (IBAction)tirarFoto:(id)sender {
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
     picker.delegate = self;
     picker.allowsEditing = YES;
-    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    picker.sourceType = UIImagePickerControllerSourceTypeCamera;
     [self presentViewController:picker animated:YES completion:NULL];
-    
 }
+
 
 //- (IBAction)selectCamera:(id)sender {
 //    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
@@ -223,19 +319,7 @@
 //    [self presentViewController:picker animated:YES completion:NULL];
 //}
 
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-    UIImage *selectedImage = info[UIImagePickerControllerEditedImage];
-//    self..image = selectedImage;
-    UIImageWriteToSavedPhotosAlbum(selectedImage, nil, nil, nil);
-    //    [self saveImage:selectedImage :@"oi"];
-    NSString *path;
-    path = [self saveImage:selectedImage];
-    NSString *nomeFoto = [self retornarCaminhoDaFotoAtual];
-    
-    [picker dismissViewControllerAnimated:YES completion:NULL];
-    [self armazenarDadosMomentoImage:nomeFoto];
-    
-}
+
 
 - (UIImage*)loadImage:(NSString *)caminho;
 {
@@ -486,35 +570,29 @@
     [self atualizartabela];
     
     }
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    self.tableView.estimatedRowHeight = 70.0; // for example. Set your average height
-    self.tableView.rowHeight = UITableViewAutomaticDimension;
-    [self.tableView layoutIfNeeded];
-    [self.tableView autoresizingMask];
-    [self.tableView reloadData];
-}
--(void)viewDidAppear:(BOOL)animated
-{
-    [self.tableView layoutIfNeeded];
-    [self.tableView autoresizingMask];
-    [self.tableView reloadData];
-}
 
-
-//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+//-(void)viewDidAppear:(BOOL)animated
 //{
-//    
-//    int  height = (int) _celulaPrototipo.textfieldMomento.frame.size.height;
-//    _celulaPrototipo.bounds = CGRectMake(0.0f, 0.0f, CGRectGetWidth(tableView.bounds), height);
-//    
-//    [_celulaPrototipo layoutIfNeeded];
-//    
-//    CGSize size = [_celulaPrototipo.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
-//    NSLog(@"HEIGHT%f",_celulaPrototipo.contentView.frame.size.height);
-//    NSLog(@"height = %f",size.height);
-//    return size.height+100;
+//    self.tableView.estimatedRowHeight = 70.0; // for example. Set your average height
+//    self.tableView.rowHeight = UITableViewAutomaticDimension;
+//    [self.tableView layoutIfNeeded];
+//    [self.tableView autoresizingMask];
+//    [self.tableView reloadData];
 //}
+
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSString *testeDoTipo = [NSString stringWithFormat:@"%@",[[myData[1][_viagemEscolhida][@"momento"] objectAtIndex:indexPath.row] objectForKey: @"tipo"]];
+    if ([testeDoTipo isEqualToString:@"imagem"]) {
+        int  height = (int) _celulaPrototipo.image.size.height;
+        _celulaPrototipo.bounds = CGRectMake(0.0f, 0.0f, CGRectGetWidth(tableView.bounds), height);
+        
+        [_celulaPrototipo layoutIfNeeded];
+        return _celulaPrototipo.image.size.height+1;
+    }
+    return 70;
+}
 
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -540,6 +618,7 @@
     [self armazenarDadosViagemnome:_myTextField.text];
     CGRect newFrame = _myView2.frame;
     newFrame.size.height = 20;
+
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
@@ -574,6 +653,11 @@
     _myTextField.text = nil;
     self.navigationItem.rightBarButtonItem.tintColor = [UIColor clearColor];
     self.navigationItem.rightBarButtonItem.enabled = NO;
+    editarViagem = [[UIBarButtonItem alloc] initWithTitle:@"\u2699" style:UIBarButtonItemStyleDone target:self action:@selector(editarViagem:)];
+    
+    [self.navigationItem setRightBarButtonItem:editarViagem];
+    editarViagem.enabled =true;
+    editarViagem.tintColor = [UIColor blueColor];
 
 
 }
@@ -602,7 +686,8 @@
     [self.navigationItem setRightBarButtonItem:salvarTexto];
     
     salvarTexto.enabled =true;
-    salvarTexto.tintColor = [UIColor blackColor];
+    salvarTexto.tintColor = [UIColor blueColor];
+    
     
 
 }
@@ -621,6 +706,11 @@
     self.navigationItem.rightBarButtonItem.tintColor = [UIColor clearColor];
     self.navigationItem.rightBarButtonItem.enabled = NO;
     self.navigationItem.leftBarButtonItem.tintColor = [UIColor clearColor];
+    editarViagem = [[UIBarButtonItem alloc] initWithTitle:@"\u2699" style:UIBarButtonItemStyleDone target:self action:@selector(editarViagem:)];
+    
+    [self.navigationItem setRightBarButtonItem:editarViagem];
+    editarViagem.enabled =true;
+    editarViagem.tintColor = [UIColor blueColor];
 
 }
 
