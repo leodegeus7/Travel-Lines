@@ -47,6 +47,19 @@
     UILongPressGestureRecognizer *longPressGesture = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(longPressRecognizer:)];
     [self.tableView addGestureRecognizer:longPressGesture];
     longPressGesture.minimumPressDuration = 1.0f;
+
+//    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:117.0/255.0 green:4.0/255.0 blue:32.0/255.0 alpha:1];
+//    self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:1];
+//    self.navigationController.toolbar.barTintColor = [UIColor colorWithRed:117.0/255.0 green:4.0/255.0 blue:32.0/255.0 alpha:1];
+
+    CAGradientLayer *gradient = [CAGradientLayer layer];
+    gradient.frame            = self.navigationController.navigationBar.bounds;
+    
+    UIColor *cor1 = [UIColor colorWithRed:223/255.0 green:70/255.0 blue:96/255.0 alpha:1];
+    UIColor *cor2 = [UIColor colorWithRed:234/255.0 green:98/255.0 blue:90/255.0 alpha:1];
+    gradient.colors           = [NSArray arrayWithObjects:(id)[[UIColor redColor] CGColor], (id)[[UIColor magentaColor] CGColor], nil];
+    [self.navigationController.navigationBar.layer insertSublayer:gradient atIndex:0];
+
     
     
     
@@ -248,6 +261,7 @@
     _data.temFoto=false;
 
     [self.navigationController setToolbarHidden:NO animated:YES];
+    
 }
 
 - (void)viewWillDisappear:(BOOL)animated

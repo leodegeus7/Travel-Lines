@@ -213,7 +213,8 @@
     NSMutableDictionary *viagem = [[NSMutableDictionary alloc]initWithDictionary:JAry[_viagemEscolhidaEditar]];
     
     NSString *caminhoFoto = [self retornarCaminhoDaFotoAtual];
-    [viagem setObject:nome forKey:@"nome"];
+    NSString *upperCase = [nome uppercaseString];
+    [viagem setObject:upperCase forKey:@"nome"];
     [viagem setObject:caminhoFoto forKey:@"capa"];
     [viagem setObject:ano forKey:@"ano"];
     

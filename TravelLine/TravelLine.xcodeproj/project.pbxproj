@@ -28,6 +28,7 @@
 		CD623DFB1AEC0AA100A03604 /* icon_family_2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD623DFA1AEC0AA100A03604 /* icon_family_2x.png */; };
 		CD623DFE1AEC12F200A03604 /* CreditosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD623DFD1AEC12F200A03604 /* CreditosViewController.m */; };
 		CD623E001AEC168C00A03604 /* bepid.png in Resources */ = {isa = PBXBuildFile; fileRef = CD623DFF1AEC168C00A03604 /* bepid.png */; };
+		CDB7F3861AEE6BF40033A541 /* camera.png in Resources */ = {isa = PBXBuildFile; fileRef = CDB7F3851AEE6BF40033A541 /* camera.png */; };
 		CDBDF26F1AE1725D004F83A1 /* PaisesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDBDF26E1AE1725D004F83A1 /* PaisesTableViewController.m */; };
 		CDBDF2751AE1734D004F83A1 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CDBDF2741AE1734D004F83A1 /* DataManager.m */; };
 		CDBDF2781AE175D7004F83A1 /* PaisesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CDBDF2771AE175D7004F83A1 /* PaisesTableViewCell.m */; };
@@ -82,6 +83,7 @@
 		CD623DFC1AEC12F200A03604 /* CreditosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreditosViewController.h; sourceTree = "<group>"; };
 		CD623DFD1AEC12F200A03604 /* CreditosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreditosViewController.m; sourceTree = "<group>"; };
 		CD623DFF1AEC168C00A03604 /* bepid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bepid.png; sourceTree = "<group>"; };
+		CDB7F3851AEE6BF40033A541 /* camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camera.png; sourceTree = "<group>"; };
 		CDBDF26D1AE1725D004F83A1 /* PaisesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaisesTableViewController.h; sourceTree = "<group>"; };
 		CDBDF26E1AE1725D004F83A1 /* PaisesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaisesTableViewController.m; sourceTree = "<group>"; };
 		CDBDF2731AE1734D004F83A1 /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
@@ -228,6 +230,7 @@
 				CD623DF81AEC0A5C00A03604 /* info.png */,
 				A74242611AEAD6820019150B /* 1.jpg */,
 				CD623DFF1AEC168C00A03604 /* bepid.png */,
+				CDB7F3851AEE6BF40033A541 /* camera.png */,
 				CD623DFA1AEC0AA100A03604 /* icon_family_2x.png */,
 				CDBDF2821AE180ED004F83A1 /* paises.json */,
 			);
@@ -318,6 +321,7 @@
 				CD623DFB1AEC0AA100A03604 /* icon_family_2x.png in Resources */,
 				CDBDF2831AE180ED004F83A1 /* paises.json in Resources */,
 				CD623DF91AEC0A5C00A03604 /* info.png in Resources */,
+				CDB7F3861AEE6BF40033A541 /* camera.png in Resources */,
 				CD160EFE1AE03A4000575E06 /* Main.storyboard in Resources */,
 				CD160F031AE03A4000575E06 /* LaunchScreen.xib in Resources */,
 				CD160F001AE03A4000575E06 /* Images.xcassets in Resources */,

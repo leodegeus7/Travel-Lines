@@ -33,6 +33,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     Item = [[item alloc]init];
+    _anoEscohido = @"2015";
     _paises = [[PaisesTableViewController alloc]init];
     _data = [DataManager sharedManager];
     [_textfieldPais setDelegate:self];
@@ -118,20 +119,31 @@
     [self presentViewController:picker animated:YES completion:NULL];
 }
 
+static UIImage *my_croppedImage(UIImage *image, CGRect cropRect)
+{
+    UIGraphicsBeginImageContext(cropRect.size);
+    [image drawAtPoint:CGPointMake(-cropRect.origin.x, -cropRect.origin.y)];
+    UIImage *cropped = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return cropped;
+}
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-    UIImage *selectedImage = info[UIImagePickerControllerEditedImage];
-    self.imagePais.image = selectedImage;
+//    UIImage *selectedImage = info[UIImagePickerControllerEditedImage];
+    UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
+    CGRect cropRect = [info[UIImagePickerControllerCropRect] CGRectValue];
+    UIImage *croppedImage = my_croppedImage(originalImage, cropRect);
+    self.imagePais.image = croppedImage;
     
     if (picker.sourceType == UIImagePickerControllerSourceTypeCamera) {
         
-        UIImageWriteToSavedPhotosAlbum(selectedImage, nil, nil, nil);
+        UIImageWriteToSavedPhotosAlbum(croppedImage, nil, nil, nil);
         
     }
     
     //    [self saveImage:selectedImage :@"oi"];
     NSString *path;
-    path = [self saveImage:selectedImage];
+    path = [self saveImage:croppedImage];
     NSLog(@"%@",path);
     [picker dismissViewControllerAnimated:YES completion:NULL];
     
@@ -195,7 +207,8 @@
     NSMutableArray *JAry=[[NSMutableArray alloc] initWithArray:[jsonDic objectForKey:@"viagem"]];//salvo o array a ser manipulado
     NSMutableDictionary *lugar =[[NSMutableDictionary alloc]init];//Dicionario com lugar
     NSString *caminhoFoto = [self retornarCaminhoDaFotoAtual];
-    [lugar setObject:nome forKey:@"nome"];
+    NSString *upperCase = [nome uppercaseString];
+    [lugar setObject:upperCase forKey:@"nome"];
     [lugar setObject:caminhoFoto forKey:@"capa"];
     [lugar setObject:array forKey:@"momento"];
     [lugar setObject:ano forKey:@"ano"];
