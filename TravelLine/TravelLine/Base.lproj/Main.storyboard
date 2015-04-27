@@ -160,7 +160,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JB6-bk-PKA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="501" y="241"/>
+            <point key="canvasLocation" x="501" y="254"/>
         </scene>
         <!--Add Lugar View Controller-->
         <scene sceneID="ZfR-sn-4Zn">
@@ -306,22 +306,37 @@
                                     <outlet property="textfieldMomento" destination="14W-5U-eZ5" id="PqZ-qZ-Ytt"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="imageMomento" id="7H8-vG-6TD" customClass="ImageTableViewCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="imageMomento" rowHeight="225" id="7H8-vG-6TD" customClass="ImageTableViewCell">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7H8-vG-6TD" id="BTN-cp-BkT">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Wa8-fq-x2Z">
-                                            <rect key="frame" x="8" y="8" width="584" height="136"/>
+                                            <rect key="frame" x="8" y="28" width="584" height="179"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="179" id="KQB-e3-tpQ"/>
+                                                <constraint firstAttribute="width" constant="584" id="sCr-88-Ib4"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="sCr-88-Ib4"/>
+                                                </mask>
+                                            </variation>
                                         </imageView>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="Wa8-fq-x2Z" firstAttribute="leading" secondItem="BTN-cp-BkT" secondAttribute="leadingMargin" id="HJM-DC-Bw4"/>
-                                        <constraint firstItem="Wa8-fq-x2Z" firstAttribute="top" secondItem="BTN-cp-BkT" secondAttribute="topMargin" id="e82-XZ-WNG"/>
+                                        <constraint firstItem="Wa8-fq-x2Z" firstAttribute="top" secondItem="BTN-cp-BkT" secondAttribute="topMargin" constant="20" id="e82-XZ-WNG"/>
+                                        <constraint firstItem="Wa8-fq-x2Z" firstAttribute="leading" secondItem="BTN-cp-BkT" secondAttribute="leadingMargin" id="eBg-lu-Zni"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="Wa8-fq-x2Z" secondAttribute="bottom" id="teY-1F-f1n"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="Wa8-fq-x2Z" secondAttribute="trailing" id="ziI-6C-vcl"/>
                                     </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="teY-1F-f1n"/>
+                                        </mask>
+                                    </variation>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="imageMomento" destination="Wa8-fq-x2Z" id="a8B-zA-sdC"/>
@@ -435,7 +450,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YBH-Zr-ETk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1487" y="1017"/>
+            <point key="canvasLocation" x="1336" y="910"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ssx-B2-T34">
@@ -492,7 +507,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OMy-cK-nSw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="817" y="1017"/>
+            <point key="canvasLocation" x="-283" y="910"/>
         </scene>
     </scenes>
     <resources>

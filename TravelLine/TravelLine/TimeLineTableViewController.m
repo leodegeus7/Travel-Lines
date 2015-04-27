@@ -147,9 +147,8 @@
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
     picker.delegate = self;
     picker.allowsEditing = YES;
-    picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     [self presentViewController:picker animated:YES completion:NULL];
-
 }
 
 
@@ -245,6 +244,7 @@
         cell.textfieldMomento.text=[NSString stringWithFormat:@"%@",[[myData[1][_viagemEscolhida][@"momento"] objectAtIndex:indexPath.row] objectForKey: @"descricao"]];
         TimeLineTableViewController * vc = [TimeLineTableViewController alloc];
         [vc setIndexPath:_indexPath];
+        self.tableView.rowHeight = UITableViewAutomaticDimension;
         
        
         
@@ -256,6 +256,8 @@
         NSString *nomeArquivo = [NSString stringWithFormat:@"%@",[[myData[1][_viagemEscolhida][@"momento"] objectAtIndex:indexPath.row] objectForKey: @"imagem"]];
         NSString *caminho = [item acharoarqfile:nomeArquivo];
         imageCell.imageMomento.image = [self loadImage:caminho];
+    
+        self.tableView.rowHeight = 199;
         
         return imageCell;
     }
@@ -607,10 +609,12 @@
 //    return 70;
 //}
 
-- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return UITableViewAutomaticDimension;
-}
+//- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    NSString *testeDoTipo = [NSString stringWithFormat:@"%@",[[myData[1][_viagemEscolhida][@"momento"] objectAtIndex:indexPath.row] objectForKey: @"tipo"]];
+//
+//    return UITableViewAutomaticDimension;
+//}
 
 
 -(void)mudarTabela{
