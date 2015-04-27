@@ -581,18 +581,18 @@
 //}
 
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    NSString *testeDoTipo = [NSString stringWithFormat:@"%@",[[myData[1][_viagemEscolhida][@"momento"] objectAtIndex:indexPath.row] objectForKey: @"tipo"]];
-    if ([testeDoTipo isEqualToString:@"imagem"]) {
-        int  height = (int) _celulaPrototipo.image.size.height;
-        _celulaPrototipo.bounds = CGRectMake(0.0f, 0.0f, CGRectGetWidth(tableView.bounds), height);
-        
-        [_celulaPrototipo layoutIfNeeded];
-        return _celulaPrototipo.image.size.height+1;
-    }
-    return 70;
-}
+//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    NSString *testeDoTipo = [NSString stringWithFormat:@"%@",[[myData[1][_viagemEscolhida][@"momento"] objectAtIndex:indexPath.row] objectForKey: @"tipo"]];
+//    if ([testeDoTipo isEqualToString:@"imagem"]) {
+//        int  height = (int) _celulaPrototipo.image.size.height;
+//        _celulaPrototipo.bounds = CGRectMake(0.0f, 0.0f, CGRectGetWidth(tableView.bounds), height);
+//        
+//        [_celulaPrototipo layoutIfNeeded];
+//        return _celulaPrototipo.image.size.height+1;
+//    }
+//    return 70;
+//}
 
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
