@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "TimeLineTableViewCell.h"
 
-@interface TimeLineTableViewController : UITableViewController <UITextFieldDelegate>
+@interface TimeLineTableViewController : UITableViewController <UITextFieldDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 @property (nonatomic, strong) TimeLineTableViewCell *celulaPrototipo;
 
 

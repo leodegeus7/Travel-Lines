@@ -161,7 +161,6 @@
     NSString *caminhoFoto = [self retornarCaminhoDaFotoAtual];
     [viagem setObject:nome forKey:@"nome"];
     [viagem setObject:caminhoFoto forKey:@"capa"];
-    [viagem setObject:array forKey:@"momento"];
     [viagem setObject:ano forKey:@"ano"];
     
     
