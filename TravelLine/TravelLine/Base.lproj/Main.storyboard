@@ -217,7 +217,7 @@
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="Ie8-CB-ofd"/>
                     </toolbarItems>
                     <navigationItem key="navigationItem" id="Gl4-dv-jNS">
-                        <barButtonItem key="leftBarButtonItem" systemItem="add" id="vk1-Gx-wFZ">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="vk1-Gx-wFZ">
                             <connections>
                                 <segue destination="Tyv-6w-cMQ" kind="show" identifier="addLugar" id="l6Y-qJ-arL"/>
                             </connections>
@@ -226,6 +226,7 @@
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="itemBottom" destination="evQ-48-mAP" id="zTE-n6-7aH"/>
                         <segue destination="iqY-EN-LH1" kind="show" identifier="oi" id="fer-P5-sSM"/>
                         <segue destination="auu-XR-m8T" kind="show" identifier="info" id="jga-HC-1ha"/>
                     </connections>
@@ -261,7 +262,7 @@
                                     <constraint firstAttribute="height" constant="189" id="j9f-iP-9yi"/>
                                 </constraints>
                                 <string key="text">Desenvolvedores:
-Felipe Lukavei Ferreira Leonardo Alexandre de Geus Leonardo Koppe Malaski  Designer: Alessandra Luis</string>
+Felipe Lukavei Ferreira Leonardo Alexandre de Geus Leonardo Koppe Malanski  Designer: Alessandra Luis</string>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -288,7 +289,7 @@ Felipe Lukavei Ferreira Leonardo Alexandre de Geus Leonardo Koppe Malaski 
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.92156862745098034" green="0.92156862745098034" blue="0.94509803921568625" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="sectionIndexBackgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
-                        <view key="tableHeaderView" clipsSubviews="YES" contentMode="scaleToFill" id="oqD-Oe-4Na">
+                        <view key="tableHeaderView" clipsSubviews="YES" alpha="0.94999999999999996" contentMode="scaleToFill" id="oqD-Oe-4Na">
                             <rect key="frame" x="0.0" y="64" width="600" height="42"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
@@ -397,13 +398,13 @@ Felipe Lukavei Ferreira Leonardo Alexandre de Geus Leonardo Koppe Malaski 
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="749" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="14W-5U-eZ5">
-                                            <rect key="frame" x="78" y="8" width="514" height="135"/>
+                                            <rect key="frame" x="58" y="8" width="534" height="135"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="right-arrow.png" translatesAutoresizingMaskIntoConstraints="NO" id="I4M-Yj-5Vd">
-                                            <rect key="frame" x="40" y="72" width="14" height="7"/>
+                                            <rect key="frame" x="14" y="72" width="14" height="7"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="14" id="Eva-Mf-pPC"/>
                                                 <constraint firstAttribute="height" constant="7" id="NyZ-bp-Rk8"/>
@@ -414,12 +415,13 @@ Felipe Lukavei Ferreira Leonardo Alexandre de Geus Leonardo Koppe Malaski 
                                     <constraints>
                                         <constraint firstAttribute="bottomMargin" secondItem="14W-5U-eZ5" secondAttribute="bottom" constant="1" id="6x1-zY-pSC"/>
                                         <constraint firstItem="14W-5U-eZ5" firstAttribute="top" secondItem="Yiu-u5-tzc" secondAttribute="topMargin" id="KQC-Ef-7Wb"/>
-                                        <constraint firstItem="14W-5U-eZ5" firstAttribute="leading" secondItem="Yiu-u5-tzc" secondAttribute="leadingMargin" constant="70" id="O6Q-0j-ILh"/>
-                                        <constraint firstItem="14W-5U-eZ5" firstAttribute="leading" secondItem="I4M-Yj-5Vd" secondAttribute="trailing" constant="24" id="aVF-dB-nAY"/>
+                                        <constraint firstItem="14W-5U-eZ5" firstAttribute="leading" secondItem="Yiu-u5-tzc" secondAttribute="leadingMargin" constant="50" id="O6Q-0j-ILh"/>
+                                        <constraint firstItem="14W-5U-eZ5" firstAttribute="leading" secondItem="I4M-Yj-5Vd" secondAttribute="trailing" constant="30" id="aVF-dB-nAY"/>
                                         <constraint firstItem="I4M-Yj-5Vd" firstAttribute="centerY" secondItem="14W-5U-eZ5" secondAttribute="centerY" id="jAW-eq-Ocd"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="14W-5U-eZ5" secondAttribute="trailing" id="ntC-To-A5X"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.92156862750000001" green="0.92156862750000001" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="textfieldMomento" destination="14W-5U-eZ5" id="PqZ-qZ-Ytt"/>
                                 </connections>
@@ -437,13 +439,20 @@ Felipe Lukavei Ferreira Leonardo Alexandre de Geus Leonardo Koppe Malaski 
                                             </constraints>
                                         </imageView>
                                         <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="f1n-uV-ftD">
-                                            <rect key="frame" x="8" y="215" width="584" height="0.0"/>
+                                            <rect key="frame" x="8" y="216" width="584" height="0.0"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" id="vyW-QY-e6Q"/>
                                             </constraints>
                                         </imageView>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="right-arrow.png" translatesAutoresizingMaskIntoConstraints="NO" id="afH-hH-fvK">
+                                            <rect key="frame" x="14" y="109" width="14" height="7"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="14" id="0qe-Sp-R98"/>
+                                                <constraint firstAttribute="height" constant="7" id="GI2-Yc-cwZ"/>
+                                            </constraints>
+                                        </imageView>
                                         <imageView userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Wa8-fq-x2Z">
-                                            <rect key="frame" x="78" y="9" width="514" height="206"/>
+                                            <rect key="frame" x="58" y="9" width="534" height="207"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="179" id="KQB-e3-tpQ"/>
                                                 <constraint firstAttribute="width" constant="584" id="sCr-88-Ib4"/>
@@ -457,28 +466,22 @@ Felipe Lukavei Ferreira Leonardo Alexandre de Geus Leonardo Koppe Malaski 
                                                 </mask>
                                             </variation>
                                         </imageView>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="right-arrow.png" translatesAutoresizingMaskIntoConstraints="NO" id="afH-hH-fvK">
-                                            <rect key="frame" x="40" y="109" width="14" height="7"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="14" id="0qe-Sp-R98"/>
-                                                <constraint firstAttribute="height" constant="7" id="GI2-Yc-cwZ"/>
-                                            </constraints>
-                                        </imageView>
                                     </subviews>
                                     <color key="backgroundColor" red="0.92156862745098034" green="0.92156862745098034" blue="0.94509803921568625" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="trailingMargin" secondItem="GqU-bg-AOE" secondAttribute="trailing" id="4vR-DH-pDa"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="f1n-uV-ftD" secondAttribute="bottom" constant="1" id="7ie-TO-7PP"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="f1n-uV-ftD" secondAttribute="bottom" id="7ie-TO-7PP"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="Wa8-fq-x2Z" secondAttribute="trailing" id="9CC-4X-wKy"/>
                                         <constraint firstItem="GqU-bg-AOE" firstAttribute="top" secondItem="BTN-cp-BkT" secondAttribute="topMargin" id="C1I-Ew-e4t"/>
-                                        <constraint firstItem="Wa8-fq-x2Z" firstAttribute="leading" secondItem="afH-hH-fvK" secondAttribute="trailing" constant="24" id="Er6-6D-DXg"/>
+                                        <constraint firstItem="Wa8-fq-x2Z" firstAttribute="leading" secondItem="afH-hH-fvK" secondAttribute="trailing" constant="30" id="Er6-6D-DXg"/>
                                         <constraint firstItem="Wa8-fq-x2Z" firstAttribute="top" secondItem="GqU-bg-AOE" secondAttribute="bottom" id="GMD-7y-eeR"/>
                                         <constraint firstItem="Wa8-fq-x2Z" firstAttribute="leading" secondItem="BTN-cp-BkT" secondAttribute="leadingMargin" id="HJM-DC-Bw4"/>
                                         <constraint firstItem="f1n-uV-ftD" firstAttribute="leading" secondItem="BTN-cp-BkT" secondAttribute="leadingMargin" id="Msj-uK-W9b"/>
                                         <constraint firstItem="Wa8-fq-x2Z" firstAttribute="centerY" secondItem="afH-hH-fvK" secondAttribute="centerY" id="a9u-rp-oHS"/>
                                         <constraint firstItem="Wa8-fq-x2Z" firstAttribute="top" secondItem="BTN-cp-BkT" secondAttribute="topMargin" constant="20" id="e82-XZ-WNG"/>
-                                        <constraint firstItem="Wa8-fq-x2Z" firstAttribute="leading" secondItem="BTN-cp-BkT" secondAttribute="leadingMargin" constant="70" id="eBg-lu-Zni"/>
+                                        <constraint firstItem="Wa8-fq-x2Z" firstAttribute="leading" secondItem="BTN-cp-BkT" secondAttribute="leadingMargin" constant="50" id="eBg-lu-Zni"/>
                                         <constraint firstItem="f1n-uV-ftD" firstAttribute="top" secondItem="Wa8-fq-x2Z" secondAttribute="bottom" id="gpY-Eb-9fc"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="afH-hH-fvK" secondAttribute="trailing" constant="526" id="hZe-y1-0tx"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="Wa8-fq-x2Z" secondAttribute="bottom" id="teY-1F-f1n"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="f1n-uV-ftD" secondAttribute="trailing" id="tpf-SQ-VZc"/>
                                         <constraint firstItem="GqU-bg-AOE" firstAttribute="leading" secondItem="BTN-cp-BkT" secondAttribute="leadingMargin" id="vxe-gg-t7X"/>
@@ -490,9 +493,11 @@ Felipe Lukavei Ferreira Leonardo Alexandre de Geus Leonardo Koppe Malaski 
                                             <exclude reference="e82-XZ-WNG"/>
                                             <exclude reference="teY-1F-f1n"/>
                                             <exclude reference="ziI-6C-vcl"/>
+                                            <exclude reference="hZe-y1-0tx"/>
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.92156862750000001" green="0.92156862750000001" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="imageMomento" destination="Wa8-fq-x2Z" id="a8B-zA-sdC"/>
                                 </connections>
@@ -657,7 +662,7 @@ Felipe Lukavei Ferreira Leonardo Alexandre de Geus Leonardo Koppe Malaski 
             </objects>
             <point key="canvasLocation" x="-283" y="228"/>
         </scene>
-        <!--Add Foto Table View Controller-->
+        <!--Adicionar Foto-->
         <scene sceneID="WZy-MN-ilj">
             <objects>
                 <tableViewController id="RqP-FA-xhf" customClass="AddFotoTableViewController" sceneMemberID="viewController">
@@ -687,10 +692,17 @@ Felipe Lukavei Ferreira Leonardo Alexandre de Geus Leonardo Koppe Malaski 
                             <outlet property="delegate" destination="RqP-FA-xhf" id="Jm2-5g-0V5"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Adicionar Foto" id="BLl-l5-nfh">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="1Ff-55-0wa">
+                            <connections>
+                                <segue destination="Tyv-6w-cMQ" kind="show" id="pNx-SA-RUv"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OMy-cK-nSw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-283" y="910"/>
+            <point key="canvasLocation" x="-283" y="918"/>
         </scene>
     </scenes>
     <resources>
@@ -702,4 +714,7 @@ Felipe Lukavei Ferreira Leonardo Alexandre de Geus Leonardo Koppe Malaski 
         <image name="right-arrow.png" width="378" height="597"/>
         <image name="tirarfoto.png" width="690" height="200"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="l6Y-qJ-arL"/>
+    </inferredMetricsTieBreakers>
 </document>

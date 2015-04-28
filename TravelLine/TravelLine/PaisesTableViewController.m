@@ -42,7 +42,7 @@
     _data = [DataManager sharedManager]; //da um sharedmanager no ponteiro do DM
     [self atualizartabela];
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeInfoDark];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:btn];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:btn];
     [btn addTarget:self action:@selector(showInfoScreen) forControlEvents:UIControlEventTouchUpInside];
 
     UILongPressGestureRecognizer *longPressGesture = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(longPressRecognizer:)];
@@ -51,6 +51,16 @@
     UIImage *toolbar = [UIImage imageNamed:@"novaToolbar.png"];
     UIImage *toolbarMexida = [self imageWithImage:toolbar scaledToSize:CGSizeMake(200, 130)];
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:toolbarMexida];
+    
+    UIImage *itemCamera = [UIImage imageNamed:@"Camera Roll.png"];
+    UIImage *itemMexido = [self imageWithImage:itemCamera scaledToSize:CGSizeMake(35, 35)];
+    UIButton *botaoCamera;
+    [botaoCamera setBackgroundImage:itemMexido forState:UIControlStateSelected];
+    [botaoCamera setBackgroundImage:itemMexido forState:UIControlStateHighlighted];
+    
+//    UIImageView *tempImg = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 460)];
+//    [tempImg setImage:[UIImage imageNamed:@"IMG_0071.JPG"]];
+//    [self.tableView setBackgroundView:tempImg];
 
     
 //    UIColor *firstColor = [UIColor colorWithRed:255.0f/255.0f green:42.0f/255.0f blue:104.0f/255.0f alpha:1.0f];
@@ -58,7 +68,7 @@
 //    
 //    NSArray *colors = [NSArray arrayWithObjects:(id)firstColor.CGColor, (id)secondColor.CGColor, nil];
 //    //NSArray *colors = [NSArray arrayWithObjects:(id)UIColorFromRGB(0xf16149).CGColor, (id)UIColorFromRGB(0xf14959).CGColor, nil];
-//    
+//
 //    [[CRGradientNavigationBar appearance] setBarTintGradientColors:colors];
 //    [[self.navigationController navigationBar] setTranslucent:NO]; // Remember, the default value is YES.
 
@@ -79,7 +89,7 @@
     self.navigationController.toolbar.barTintColor = [UIColor colorWithRed:117.0/255.0 green:4.0/255.0 blue:32.0/255.0 alpha:1];
 
     [self.navigationController.toolbar setBackgroundImage:[UIImage imageNamed:@"fundoGradienteBaixo.jpg"] forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsDefault];
-    
+    self.navigationController.toolbar.alpha= 0 ;
 
 
 
@@ -92,6 +102,8 @@
     
 
 }
+
+
 
 - (UIImage *)imageWithImage:(UIImage *)image scaledToSize:(CGSize)newSize {
     //UIGraphicsBeginImageContext(newSize);
@@ -138,6 +150,10 @@
         
         
     }
+}
+
+-(UIStatusBarStyle)preferredStatusBarStyle{
+    return UIStatusBarStyleLightContent;
 }
 
 - (IBAction) EditTable:(id)sender{

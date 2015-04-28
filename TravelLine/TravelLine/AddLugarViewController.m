@@ -55,6 +55,7 @@
     for (int i1=i2; i1<=i2 & i1>=1920; i1--) {
         [_pickerDataAnos addObject:[NSString stringWithFormat:@"%d",i1]];
     }
+    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
     
     NSLog(@"%@",_pickerDataAnos);
     

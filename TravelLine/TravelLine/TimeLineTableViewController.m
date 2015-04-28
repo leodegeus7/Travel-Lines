@@ -57,6 +57,7 @@
     newFrame.size.height = 40;
     CGRect textfield = _myTextField.frame;
     textfield.size.height = 30;
+    //_myTextField.alpha =0;
     
 //    self.navigationItem.rightBarButtonItem.tintColor = [UIColor clearColor];
 //    self.navigationItem.rightBarButtonItem.enabled = false;
@@ -660,24 +661,36 @@
 
 
 -(IBAction)SalvarTexto:(id)sender{
-    CGRect newFrame = _myView2.frame;
-    newFrame.size.height = 38;
-    
-    [UIView animateWithDuration:0.5
-                     animations:^{
-                         _myView2.frame = newFrame;
-                     }];
-    [self armazenarDadosViagemnome:_myTextField.text];
-    [_myTextField resignFirstResponder];
-    _myTextField.text = nil;
-    self.navigationItem.rightBarButtonItem.tintColor = [UIColor clearColor];
-    self.navigationItem.rightBarButtonItem.enabled = NO;
-    editarViagem = [[UIBarButtonItem alloc] initWithTitle:@"\u2699" style:UIBarButtonItemStyleDone target:self action:@selector(editarViagem:)];
-    
-    [self.navigationItem setRightBarButtonItem:editarViagem];
-    editarViagem.enabled =true;
-    editarViagem.tintColor = [UIColor whiteColor];
+    if (!(_myTextField.text.length == 0)) {
+        CGRect newFrame = _myView2.frame;
+        newFrame.size.height = 38;
+        
+        [UIView animateWithDuration:0.5
+                         animations:^{
+                             _myView2.frame = newFrame;
+                         }];
+        [self armazenarDadosViagemnome:_myTextField.text];
+        [_myTextField resignFirstResponder];
+        _myTextField.text = nil;
+        self.navigationItem.rightBarButtonItem.tintColor = [UIColor clearColor];
+        self.navigationItem.rightBarButtonItem.enabled = NO;
+        editarViagem = [[UIBarButtonItem alloc] initWithTitle:@"\u2699" style:UIBarButtonItemStyleDone target:self action:@selector(editarViagem:)];
+        
+        [self.navigationItem setRightBarButtonItem:editarViagem];
+        editarViagem.enabled =true;
+        editarViagem.tintColor = [UIColor whiteColor];
+    }
+    else{
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Atenção"
+                                                        message:@"Insira um texto para adicionar o momento"
+                                                       delegate:self
+                                              cancelButtonTitle:@"ok" otherButtonTitles:nil];
+        [alert show];
 
+    
+    
+    
+    }
 
 }
 

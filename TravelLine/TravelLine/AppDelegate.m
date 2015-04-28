@@ -26,7 +26,7 @@ DataManager *_data;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     _data = [DataManager sharedManager];
     Item = [[item alloc] init]; //alloc na classe item
     [item moveFromBundleToDocuments:@"paises.json"]; //mover do bundle para o documents
@@ -39,7 +39,7 @@ DataManager *_data;
     NSLog(@"TESTE DE DATAMANAGER %@",_data.dados);
     [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"fundoGradiente.jpg"] forBarMetrics:UIBarMetricsDefault];
 
-
+    [application setStatusBarStyle:UIStatusBarStyleLightContent] ;
     
 //    NSDictionary *myDict;
 //    Item = [[item alloc] init];

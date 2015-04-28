@@ -32,15 +32,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     ;
     Item = [[item alloc]init];
     _data = [DataManager sharedManager]; //da um sharedmanager no ponteiro do DM
     [self atualizartabela];
     NSLog(@"testeeeee %ld",_viagemEscolhida);
     CGRect newFrame = _myView2.frame;
-    newFrame.size.height = 40;
+    newFrame.size.height = 25;
     CGRect textfield = _myTextField.frame;
-    textfield.size.height = 30;
+    textfield.size.height = 15;
+    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
 
     
     

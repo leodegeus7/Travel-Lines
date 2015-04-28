@@ -15,6 +15,7 @@
 @property (nonatomic,strong) NSArray* failedBankInfos;
 @property NSInteger linhaEscolhida;
 
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *itemBottom;
 
 
 - (IBAction)ClickButtonAdd:(id)sender;
