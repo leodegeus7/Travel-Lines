@@ -11,4 +11,7 @@
 @interface ImageTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *imageMomento;
 
+@property (weak, nonatomic) IBOutlet UIView *segundaLinhaTimeLine;
+@property (weak, nonatomic) IBOutlet UIView *primeiraLinhaTimeLine;
+
 @end

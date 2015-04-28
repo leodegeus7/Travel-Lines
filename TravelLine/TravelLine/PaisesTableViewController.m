@@ -58,9 +58,13 @@
     [botaoCamera setBackgroundImage:itemMexido forState:UIControlStateSelected];
     [botaoCamera setBackgroundImage:itemMexido forState:UIControlStateHighlighted];
     
+    
+    _itemBottom.image = itemMexido;
+    
+#pragma park  ALTERAR BACKGROUND DA VIEW
 //    UIImageView *tempImg = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 460)];
 //    [tempImg setImage:[UIImage imageNamed:@"IMG_0071.JPG"]];
-//    [self.tableView setBackgroundView:tempImg];
+//    [testTableView setBackgroundView:tempImg];
 
     
 //    UIColor *firstColor = [UIColor colorWithRed:255.0f/255.0f green:42.0f/255.0f blue:104.0f/255.0f alpha:1.0f];

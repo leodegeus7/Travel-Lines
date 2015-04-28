@@ -12,6 +12,8 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *textfieldMomento;
 
+@property (weak, nonatomic) IBOutlet UIView *primeiraLinhaTimeLine;
+@property (weak, nonatomic) IBOutlet UIView *segundaLinhaTimeLine;
 
 
 @end
