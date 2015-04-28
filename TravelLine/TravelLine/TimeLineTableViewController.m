@@ -57,6 +57,7 @@
     newFrame.size.height = 40;
     CGRect textfield = _myTextField.frame;
     textfield.size.height = 30;
+    
 //    self.navigationItem.rightBarButtonItem.tintColor = [UIColor clearColor];
 //    self.navigationItem.rightBarButtonItem.enabled = false;
     
@@ -89,7 +90,6 @@
     editarViagem.tintColor = [UIColor whiteColor];
     
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
-
 
 }
 - (void)dealloc

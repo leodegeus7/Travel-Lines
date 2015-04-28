@@ -18,7 +18,7 @@
 
 @interface PaisesTableViewController (){
     NSArray *myData;
-    DataManager *_data;
+    DataManager *_data; 
     NSArray *viagem;
     item *Item;
     UIToolbar *toolBar;
@@ -48,6 +48,10 @@
     UILongPressGestureRecognizer *longPressGesture = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(longPressRecognizer:)];
     [self.tableView addGestureRecognizer:longPressGesture];
     longPressGesture.minimumPressDuration = 1.0f;
+    UIImage *toolbar = [UIImage imageNamed:@"novaToolbar.png"];
+    UIImage *toolbarMexida = [self imageWithImage:toolbar scaledToSize:CGSizeMake(200, 130)];
+    self.navigationItem.titleView = [[UIImageView alloc] initWithImage:toolbarMexida];
+
     
 //    UIColor *firstColor = [UIColor colorWithRed:255.0f/255.0f green:42.0f/255.0f blue:104.0f/255.0f alpha:1.0f];
 //    UIColor *secondColor = [UIColor colorWithRed:255.0f/255.0f green:90.0f/255.0f blue:58.0f/255.0f alpha:1.0f];
@@ -75,7 +79,7 @@
     self.navigationController.toolbar.barTintColor = [UIColor colorWithRed:117.0/255.0 green:4.0/255.0 blue:32.0/255.0 alpha:1];
 
     [self.navigationController.toolbar setBackgroundImage:[UIImage imageNamed:@"fundoGradienteBaixo.jpg"] forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsDefault];
-
+    
 
 
 
@@ -89,7 +93,16 @@
 
 }
 
-
+- (UIImage *)imageWithImage:(UIImage *)image scaledToSize:(CGSize)newSize {
+    //UIGraphicsBeginImageContext(newSize);
+    // In next line, pass 0.0 to use the current device's pixel scaling factor (and thus account for Retina resolution).
+    // Pass 1.0 to force exact pixel size.
+    UIGraphicsBeginImageContextWithOptions(newSize, NO, 0.0);
+    [image drawInRect:CGRectMake(0, 0, newSize.width, newSize.height)];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return newImage;
+}
 
 
 - (void)didReceiveMemoryWarning {

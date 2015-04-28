@@ -44,6 +44,9 @@
 		CDBDF2781AE175D7004F83A1 /* PaisesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CDBDF2771AE175D7004F83A1 /* PaisesTableViewCell.m */; };
 		CDBDF2831AE180ED004F83A1 /* paises.json in Resources */ = {isa = PBXBuildFile; fileRef = CDBDF2821AE180ED004F83A1 /* paises.json */; };
 		CDBDF2881AE18E74004F83A1 /* item.m in Sources */ = {isa = PBXBuildFile; fileRef = CDBDF2871AE18E74004F83A1 /* item.m */; };
+		CDC739CC1AF00359000545A5 /* toolbar.png in Resources */ = {isa = PBXBuildFile; fileRef = CDC739CB1AF00359000545A5 /* toolbar.png */; };
+		CDC739D41AF00536000545A5 /* novaToolbar.png in Resources */ = {isa = PBXBuildFile; fileRef = CDC739D31AF00536000545A5 /* novaToolbar.png */; };
+		CDC739D61AF009FC000545A5 /* Camera Roll.png in Resources */ = {isa = PBXBuildFile; fileRef = CDC739D51AF009FC000545A5 /* Camera Roll.png */; };
 		CDE45D3B1AEECF160077F647 /* right-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = CDE45D3A1AEECF160077F647 /* right-arrow.png */; };
 /* End PBXBuildFile section */
 
@@ -115,6 +118,9 @@
 		CDBDF2821AE180ED004F83A1 /* paises.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = paises.json; sourceTree = "<group>"; };
 		CDBDF2861AE18E74004F83A1 /* item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = item.h; sourceTree = "<group>"; };
 		CDBDF2871AE18E74004F83A1 /* item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = item.m; sourceTree = "<group>"; };
+		CDC739CB1AF00359000545A5 /* toolbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = toolbar.png; sourceTree = "<group>"; };
+		CDC739D31AF00536000545A5 /* novaToolbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = novaToolbar.png; sourceTree = "<group>"; };
+		CDC739D51AF009FC000545A5 /* Camera Roll.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Camera Roll.png"; sourceTree = "<group>"; };
 		CDE45D3A1AEECF160077F647 /* right-arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "right-arrow.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -256,11 +262,14 @@
 				CD623DF81AEC0A5C00A03604 /* info.png */,
 				CDB7F3901AEEB3BF0033A541 /* Image 27-04-15 at 15.10 (1).png */,
 				A74242611AEAD6820019150B /* 1.jpg */,
+				CDC739CB1AF00359000545A5 /* toolbar.png */,
 				CDB7F3921AEEB55C0033A541 /* Travel Line_Toolbar.png */,
 				CDB7F38A1AEEAD850033A541 /* fundobotao.png */,
 				CDB7F39A1AEEC0140033A541 /* fundoGradiente.jpg */,
+				CDC739D31AF00536000545A5 /* novaToolbar.png */,
 				CD623DFF1AEC168C00A03604 /* bepid.png */,
 				CDB7F39C1AEEC05B0033A541 /* fundoGradienteBaixo.jpg */,
+				CDC739D51AF009FC000545A5 /* Camera Roll.png */,
 				CDB7F38E1AEEB34A0033A541 /* Image 27-04-15 at 15.10.png */,
 				CDB7F38C1AEEAEB10033A541 /* fundobotao2.png */,
 				CDB7F3851AEE6BF40033A541 /* camera.png */,
@@ -356,18 +365,21 @@
 				CD623E001AEC168C00A03604 /* bepid.png in Resources */,
 				CDB7F38B1AEEAD850033A541 /* fundobotao.png in Resources */,
 				CDB7F38D1AEEAEB10033A541 /* fundobotao2.png in Resources */,
+				CDC739D61AF009FC000545A5 /* Camera Roll.png in Resources */,
 				CD623DFB1AEC0AA100A03604 /* icon_family_2x.png in Resources */,
 				CDB7F39D1AEEC05B0033A541 /* fundoGradienteBaixo.jpg in Resources */,
 				CDB7F39B1AEEC0140033A541 /* fundoGradiente.jpg in Resources */,
 				CDBDF2831AE180ED004F83A1 /* paises.json in Resources */,
 				CD623DF91AEC0A5C00A03604 /* info.png in Resources */,
 				CDB7F3911AEEB3BF0033A541 /* Image 27-04-15 at 15.10 (1).png in Resources */,
+				CDC739CC1AF00359000545A5 /* toolbar.png in Resources */,
 				CDB7F3861AEE6BF40033A541 /* camera.png in Resources */,
 				CD160EFE1AE03A4000575E06 /* Main.storyboard in Resources */,
 				CD160F031AE03A4000575E06 /* LaunchScreen.xib in Resources */,
 				CDB7F3991AEEBCE20033A541 /* tirarfoto.png in Resources */,
 				CD160F001AE03A4000575E06 /* Images.xcassets in Resources */,
 				A74242621AEAD6820019150B /* 1.jpg in Resources */,
+				CDC739D41AF00536000545A5 /* novaToolbar.png in Resources */,
 				CDB7F39F1AEEC0C40033A541 /* Splash@2x.png in Resources */,
 				A74242601AE98C7D0019150B /* images.plist in Resources */,
 				CDB7F38F1AEEB34A0033A541 /* Image 27-04-15 at 15.10.png in Resources */,

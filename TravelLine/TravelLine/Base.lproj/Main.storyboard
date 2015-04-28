@@ -141,7 +141,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="153" sectionHeaderHeight="22" sectionFooterHeight="22" id="Ibp-WE-YYL">
                         <rect key="frame" x="0.0" y="64" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellViagem" rowHeight="140" id="PST-jv-XiX" customClass="PaisesTableViewCell">
@@ -208,7 +208,7 @@
                     </tableView>
                     <toolbarItems>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="K7r-xP-GkH"/>
-                        <barButtonItem systemItem="camera" id="evQ-48-mAP">
+                        <barButtonItem image="Camera Roll.png" id="evQ-48-mAP">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <segue destination="RqP-FA-xhf" kind="show" identifier="addFoto" id="kQX-yd-NLA"/>
@@ -399,7 +399,7 @@ Felipe Lukavei Ferreira Leonardo Alexandre de Geus Leonardo Koppe Malaski 
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="749" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="14W-5U-eZ5">
                                             <rect key="frame" x="78" y="8" width="514" height="135"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="right-arrow.png" translatesAutoresizingMaskIntoConstraints="NO" id="I4M-Yj-5Vd">
@@ -542,7 +542,7 @@ Felipe Lukavei Ferreira Leonardo Alexandre de Geus Leonardo Koppe Malaski 
                                     <constraint firstAttribute="height" constant="21" id="VKj-ot-8vX"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eBU-jL-7GJ">
@@ -573,7 +573,7 @@ Felipe Lukavei Ferreira Leonardo Alexandre de Geus Leonardo Koppe Malaski 
                                 </state>
                             </button>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LYw-pG-CZ0">
-                                <rect key="frame" x="22" y="319.5" width="556" height="162"/>
+                                <rect key="frame" x="22" y="320" width="556" height="162"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="113" id="UC8-nn-1Ra"/>
                                 </constraints>
@@ -674,7 +674,7 @@ Felipe Lukavei Ferreira Leonardo Alexandre de Geus Leonardo Koppe Malaski 
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="twL-JR-8ty">
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -694,6 +694,7 @@ Felipe Lukavei Ferreira Leonardo Alexandre de Geus Leonardo Koppe Malaski 
         </scene>
     </scenes>
     <resources>
+        <image name="Camera Roll.png" width="82" height="82"/>
         <image name="Image 27-04-15 at 15.10 (1).png" width="82" height="82"/>
         <image name="bepid.png" width="2488" height="1080"/>
         <image name="fundobotao.png" width="343" height="70"/>
