@@ -24,10 +24,13 @@
 		CD17FC1F1AE8458D00C71364 /* AddMomentoTextoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD17FC1E1AE8458D00C71364 /* AddMomentoTextoViewController.m */; };
 		CD1CB2401AED39EE00CDBA1A /* EditarViagemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1CB23F1AED39EE00CDBA1A /* EditarViagemViewController.m */; };
 		CD1CB2461AED585700CDBA1A /* AddFotoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1CB2451AED585700CDBA1A /* AddFotoTableViewController.m */; };
+		CD2F0AB71AF1559A00060AB5 /* BrancoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2F0AB61AF1559A00060AB5 /* BrancoTableViewCell.m */; };
 		CD623DF91AEC0A5C00A03604 /* info.png in Resources */ = {isa = PBXBuildFile; fileRef = CD623DF81AEC0A5C00A03604 /* info.png */; };
 		CD623DFB1AEC0AA100A03604 /* icon_family_2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD623DFA1AEC0AA100A03604 /* icon_family_2x.png */; };
 		CD623DFE1AEC12F200A03604 /* CreditosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD623DFD1AEC12F200A03604 /* CreditosViewController.m */; };
 		CD623E001AEC168C00A03604 /* bepid.png in Resources */ = {isa = PBXBuildFile; fileRef = CD623DFF1AEC168C00A03604 /* bepid.png */; };
+		CDB306271AF1466600A21219 /* creditos.png in Resources */ = {isa = PBXBuildFile; fileRef = CDB306261AF1466600A21219 /* creditos.png */; };
+		CDB306291AF1469F00A21219 /* creditos2.png in Resources */ = {isa = PBXBuildFile; fileRef = CDB306281AF1469F00A21219 /* creditos2.png */; };
 		CDB7F3861AEE6BF40033A541 /* camera.png in Resources */ = {isa = PBXBuildFile; fileRef = CDB7F3851AEE6BF40033A541 /* camera.png */; };
 		CDB7F3891AEEA5A60033A541 /* CRGradientNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = CDB7F3881AEEA5A60033A541 /* CRGradientNavigationBar.m */; };
 		CDB7F38B1AEEAD850033A541 /* fundobotao.png in Resources */ = {isa = PBXBuildFile; fileRef = CDB7F38A1AEEAD850033A541 /* fundobotao.png */; };
@@ -92,11 +95,15 @@
 		CD1CB23F1AED39EE00CDBA1A /* EditarViagemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditarViagemViewController.m; sourceTree = "<group>"; };
 		CD1CB2441AED585700CDBA1A /* AddFotoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddFotoTableViewController.h; sourceTree = "<group>"; };
 		CD1CB2451AED585700CDBA1A /* AddFotoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddFotoTableViewController.m; sourceTree = "<group>"; };
+		CD2F0AB51AF1559A00060AB5 /* BrancoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrancoTableViewCell.h; sourceTree = "<group>"; };
+		CD2F0AB61AF1559A00060AB5 /* BrancoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrancoTableViewCell.m; sourceTree = "<group>"; };
 		CD623DF81AEC0A5C00A03604 /* info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info.png; sourceTree = "<group>"; };
 		CD623DFA1AEC0AA100A03604 /* icon_family_2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_family_2x.png; sourceTree = "<group>"; };
 		CD623DFC1AEC12F200A03604 /* CreditosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreditosViewController.h; sourceTree = "<group>"; };
 		CD623DFD1AEC12F200A03604 /* CreditosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreditosViewController.m; sourceTree = "<group>"; };
 		CD623DFF1AEC168C00A03604 /* bepid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bepid.png; sourceTree = "<group>"; };
+		CDB306261AF1466600A21219 /* creditos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = creditos.png; sourceTree = "<group>"; };
+		CDB306281AF1469F00A21219 /* creditos2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = creditos2.png; sourceTree = "<group>"; };
 		CDB7F3851AEE6BF40033A541 /* camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camera.png; sourceTree = "<group>"; };
 		CDB7F3871AEEA5A60033A541 /* CRGradientNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRGradientNavigationBar.h; sourceTree = "<group>"; };
 		CDB7F3881AEEA5A60033A541 /* CRGradientNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRGradientNavigationBar.m; sourceTree = "<group>"; };
@@ -230,6 +237,8 @@
 				CD1CB23F1AED39EE00CDBA1A /* EditarViagemViewController.m */,
 				CD1CB2441AED585700CDBA1A /* AddFotoTableViewController.h */,
 				CD1CB2451AED585700CDBA1A /* AddFotoTableViewController.m */,
+				CD2F0AB51AF1559A00060AB5 /* BrancoTableViewCell.h */,
+				CD2F0AB61AF1559A00060AB5 /* BrancoTableViewCell.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -270,11 +279,13 @@
 				CD623DFF1AEC168C00A03604 /* bepid.png */,
 				CDB7F39C1AEEC05B0033A541 /* fundoGradienteBaixo.jpg */,
 				CDC739D51AF009FC000545A5 /* Camera Roll.png */,
+				CDB306281AF1469F00A21219 /* creditos2.png */,
 				CDB7F38E1AEEB34A0033A541 /* Image 27-04-15 at 15.10.png */,
 				CDB7F38C1AEEAEB10033A541 /* fundobotao2.png */,
 				CDB7F3851AEE6BF40033A541 /* camera.png */,
 				CD623DFA1AEC0AA100A03604 /* icon_family_2x.png */,
 				CDB7F3981AEEBCE20033A541 /* tirarfoto.png */,
+				CDB306261AF1466600A21219 /* creditos.png */,
 				CDE45D3A1AEECF160077F647 /* right-arrow.png */,
 				CDBDF2821AE180ED004F83A1 /* paises.json */,
 			);
@@ -377,10 +388,12 @@
 				CD160EFE1AE03A4000575E06 /* Main.storyboard in Resources */,
 				CD160F031AE03A4000575E06 /* LaunchScreen.xib in Resources */,
 				CDB7F3991AEEBCE20033A541 /* tirarfoto.png in Resources */,
+				CDB306291AF1469F00A21219 /* creditos2.png in Resources */,
 				CD160F001AE03A4000575E06 /* Images.xcassets in Resources */,
 				A74242621AEAD6820019150B /* 1.jpg in Resources */,
 				CDC739D41AF00536000545A5 /* novaToolbar.png in Resources */,
 				CDB7F39F1AEEC0C40033A541 /* Splash@2x.png in Resources */,
+				CDB306271AF1466600A21219 /* creditos.png in Resources */,
 				A74242601AE98C7D0019150B /* images.plist in Resources */,
 				CDB7F38F1AEEB34A0033A541 /* Image 27-04-15 at 15.10.png in Resources */,
 				CDB7F3931AEEB55C0033A541 /* Travel Line_Toolbar.png in Resources */,
@@ -411,6 +424,7 @@
 				CDBDF26F1AE1725D004F83A1 /* PaisesTableViewController.m in Sources */,
 				CD623DFE1AEC12F200A03604 /* CreditosViewController.m in Sources */,
 				CDBDF2881AE18E74004F83A1 /* item.m in Sources */,
+				CD2F0AB71AF1559A00060AB5 /* BrancoTableViewCell.m in Sources */,
 				CD17FC0E1AE6F31100C71364 /* TimeLineTableViewCell.m in Sources */,
 				CD17FC1C1AE8453000C71364 /* AddMomentoFotoViewController.m in Sources */,
 				CDBDF2781AE175D7004F83A1 /* PaisesTableViewCell.m in Sources */,

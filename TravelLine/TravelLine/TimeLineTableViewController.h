@@ -24,6 +24,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *addImage;
 
 @property (weak, nonatomic) IBOutlet UITextView *myTextField;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *botaoCamera;
 
 -(IBAction)AddButtonCancel:(id)sender;
 

@@ -14,6 +14,7 @@
 #import "AppDelegate.h"
 #import "ImageTableViewCell.h"
 #import "EditarViagemViewController.h"
+#import "BrancoTableViewCell.h"
 
 @interface TimeLineTableViewController ()
 
@@ -29,6 +30,7 @@
 
     UIBarButtonItem *editarViagem;
     UIToolbar *toolBar;
+    PaisesTableViewController *paises;
 
 
     
@@ -45,7 +47,7 @@
     Item = [[item alloc]init];
     _data = [DataManager sharedManager]; //da um sharedmanager no ponteiro do DM
     [self atualizartabela];
-    self.title=[NSString stringWithFormat:@"%@",myData[1][_viagemEscolhida][@"nome"]];
+    self.title=[NSString stringWithFormat:@"%@",_data.dados[@"viagem"] [_viagemEscolhida][@"nome"]];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -91,7 +93,24 @@
     editarViagem.tintColor = [UIColor whiteColor];
     
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
+    UIImage *itemCamera = [UIImage imageNamed:@"Camera Roll.png"];
+    UIImage *itemMexido = [self imageWithImage:itemCamera scaledToSize:CGSizeMake(35, 35)];
+    UIButton *botaoCamera;
+    [botaoCamera setBackgroundImage:itemMexido forState:UIControlStateSelected];
+    [botaoCamera setBackgroundImage:itemMexido forState:UIControlStateHighlighted];
+    _botaoCamera.image = itemMexido;
 
+}
+
+- (UIImage *)imageWithImage:(UIImage *)image scaledToSize:(CGSize)newSize {
+    //UIGraphicsBeginImageContext(newSize);
+    // In next line, pass 0.0 to use the current device's pixel scaling factor (and thus account for Retina resolution).
+    // Pass 1.0 to force exact pixel size.
+    UIGraphicsBeginImageContextWithOptions(newSize, NO, 0.0);
+    [image drawInRect:CGRectMake(0, 0, newSize.width, newSize.height)];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return newImage;
 }
 - (void)dealloc
 {
@@ -223,6 +242,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
+    
     return momento.count;
 }
 
@@ -239,10 +259,10 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    NSString *testeDoTipo = [NSString stringWithFormat:@"%@",[[myData[1][_viagemEscolhida][@"momento"] objectAtIndex:indexPath.row] objectForKey: @"tipo"]];
+    NSString *testeDoTipo = [NSString stringWithFormat:@"%@",[[_data.dados[@"viagem"][_viagemEscolhida][@"momento"] objectAtIndex:indexPath.row] objectForKey: @"tipo"]];
     if ([testeDoTipo isEqualToString:@"texto"]) {
         TimeLineTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellMomento" forIndexPath:indexPath];
-        cell.textfieldMomento.text=[NSString stringWithFormat:@"%@",[[myData[1][_viagemEscolhida][@"momento"] objectAtIndex:indexPath.row] objectForKey: @"descricao"]];
+        cell.textfieldMomento.text=[NSString stringWithFormat:@"%@",[[_data.dados[@"viagem"][_viagemEscolhida][@"momento"] objectAtIndex:indexPath.row] objectForKey: @"descricao"]];
         TimeLineTableViewController * vc = [TimeLineTableViewController alloc];
         [vc setIndexPath:_indexPath];
         self.tableView.rowHeight = UITableViewAutomaticDimension;
@@ -254,7 +274,7 @@
     }
     else if ([testeDoTipo isEqualToString:@"imagem"]) {
         ImageTableViewCell *imageCell = [tableView dequeueReusableCellWithIdentifier:@"imageMomento" forIndexPath:indexPath];
-        NSString *nomeArquivo = [NSString stringWithFormat:@"%@",[[myData[1][_viagemEscolhida][@"momento"] objectAtIndex:indexPath.row] objectForKey: @"imagem"]];
+        NSString *nomeArquivo = [NSString stringWithFormat:@"%@",[[_data.dados[@"viagem"][_viagemEscolhida][@"momento"] objectAtIndex:indexPath.row] objectForKey: @"imagem"]];
         NSString *caminho = [item acharoarqfile:nomeArquivo];
         imageCell.imageMomento.image = [self loadImage:caminho];
     
@@ -394,6 +414,10 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
+//        cell.primeiraLinhaTimeLine.hidden = YES;
+//        cell.segundaLinhaTimeLine.hidden = YES;
+//        imageCell.primeiraLinhaTimeLine.hidden = YES;
+//        imageCell.segundaLinhaTimeLine.hidden = YES;
         [_data.dados[@"viagem"][_viagemEscolhida][@"momento"] removeObjectAtIndex:indexPath.row];
         // Delete the row from the data source
         [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];

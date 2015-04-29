@@ -57,9 +57,15 @@
     UIButton *botaoCamera;
     [botaoCamera setBackgroundImage:itemMexido forState:UIControlStateSelected];
     [botaoCamera setBackgroundImage:itemMexido forState:UIControlStateHighlighted];
-    
+//    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+//    self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
+//    self.navigationItem.leftBarButtonItem.tintColor = [UIColor whiteColor];
     
     _itemBottom.image = itemMexido;
+
+//    self.navigationController.navigationBar.backgroundColor = [UIColor whiteColor];
+//    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+//    self.navigationController.navigationBar.translucent = NO;
     
 #pragma park  ALTERAR BACKGROUND DA VIEW
 //    UIImageView *tempImg = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 460)];
@@ -150,7 +156,7 @@
         
         [self.navigationItem setRightBarButtonItem:addButton];
         addButton.enabled =true;
-        addButton.tintColor = [UIColor blueColor];
+        addButton.tintColor = [UIColor whiteColor];
         
         
     }
@@ -215,16 +221,16 @@
     PaisesTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellViagem" forIndexPath:indexPath];
     NSMutableDictionary *teste;
     teste = _data.dados;
-    //cell.viagemLabel.text=[NSString stringWithFormat:@"%@",myData[indexPath.row][@"nome"]];
-    NSString *nomeArquivo = [NSString stringWithFormat:@"%@",[[myData[1] objectAtIndex:indexPath.row] objectForKey: @"capa" ]];
+    //cell.viagemLabel.text=[NSString stringWithFormat:@"%@",myData[indexPath.row][@"nome"]];myData[1]
+    NSString *nomeArquivo = [NSString stringWithFormat:@"%@",[[_data.dados[@"viagem"]  objectAtIndex:indexPath.row] objectForKey: @"capa" ]];
     NSString *caminho = [item acharoarqfile:nomeArquivo];
     //NSString *caminho = [[myData[1] objectAtIndex:indexPath.row] objectForKey: @"capa"];
     NSLog(@"%@",caminho);
     cell.viagemImage2.image = [self loadImage:caminho];
     UIImage *testeF = [self loadImage:caminho];
     NSLog(@"%@", testeF);
-    cell.viagemLabel.text=[NSString stringWithFormat:@"%@",[[myData[1] objectAtIndex:indexPath.row] objectForKey: @"nome"]];
-    cell.anoLabel.text=[NSString stringWithFormat:@"%@",[[myData[1] objectAtIndex:indexPath.row] objectForKey: @"ano"]];
+    cell.viagemLabel.text=[NSString stringWithFormat:@"%@",[[_data.dados[@"viagem"]  objectAtIndex:indexPath.row] objectForKey: @"nome"]];
+    cell.anoLabel.text=[NSString stringWithFormat:@"%@",[[_data.dados[@"viagem"]  objectAtIndex:indexPath.row] objectForKey: @"ano"]];
 
     return cell;
 }
