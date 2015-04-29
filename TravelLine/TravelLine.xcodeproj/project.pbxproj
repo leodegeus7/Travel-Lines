@@ -97,6 +97,7 @@
 		CD1CB2451AED585700CDBA1A /* AddFotoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddFotoTableViewController.m; sourceTree = "<group>"; };
 		CD2F0AB51AF1559A00060AB5 /* BrancoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrancoTableViewCell.h; sourceTree = "<group>"; };
 		CD2F0AB61AF1559A00060AB5 /* BrancoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrancoTableViewCell.m; sourceTree = "<group>"; };
+		CD2F0AB81AF1690900060AB5 /* TravelLine.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TravelLine.entitlements; sourceTree = "<group>"; };
 		CD623DF81AEC0A5C00A03604 /* info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = info.png; sourceTree = "<group>"; };
 		CD623DFA1AEC0AA100A03604 /* icon_family_2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_family_2x.png; sourceTree = "<group>"; };
 		CD623DFC1AEC12F200A03604 /* CreditosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreditosViewController.h; sourceTree = "<group>"; };
@@ -170,6 +171,7 @@
 		CD160EF11AE03A4000575E06 /* TravelLine */ = {
 			isa = PBXGroup;
 			children = (
+				CD2F0AB81AF1690900060AB5 /* TravelLine.entitlements */,
 				CD4D46421AE5786100AA57ED /* Resources */,
 				CD4D46411AE5785300AA57ED /* Model */,
 				CD4D46401AE5784600AA57ED /* View */,
@@ -341,6 +343,12 @@
 				TargetAttributes = {
 					CD160EEE1AE03A4000575E06 = {
 						CreatedOnToolsVersion = 6.3;
+						DevelopmentTeam = 4V6XCMA27T;
+						SystemCapabilities = {
+							com.apple.iCloud = {
+								enabled = 0;
+							};
+						};
 					};
 					CD160F071AE03A4000575E06 = {
 						CreatedOnToolsVersion = 6.3;
@@ -559,9 +567,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = TravelLine/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -569,9 +580,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = TravelLine/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
