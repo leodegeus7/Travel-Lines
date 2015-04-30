@@ -10,6 +10,8 @@
 		A74242601AE98C7D0019150B /* images.plist in Resources */ = {isa = PBXBuildFile; fileRef = A742425F1AE98C7D0019150B /* images.plist */; };
 		A74242621AEAD6820019150B /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A74242611AEAD6820019150B /* 1.jpg */; };
 		A74242651AEAE6F70019150B /* ImageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A74242641AEAE6F70019150B /* ImageTableViewCell.m */; };
+		A7B3F2911AF1788A003DC7FB /* iCloud.m in Sources */ = {isa = PBXBuildFile; fileRef = A7B3F28E1AF1788A003DC7FB /* iCloud.m */; };
+		A7B3F2921AF1788A003DC7FB /* iCloudDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = A7B3F2901AF1788A003DC7FB /* iCloudDocument.m */; };
 		CD160EF51AE03A4000575E06 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CD160EF41AE03A4000575E06 /* main.m */; };
 		CD160EF81AE03A4000575E06 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CD160EF71AE03A4000575E06 /* AppDelegate.m */; };
 		CD160EFB1AE03A4000575E06 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD160EFA1AE03A4000575E06 /* ViewController.m */; };
@@ -68,6 +70,10 @@
 		A74242611AEAD6820019150B /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
 		A74242631AEAE6F70019150B /* ImageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageTableViewCell.h; sourceTree = "<group>"; };
 		A74242641AEAE6F70019150B /* ImageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageTableViewCell.m; sourceTree = "<group>"; };
+		A7B3F28D1AF1788A003DC7FB /* iCloud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCloud.h; sourceTree = "<group>"; };
+		A7B3F28E1AF1788A003DC7FB /* iCloud.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCloud.m; sourceTree = "<group>"; };
+		A7B3F28F1AF1788A003DC7FB /* iCloudDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCloudDocument.h; sourceTree = "<group>"; };
+		A7B3F2901AF1788A003DC7FB /* iCloudDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCloudDocument.m; sourceTree = "<group>"; };
 		CD160EEF1AE03A4000575E06 /* TravelLine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravelLine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD160EF31AE03A4000575E06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CD160EF41AE03A4000575E06 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -258,6 +264,10 @@
 		CD4D46411AE5785300AA57ED /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A7B3F28D1AF1788A003DC7FB /* iCloud.h */,
+				A7B3F28E1AF1788A003DC7FB /* iCloud.m */,
+				A7B3F28F1AF1788A003DC7FB /* iCloudDocument.h */,
+				A7B3F2901AF1788A003DC7FB /* iCloudDocument.m */,
 				CDBDF2861AE18E74004F83A1 /* item.h */,
 				CDBDF2871AE18E74004F83A1 /* item.m */,
 				CDBDF2731AE1734D004F83A1 /* DataManager.h */,
@@ -343,10 +353,10 @@
 				TargetAttributes = {
 					CD160EEE1AE03A4000575E06 = {
 						CreatedOnToolsVersion = 6.3;
-						DevelopmentTeam = 4V6XCMA27T;
+						DevelopmentTeam = H7C2V5GHBN;
 						SystemCapabilities = {
 							com.apple.iCloud = {
-								enabled = 0;
+								enabled = 1;
 							};
 						};
 					};
@@ -430,10 +440,12 @@
 				A74242651AEAE6F70019150B /* ImageTableViewCell.m in Sources */,
 				CD160EF81AE03A4000575E06 /* AppDelegate.m in Sources */,
 				CDBDF26F1AE1725D004F83A1 /* PaisesTableViewController.m in Sources */,
+				A7B3F2921AF1788A003DC7FB /* iCloudDocument.m in Sources */,
 				CD623DFE1AEC12F200A03604 /* CreditosViewController.m in Sources */,
 				CDBDF2881AE18E74004F83A1 /* item.m in Sources */,
 				CD2F0AB71AF1559A00060AB5 /* BrancoTableViewCell.m in Sources */,
 				CD17FC0E1AE6F31100C71364 /* TimeLineTableViewCell.m in Sources */,
+				A7B3F2911AF1788A003DC7FB /* iCloud.m in Sources */,
 				CD17FC1C1AE8453000C71364 /* AddMomentoFotoViewController.m in Sources */,
 				CDBDF2781AE175D7004F83A1 /* PaisesTableViewCell.m in Sources */,
 				CD160EF51AE03A4000575E06 /* main.m in Sources */,
@@ -567,12 +579,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
+				CODE_SIGN_ENTITLEMENTS = TravelLine/TravelLine.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = TravelLine/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -580,12 +594,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
+				CODE_SIGN_ENTITLEMENTS = TravelLine/TravelLine.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = TravelLine/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

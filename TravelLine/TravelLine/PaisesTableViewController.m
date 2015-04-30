@@ -37,6 +37,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [[iCloud sharedCloud] setDelegate:self];
+    [[iCloud sharedCloud] setVerboseLogging:YES];
+    [[iCloud sharedCloud] setupiCloudDocumentSyncWithUbiquityContainer:nil];
 
     Item = [[item alloc]init];
     _data = [DataManager sharedManager]; //da um sharedmanager no ponteiro do DM
