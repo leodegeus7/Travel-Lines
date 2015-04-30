@@ -52,6 +52,7 @@
 		CDC739CC1AF00359000545A5 /* toolbar.png in Resources */ = {isa = PBXBuildFile; fileRef = CDC739CB1AF00359000545A5 /* toolbar.png */; };
 		CDC739D41AF00536000545A5 /* novaToolbar.png in Resources */ = {isa = PBXBuildFile; fileRef = CDC739D31AF00536000545A5 /* novaToolbar.png */; };
 		CDC739D61AF009FC000545A5 /* Camera Roll.png in Resources */ = {isa = PBXBuildFile; fileRef = CDC739D51AF009FC000545A5 /* Camera Roll.png */; };
+		CDCFC6FD1AF299FF00F99C9E /* ZoomImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDCFC6FC1AF299FF00F99C9E /* ZoomImageViewController.m */; };
 		CDE45D3B1AEECF160077F647 /* right-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = CDE45D3A1AEECF160077F647 /* right-arrow.png */; };
 /* End PBXBuildFile section */
 
@@ -135,6 +136,8 @@
 		CDC739CB1AF00359000545A5 /* toolbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = toolbar.png; sourceTree = "<group>"; };
 		CDC739D31AF00536000545A5 /* novaToolbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = novaToolbar.png; sourceTree = "<group>"; };
 		CDC739D51AF009FC000545A5 /* Camera Roll.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Camera Roll.png"; sourceTree = "<group>"; };
+		CDCFC6FB1AF299FF00F99C9E /* ZoomImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZoomImageViewController.h; sourceTree = "<group>"; };
+		CDCFC6FC1AF299FF00F99C9E /* ZoomImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZoomImageViewController.m; sourceTree = "<group>"; };
 		CDE45D3A1AEECF160077F647 /* right-arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "right-arrow.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -247,6 +250,8 @@
 				CD1CB2451AED585700CDBA1A /* AddFotoTableViewController.m */,
 				CD2F0AB51AF1559A00060AB5 /* BrancoTableViewCell.h */,
 				CD2F0AB61AF1559A00060AB5 /* BrancoTableViewCell.m */,
+				CDCFC6FB1AF299FF00F99C9E /* ZoomImageViewController.h */,
+				CDCFC6FC1AF299FF00F99C9E /* ZoomImageViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -436,6 +441,7 @@
 				CD17FC1F1AE8458D00C71364 /* AddMomentoTextoViewController.m in Sources */,
 				CD160EFB1AE03A4000575E06 /* ViewController.m in Sources */,
 				CDB7F3891AEEA5A60033A541 /* CRGradientNavigationBar.m in Sources */,
+				CDCFC6FD1AF299FF00F99C9E /* ZoomImageViewController.m in Sources */,
 				CDBDF2751AE1734D004F83A1 /* DataManager.m in Sources */,
 				A74242651AEAE6F70019150B /* ImageTableViewCell.m in Sources */,
 				CD160EF81AE03A4000575E06 /* AppDelegate.m in Sources */,

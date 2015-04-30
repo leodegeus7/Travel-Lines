@@ -268,7 +268,7 @@
         <scene sceneID="TId-vv-4ft">
             <objects>
                 <tableViewController clearsSelectionOnViewWillAppear="NO" id="iqY-EN-LH1" customClass="TimeLineTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="153" sectionHeaderHeight="22" sectionFooterHeight="22" id="mJ4-Fc-Exp">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="153" sectionHeaderHeight="22" sectionFooterHeight="22" id="mJ4-Fc-Exp">
                         <rect key="frame" x="0.0" y="64" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.92156862745098034" green="0.92156862745098034" blue="0.94509803921568625" alpha="1" colorSpace="calibratedRGB"/>
@@ -277,7 +277,7 @@
                             <rect key="frame" x="0.0" y="64" width="600" height="42"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GPr-He-k6w">
+                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="350" verticalHuggingPriority="350" translatesAutoresizingMaskIntoConstraints="NO" id="GPr-He-k6w">
                                     <rect key="frame" x="10" y="42" width="580" height="130"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="tintColor" red="0.01176470588" green="0.043137254899999998" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
@@ -379,7 +379,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <view contentMode="scaleAspectFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="eTL-WK-fa6">
+                                <view contentMode="scaleAspectFill" horizontalHuggingPriority="300" verticalHuggingPriority="300" horizontalCompressionResistancePriority="300" verticalCompressionResistancePriority="300" translatesAutoresizingMaskIntoConstraints="NO" id="eTL-WK-fa6">
                                     <rect key="frame" x="20" y="-3" width="2" height="1547"/>
                                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
@@ -401,7 +401,7 @@
                             </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellMomento" rowHeight="153" id="xZJ-vT-68U" customClass="TimeLineTableViewCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="cellMomento" rowHeight="153" id="xZJ-vT-68U" customClass="TimeLineTableViewCell">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xZJ-vT-68U" id="Yiu-u5-tzc">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -463,7 +463,7 @@
                                     <outlet property="textfieldMomento" destination="14W-5U-eZ5" id="PqZ-qZ-Ytt"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="imageMomento" rowHeight="225" id="7H8-vG-6TD" customClass="ImageTableViewCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="imageMomento" rowHeight="225" id="7H8-vG-6TD" customClass="ImageTableViewCell">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7H8-vG-6TD" id="BTN-cp-BkT">
@@ -585,11 +585,52 @@
                         <outlet property="myTextField" destination="GPr-He-k6w" id="Xcc-Xe-6NP"/>
                         <outlet property="myView2" destination="oqD-Oe-4Na" id="WGy-9C-hfB"/>
                         <segue destination="sVJ-BV-GTP" kind="show" identifier="editarViagem" id="vba-xT-Zhc"/>
+                        <segue destination="3yL-dh-S2e" kind="show" identifier="zoom" id="KZy-Kt-HgA"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MY5-CQ-nda" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1268" y="241"/>
+            <point key="canvasLocation" x="1263" y="241"/>
+        </scene>
+        <!--Zoom Image View Controller-->
+        <scene sceneID="LHo-ub-eTb">
+            <objects>
+                <viewController id="3yL-dh-S2e" customClass="ZoomImageViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="c0M-8v-4rM"/>
+                        <viewControllerLayoutGuide type="bottom" id="org-dV-brl"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="S7K-rf-ZmU">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PAE-q0-KHK">
+                                <rect key="frame" x="104" y="157" width="393" height="286"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="286" id="0cV-38-qDZ"/>
+                                    <constraint firstAttribute="width" constant="393" id="SfH-nt-Kx5"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="PAE-q0-KHK" firstAttribute="leading" secondItem="S7K-rf-ZmU" secondAttribute="leadingMargin" constant="-16" id="C5b-Og-24t"/>
+                            <constraint firstAttribute="centerX" secondItem="PAE-q0-KHK" secondAttribute="centerX" id="imM-2v-osN"/>
+                            <constraint firstAttribute="centerY" secondItem="PAE-q0-KHK" secondAttribute="centerY" id="kvS-4A-Xol"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="C5b-Og-24t"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="imageZoom" destination="PAE-q0-KHK" id="qCP-PH-UsR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pCK-bd-bh6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1983" y="389"/>
         </scene>
         <!--Title-->
         <scene sceneID="3lE-YI-b5p">
