@@ -29,5 +29,7 @@
 -(IBAction)AddButtonCancel:(id)sender;
 
 @property NSInteger viagemEscolhida;
+
+@property NSInteger linhaEscolhida;
 -(void)mudarTabela;
 @end

@@ -15,6 +15,7 @@
 #import "ImageTableViewCell.h"
 #import "EditarViagemViewController.h"
 #import "BrancoTableViewCell.h"
+#import "ZoomImageViewController.h"
 
 @interface TimeLineTableViewController ()
 
@@ -118,6 +119,7 @@
                                                     name:UIContentSizeCategoryDidChangeNotification
                                                   object:nil];
 }
+
 
 - (void)didChangePreferredContentSize:(NSNotification *)notification
 {
@@ -295,10 +297,17 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     EditarViagemViewController *dvc = segue.destinationViewController;
     dvc.viagemEscolhidaEditar = _viagemEscolhida;
+    
     if ([segue.identifier isEqualToString:@"editarViagem"]) {
 //        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         EditarViagemViewController *destViewController = segue.destinationViewController;
         destViewController.viagemEscolhidaEditar = _viagemEscolhida;
+        
+    }
+    if ([segue.identifier isEqualToString:@"zoom"]) {
+        ZoomImageViewController *destViewController = segue.destinationViewController;
+        destViewController.rowSelecionada = _linhaEscolhida;
+        destViewController.viagemEscolhida = _viagemEscolhida;
         
     }
 }
@@ -471,6 +480,17 @@
 }
 */
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSString *testeDoTipo= [NSString stringWithFormat:@"%@",[[_data.dados[@"viagem"][_viagemEscolhida][@"momento"] objectAtIndex:indexPath.row] objectForKey: @"tipo"]];
+    if ([testeDoTipo isEqualToString:@"imagem"]) {
+        
+        _linhaEscolhida = indexPath.row;
+        ZoomImageViewController *zoomVC = [[ZoomImageViewController alloc]init];
+        zoomVC.rowSelecionada = _linhaEscolhida;
+        [self performSegueWithIdentifier:@"zoom" sender:self];
+    }
+}
+
 - (IBAction)clickAddMomento:(id)sender {
     UIAlertController *alertController = [UIAlertController
                                           alertControllerWithTitle:@"oooi"
@@ -611,6 +631,8 @@
     [self atualizartabela];
     
     }
+
+
 
 //-(void)viewDidAppear:(BOOL)animated
 //{
