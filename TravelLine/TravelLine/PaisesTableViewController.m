@@ -37,11 +37,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    [[iCloud sharedCloud] setDelegate:self];
-    [[iCloud sharedCloud] setVerboseLogging:YES];
-    [[iCloud sharedCloud] setupiCloudDocumentSyncWithUbiquityContainer:nil];
-
+    [self testariCloud];
     Item = [[item alloc]init];
     _data = [DataManager sharedManager]; //da um sharedmanager no ponteiro do DM
     [self atualizartabela];
@@ -70,6 +66,7 @@
 //    self.navigationController.navigationBar.backgroundColor = [UIColor whiteColor];
 //    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
 //    self.navigationController.navigationBar.translucent = NO;
+
     
 #pragma park  ALTERAR BACKGROUND DA VIEW
 //    UIImageView *tempImg = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 460)];
@@ -117,6 +114,13 @@
 
 }
 
+
+-(void)testariCloud {
+    BOOL cloudIsAvailable = [[iCloud sharedCloud]checkCloudAvailability];
+    if (cloudIsAvailable) {
+        NSLog(@"osiasoaisoisoaisA");
+    }
+}
 
 
 - (UIImage *)imageWithImage:(UIImage *)image scaledToSize:(CGSize)newSize {
@@ -390,6 +394,7 @@
     viagem = _data.dados[@"viagem"];
     [self.tableView reloadData];
     [Item saveFileName:@"paises" conteudo:_data.dados];
+    [[iCloud sharedCloud]updateFiles];
 }
 - (IBAction)refresh:(id)sender {
     [self atualizartabela];
