@@ -13,8 +13,8 @@
 @property NSInteger viagemEscolhidaEditar;
 @property (weak, nonatomic) IBOutlet UIImageView *imagePais;
 @property (weak, nonatomic) IBOutlet UITextField *textfieldPais;
-@property (weak, nonatomic) IBOutlet UITextField *textfieldAno;
 - (IBAction)addPais:(id)sender;
+@property (weak, nonatomic) IBOutlet UIImageView *imagePaisCamera;
 
 @property (weak, nonatomic) IBOutlet UIPickerView *picker;
 

@@ -24,6 +24,11 @@
     UIToolbar *toolBar;
     UIBarButtonItem *addButton;
     UIBarButtonItem *editarViagem;
+    NSString *fileText;
+    NSString *fileTitle;
+    NSMutableArray *fileNameList;
+    NSMutableArray *fileObjectList;
+    UIRefreshControl *refreshControl;
     
 }
 
@@ -36,8 +41,10 @@
 @synthesize managedObjectContext;
 
 - (void)viewDidLoad {
+
+
     [super viewDidLoad];
-    [self testariCloud];
+//    [self testariCloud];
     Item = [[item alloc]init];
     _data = [DataManager sharedManager]; //da um sharedmanager no ponteiro do DM
     [self atualizartabela];
@@ -102,17 +109,49 @@
     [self.navigationController.toolbar setBackgroundImage:[UIImage imageNamed:@"fundoGradienteBaixo.jpg"] forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsDefault];
     self.navigationController.toolbar.alpha= 0 ;
 
-
-
-    
-    
-
-    
-    
-    
-    
-
 }
+
+- (void)iCloudDidFinishInitializingWitUbiquityToken:(id)cloudToken withUbiquityContainer:(NSURL *)ubiquityContainer {
+    NSLog(@"Ubiquity container initialized. You may proceed to perform document operations.");
+}
+
+- (void)iCloudAvailabilityDidChangeToState:(BOOL)cloudIsAvailable withUbiquityToken:(id)ubiquityToken withUbiquityContainer:(NSURL *)ubiquityContainer {
+    if (!cloudIsAvailable) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"iCloud Unavailable" message:@"iCloud is no longer available. Make sure that you are signed into a valid iCloud account." delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+        [alert show];
+        [self performSegueWithIdentifier:@"showWelcome" sender:self];
+    }
+}
+
+- (void)iCloudFilesDidChange:(NSMutableArray *)files withNewFileNames:(NSMutableArray *)fileNames {
+    // Get the query results
+    NSLog(@"Files: %@", fileNames);
+    
+    fileNameList = fileNames; // A list of the file names
+    fileObjectList = files; // A list of NSMetadata objects with detailed metadata
+    
+    [refreshControl endRefreshing];
+    [self.tableView reloadData];
+}
+
+- (void)refreshCloudList {
+    [[iCloud sharedCloud] updateFiles];
+}
+
+- (void)refreshCloudListAfterSetup {
+    // Reclaim delegate and then update files
+    [[iCloud sharedCloud] setDelegate:self];
+    [[iCloud sharedCloud] updateFiles];
+}
+
+
+
+
+
+
+
+
+
 
 
 -(void)testariCloud {
@@ -122,6 +161,16 @@
     }
 }
 
+
+-(void)uploadDocumentsToiCloud {
+    [[iCloud sharedCloud] uploadLocalOfflineDocumentsWithRepeatingHandler:^(NSString *fileName, NSError *error) {
+        if (error == nil) {
+            // This code block is called repeatedly until all files have been uploaded (or an upload has at least been attempted). Code here to use the NSString (the name of the uploaded file) which have been passed with the repeating handler
+        }
+    } completion:^{
+        // Completion handler could be used to tell the user that the upload has completed
+    }];
+}
 
 - (UIImage *)imageWithImage:(UIImage *)image scaledToSize:(CGSize)newSize {
     //UIGraphicsBeginImageContext(newSize);
@@ -235,9 +284,7 @@
     //NSString *caminho = [[myData[1] objectAtIndex:indexPath.row] objectForKey: @"capa"];
     NSLog(@"%@",caminho);
     cell.viagemImage2.image = [self loadImage:caminho];
-    UIImage *testeF = [self loadImage:caminho];
-    NSLog(@"%@", testeF);
-    cell.viagemLabel.text=[NSString stringWithFormat:@"%@",[[_data.dados[@"viagem"]  objectAtIndex:indexPath.row] objectForKey: @"nome"]];
+       cell.viagemLabel.text=[NSString stringWithFormat:@"%@",[[_data.dados[@"viagem"]  objectAtIndex:indexPath.row] objectForKey: @"nome"]];
     cell.anoLabel.text=[NSString stringWithFormat:@"%@",[[_data.dados[@"viagem"]  objectAtIndex:indexPath.row] objectForKey: @"ano"]];
 
     return cell;
@@ -394,7 +441,7 @@
     viagem = _data.dados[@"viagem"];
     [self.tableView reloadData];
     [Item saveFileName:@"paises" conteudo:_data.dados];
-    [[iCloud sharedCloud]updateFiles];
+
 }
 - (IBAction)refresh:(id)sender {
     [self atualizartabela];

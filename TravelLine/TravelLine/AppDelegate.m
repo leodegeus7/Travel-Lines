@@ -27,11 +27,11 @@ DataManager *_data;
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     
-    [[iCloud sharedCloud] setDelegate:self];
-    [[iCloud sharedCloud] setVerboseLogging:YES];
-    [[iCloud sharedCloud] setupiCloudDocumentSyncWithUbiquityContainer:nil];
-    [[iCloud sharedCloud] init];
-    
+//    [[iCloud sharedCloud] setDelegate:self];
+//    [[iCloud sharedCloud] setVerboseLogging:YES];
+//    [[iCloud sharedCloud] setupiCloudDocumentSyncWithUbiquityContainer:nil];
+//    [[iCloud sharedCloud] init];
+//    
 
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     _data = [DataManager sharedManager];
@@ -47,7 +47,7 @@ DataManager *_data;
     [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"fundoGradiente.jpg"] forBarMetrics:UIBarMetricsDefault];
 
     [application setStatusBarStyle:UIStatusBarStyleLightContent] ;
-    
+//    [self uploadDocumentsToiCloud];
 //    NSDictionary *myDict;
 //    Item = [[item alloc] init];
 //    
@@ -87,6 +87,20 @@ DataManager *_data;
 //    }
     return YES;
 }
+
+-(void)uploadDocumentsToiCloud {
+    [[iCloud sharedCloud] uploadLocalOfflineDocumentsWithRepeatingHandler:^(NSString *fileName, NSError *error) {
+        if (error == nil) {
+            NSLog(@"");
+            NSLog(@"");
+            // This code block is called repeatedly until all files have been uploaded (or an upload has at least been attempted). Code here to use the NSString (the name of the uploaded file) which have been passed with the repeating handler
+        }
+    } completion:^{
+        // Completion handler could be used to tell the user that the upload has completed
+    }];
+}
+
+
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {

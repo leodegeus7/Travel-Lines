@@ -34,7 +34,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tirarfoto.png" translatesAutoresizingMaskIntoConstraints="NO" id="Fi7-Qu-8HW">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tirarfoto.png" translatesAutoresizingMaskIntoConstraints="NO" id="Fi7-Qu-8HW">
                                 <rect key="frame" x="22" y="77" width="556" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="gGO-SS-PfK"/>
@@ -661,6 +661,12 @@
                                     <outlet property="delegate" destination="sVJ-BV-GTP" id="p4o-Pz-AXV"/>
                                 </connections>
                             </textField>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.74999999999999978" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tirarfoto.png" translatesAutoresizingMaskIntoConstraints="NO" id="t1y-f9-0KN">
+                                <rect key="frame" x="22" y="77" width="556" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="FY7-nz-fNT"/>
+                                </constraints>
+                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image 27-04-15 at 15.10 (1).png" translatesAutoresizingMaskIntoConstraints="NO" id="CbO-zZ-QbA">
                                 <rect key="frame" x="280" y="132" width="40" height="40"/>
                                 <constraints>
@@ -668,20 +674,8 @@
                                     <constraint firstAttribute="width" constant="40" id="mLN-uL-lzF"/>
                                 </constraints>
                             </imageView>
-                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tirarfoto.png" translatesAutoresizingMaskIntoConstraints="NO" id="t1y-f9-0KN">
-                                <rect key="frame" x="22" y="77" width="556" height="150"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="150" id="FY7-nz-fNT"/>
-                                </constraints>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wKs-4o-k13">
-                                <rect key="frame" x="0.0" y="0.0" width="64" height="30"/>
-                                <state key="normal" title="CAMERA">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LYw-pG-CZ0">
-                                <rect key="frame" x="22" y="320" width="556" height="162"/>
+                                <rect key="frame" x="22" y="319" width="556" height="162"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="113" id="UC8-nn-1Ra"/>
                                 </constraints>
@@ -734,6 +728,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="imagePais" destination="t1y-f9-0KN" id="yNS-ud-FcV"/>
+                        <outlet property="imagePaisCamera" destination="CbO-zZ-QbA" id="tnH-LU-XJO"/>
                         <outlet property="picker" destination="LYw-pG-CZ0" id="4f0-px-E01"/>
                         <outlet property="textfieldPais" destination="eBU-jL-7GJ" id="6eX-rL-rWI"/>
                     </connections>

@@ -46,12 +46,25 @@
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
     [dateFormatter setDateFormat:@"YYYY"];
     int i2 = [[dateFormatter stringFromDate:[NSDate date]] intValue];
-    NSLog(@"%d",i2);
+  //  NSLog(@"%d",i2);
     _pickerDataAnos = [[NSMutableArray alloc] init];
     for (int i1=i2; i1<=i2 & i1>=1920; i1--) {
         [_pickerDataAnos addObject:[NSString stringWithFormat:@"%d",i1]];
     }
+    
+    NSString *nomeArquivo = [NSString stringWithFormat:@"%@",_data.dados[@"viagem"][_viagemEscolhidaEditar][@"capa"]];
+    NSString *caminho = [item acharoarqfile:nomeArquivo];
+    //NSString *caminho = [[myData[1] objectAtIndex:indexPath.row] objectForKey: @"capa"];
+    NSLog(@"%@",caminho);
+    _imagePais.image = [self loadImage:caminho];
+    _textfieldPais.placeholder =  [NSString stringWithFormat:@"%@",_data.dados[@"viagem"][_viagemEscolhidaEditar][@"nome"]];
+}
 
+- (UIImage*)loadImage:(NSString *)caminho;
+{
+    
+    UIImage* image = [UIImage imageWithContentsOfFile:caminho];
+    return image;
 }
 
 
@@ -225,6 +238,7 @@
     _data.dados = jsonDic;
     [_paises atualizartabela];
 }
+
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
