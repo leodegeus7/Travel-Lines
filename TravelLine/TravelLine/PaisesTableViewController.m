@@ -64,7 +64,15 @@
     UIButton *botaoCamera;
     [botaoCamera setBackgroundImage:itemMexido forState:UIControlStateSelected];
     [botaoCamera setBackgroundImage:itemMexido forState:UIControlStateHighlighted];
-//    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    
+    self.navigationController.navigationItem.leftBarButtonItem.tintColor = [UIColor whiteColor];
+    self.navigationController.navigationItem.rightBarButtonItem.tintColor = [UIColor whiteColor];
+    self.navigationItem.rightBarButtonItem.tintColor = [UIColor whiteColor];
+    self.navigationItem.leftBarButtonItem.tintColor = [UIColor whiteColor];
+    
+    [[UIBarButtonItem appearance] setTintColor:[UIColor whiteColor]];
+    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor]}];
+    //    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
 //    self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
 //    self.navigationItem.leftBarButtonItem.tintColor = [UIColor whiteColor];
     

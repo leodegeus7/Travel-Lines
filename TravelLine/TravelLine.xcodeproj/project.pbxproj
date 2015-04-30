@@ -10,6 +10,7 @@
 		A74242601AE98C7D0019150B /* images.plist in Resources */ = {isa = PBXBuildFile; fileRef = A742425F1AE98C7D0019150B /* images.plist */; };
 		A74242621AEAD6820019150B /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A74242611AEAD6820019150B /* 1.jpg */; };
 		A74242651AEAE6F70019150B /* ImageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A74242641AEAE6F70019150B /* ImageTableViewCell.m */; };
+		A75AD3AA1AF2DE9D00FB172D /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = A75AD3A91AF2DE9D00FB172D /* settings.png */; };
 		A7B3F2911AF1788A003DC7FB /* iCloud.m in Sources */ = {isa = PBXBuildFile; fileRef = A7B3F28E1AF1788A003DC7FB /* iCloud.m */; };
 		A7B3F2921AF1788A003DC7FB /* iCloudDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = A7B3F2901AF1788A003DC7FB /* iCloudDocument.m */; };
 		CD160EF51AE03A4000575E06 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CD160EF41AE03A4000575E06 /* main.m */; };
@@ -71,6 +72,7 @@
 		A74242611AEAD6820019150B /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
 		A74242631AEAE6F70019150B /* ImageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageTableViewCell.h; sourceTree = "<group>"; };
 		A74242641AEAE6F70019150B /* ImageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageTableViewCell.m; sourceTree = "<group>"; };
+		A75AD3A91AF2DE9D00FB172D /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
 		A7B3F28D1AF1788A003DC7FB /* iCloud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCloud.h; sourceTree = "<group>"; };
 		A7B3F28E1AF1788A003DC7FB /* iCloud.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCloud.m; sourceTree = "<group>"; };
 		A7B3F28F1AF1788A003DC7FB /* iCloudDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCloudDocument.h; sourceTree = "<group>"; };
@@ -304,6 +306,7 @@
 				CDB7F3981AEEBCE20033A541 /* tirarfoto.png */,
 				CDB306261AF1466600A21219 /* creditos.png */,
 				CDE45D3A1AEECF160077F647 /* right-arrow.png */,
+				A75AD3A91AF2DE9D00FB172D /* settings.png */,
 				CDBDF2821AE180ED004F83A1 /* paises.json */,
 			);
 			name = Resources;
@@ -405,6 +408,7 @@
 				CDB7F39B1AEEC0140033A541 /* fundoGradiente.jpg in Resources */,
 				CDBDF2831AE180ED004F83A1 /* paises.json in Resources */,
 				CD623DF91AEC0A5C00A03604 /* info.png in Resources */,
+				A75AD3AA1AF2DE9D00FB172D /* settings.png in Resources */,
 				CDB7F3911AEEB3BF0033A541 /* Image 27-04-15 at 15.10 (1).png in Resources */,
 				CDC739CC1AF00359000545A5 /* toolbar.png in Resources */,
 				CDB7F3861AEE6BF40033A541 /* camera.png in Resources */,

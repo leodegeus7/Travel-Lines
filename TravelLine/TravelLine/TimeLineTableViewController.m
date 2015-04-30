@@ -26,12 +26,13 @@
     item *Item;
     UIBarButtonItem *addButton;
     UIBarButtonItem *salvarTexto;
-
+    UIBarButtonItem *settingButton;
     TimeLineTableViewCell *celulaPrototipo;
 
     UIBarButtonItem *editarViagem;
     UIToolbar *toolBar;
     PaisesTableViewController *paises;
+    
 
 
     
@@ -86,7 +87,11 @@
 //    editarViagem = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(SalvarTexto:)];
 //    editarViagem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(editarViagem:)];
 //    UIBarButtonItem *settingsButton = [[UIBarButtonItem alloc] initWithTitle:@"\u2699" style:UIBarButtonItemStylePlain target:self action:@selector(showSettings)];
-    editarViagem = [[UIBarButtonItem alloc] initWithTitle:@"\u2699" style:UIBarButtonItemStyleDone target:self action:@selector(editarViagem:)];
+
+    UIImage *settingButton = [UIImage imageNamed:@"settings.png"];
+    UIImage *settingButtonMexida = [self imageWithImage:settingButton scaledToSize:CGSizeMake(35, 35)];
+    settingButton = [[UIBarButtonItem alloc] initWithImage:settingButtonMexida style:UIBarButtonItemStyleDone target:self action:@selector(editarViagem:)];
+    editarViagem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"settings.png"] style:UIBarButtonItemStyleDone target:self action:@selector(editarViagem:)];
 
 
     [self.navigationItem setRightBarButtonItem:editarViagem];
@@ -102,6 +107,8 @@
     _botaoCamera.image = itemMexido;
 
 }
+
+
 
 - (UIImage *)imageWithImage:(UIImage *)image scaledToSize:(CGSize)newSize {
     //UIGraphicsBeginImageContext(newSize);

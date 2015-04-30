@@ -24,15 +24,16 @@
 DataManager *_data;
 
 
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    
 //    [[iCloud sharedCloud] setDelegate:self];
 //    [[iCloud sharedCloud] setVerboseLogging:YES];
 //    [[iCloud sharedCloud] setupiCloudDocumentSyncWithUbiquityContainer:nil];
 //    [[iCloud sharedCloud] init];
 //    
-
+    self.window.tintColor = [UIColor whiteColor];
+    
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     _data = [DataManager sharedManager];
     Item = [[item alloc] init]; //alloc na classe item
