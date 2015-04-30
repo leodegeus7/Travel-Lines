@@ -14,6 +14,7 @@
 @property NSInteger viagemEscolhidaEditar;
 @property NSInteger viagemEscolhida;
 @property NSInteger rowSelecionada;
+@property (weak, nonatomic) IBOutlet UILabel *labelData;
 @property (weak, nonatomic) IBOutlet UIImageView *imageZoom;
 
 @end

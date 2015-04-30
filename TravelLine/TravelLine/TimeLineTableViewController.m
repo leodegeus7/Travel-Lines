@@ -308,7 +308,7 @@
         ZoomImageViewController *destViewController = segue.destinationViewController;
         destViewController.rowSelecionada = _linhaEscolhida;
         destViewController.viagemEscolhida = _viagemEscolhida;
-        
+        NSLog(@"string %@", _data.dados[@"viagem"][_viagemEscolhida][@"momento"]);
     }
 }
 - (IBAction) EditTable:(id)sender{
