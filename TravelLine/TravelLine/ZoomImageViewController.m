@@ -25,6 +25,13 @@
     NSString *caminho= [self acharoarqfile:nome];
     _imageZoom.image = [self loadImage:caminho];
     // Do any additional setup after loading the view.
+    _imageZoom.contentMode = UIViewContentModeScaleAspectFit;
+    
+    NSArray *quebrar = [_data.dados[@"viagem"][_viagemEscolhida][@"momento"][_rowSelecionada][@"data"] componentsSeparatedByString: @"T"];
+    NSArray *tirarLixo = [quebrar[1] componentsSeparatedByString: @"."];
+    _labelData.text = [NSString stringWithFormat:@"%@\n%@",quebrar[0], tirarLixo[0]];
+    _labelData.numberOfLines = 2;
+    
 }
 
 - (void)didReceiveMemoryWarning {
