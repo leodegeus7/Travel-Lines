@@ -32,6 +32,7 @@
     UIBarButtonItem *editarViagem;
     UIToolbar *toolBar;
     PaisesTableViewController *paises;
+    UIImage *buttonSettings;
     
 
 
@@ -88,10 +89,11 @@
 //    editarViagem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(editarViagem:)];
 //    UIBarButtonItem *settingsButton = [[UIBarButtonItem alloc] initWithTitle:@"\u2699" style:UIBarButtonItemStylePlain target:self action:@selector(showSettings)];
 
-    UIImage *settingButton = [UIImage imageNamed:@"settings.png"];
-    UIImage *settingButtonMexida = [self imageWithImage:settingButton scaledToSize:CGSizeMake(35, 35)];
-    settingButton = [[UIBarButtonItem alloc] initWithImage:settingButtonMexida style:UIBarButtonItemStyleDone target:self action:@selector(editarViagem:)];
-    editarViagem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"settings.png"] style:UIBarButtonItemStyleDone target:self action:@selector(editarViagem:)];
+    buttonSettings = [UIImage imageNamed:@"settings.png"];
+    UIImage *settingButtonMexida2 = [self imageWithImage:buttonSettings scaledToSize:CGSizeMake(27, 27)];
+//    settingButton = [[UIBarButtonItem alloc] initWithImage:settingButtonMexida style:UIBarButtonItemStyleDone target:self action:@selector(editarViagem:)];
+    editarViagem = [[UIBarButtonItem alloc] initWithImage:settingButtonMexida2 style:UIBarButtonItemStyleDone target:self action:@selector(editarViagem:)];
+    
 
 
     [self.navigationItem setRightBarButtonItem:editarViagem];

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="xuK-M9-vqw">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="xuK-M9-vqw">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -608,12 +608,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WSH-8R-ovy">
-                                <rect key="frame" x="569" y="300" width="31" height="15"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PAE-q0-KHK">
                                 <rect key="frame" x="2" y="300" width="596" height="0.0"/>
                                 <constraints>
@@ -627,6 +621,12 @@
                                     </mask>
                                 </variation>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WSH-8R-ovy">
+                                <rect key="frame" x="285" y="521" width="31" height="15"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -637,18 +637,24 @@
                             <constraint firstItem="PAE-q0-KHK" firstAttribute="leading" secondItem="S7K-rf-ZmU" secondAttribute="leadingMargin" constant="-16" id="C5b-Og-24t"/>
                             <constraint firstItem="org-dV-brl" firstAttribute="top" secondItem="PAE-q0-KHK" secondAttribute="bottom" constant="5" id="Fc9-VY-i8f"/>
                             <constraint firstItem="WSH-8R-ovy" firstAttribute="top" secondItem="PAE-q0-KHK" secondAttribute="bottom" constant="126" id="JwM-Ce-EjF"/>
+                            <constraint firstItem="WSH-8R-ovy" firstAttribute="top" secondItem="PAE-q0-KHK" secondAttribute="bottom" constant="20" id="Les-NA-uFh"/>
                             <constraint firstItem="org-dV-brl" firstAttribute="top" secondItem="WSH-8R-ovy" secondAttribute="bottom" constant="100" id="MOd-hq-XyS"/>
                             <constraint firstItem="WSH-8R-ovy" firstAttribute="leading" secondItem="PAE-q0-KHK" secondAttribute="trailing" constant="-31" id="N3h-Ur-FMB"/>
                             <constraint firstItem="org-dV-brl" firstAttribute="top" secondItem="PAE-q0-KHK" secondAttribute="bottom" constant="5" id="OFU-eg-s9S"/>
+                            <constraint firstItem="org-dV-brl" firstAttribute="top" secondItem="WSH-8R-ovy" secondAttribute="bottom" constant="20" id="PUt-VK-SLl"/>
                             <constraint firstItem="PAE-q0-KHK" firstAttribute="top" secondItem="c0M-8v-4rM" secondAttribute="bottom" constant="5" id="QCX-Fl-Djw"/>
                             <constraint firstItem="PAE-q0-KHK" firstAttribute="top" secondItem="c0M-8v-4rM" secondAttribute="bottom" constant="5" id="QQw-BV-vrZ"/>
                             <constraint firstItem="PAE-q0-KHK" firstAttribute="leading" secondItem="S7K-rf-ZmU" secondAttribute="leadingMargin" constant="-14" id="SEd-nM-dTF"/>
+                            <constraint firstAttribute="centerX" secondItem="WSH-8R-ovy" secondAttribute="centerX" constant="20" id="SM5-pe-5Fm"/>
                             <constraint firstAttribute="trailingMargin" secondItem="PAE-q0-KHK" secondAttribute="trailing" constant="5" id="Ti5-ij-eny"/>
+                            <constraint firstItem="WSH-8R-ovy" firstAttribute="trailing" secondItem="PAE-q0-KHK" secondAttribute="trailing" constant="-20" id="Y2I-5e-e7z"/>
                             <constraint firstItem="WSH-8R-ovy" firstAttribute="top" secondItem="PAE-q0-KHK" secondAttribute="bottom" constant="-50" id="aEv-Gg-QXu"/>
                             <constraint firstAttribute="trailingMargin" secondItem="WSH-8R-ovy" secondAttribute="trailing" constant="3" id="c4E-oV-UFF"/>
+                            <constraint firstAttribute="centerX" secondItem="WSH-8R-ovy" secondAttribute="centerX" id="csd-Zq-aD6"/>
                             <constraint firstItem="WSH-8R-ovy" firstAttribute="top" secondItem="PAE-q0-KHK" secondAttribute="bottom" constant="8" symbolic="YES" id="fDY-ip-K8q"/>
                             <constraint firstAttribute="centerY" secondItem="PAE-q0-KHK" secondAttribute="centerY" id="hBw-4C-8f6"/>
                             <constraint firstItem="PAE-q0-KHK" firstAttribute="leading" secondItem="S7K-rf-ZmU" secondAttribute="leadingMargin" constant="5" id="oiV-VQ-A1W"/>
+                            <constraint firstItem="org-dV-brl" firstAttribute="top" secondItem="WSH-8R-ovy" secondAttribute="bottom" constant="20" id="s2C-TH-JGh"/>
                             <constraint firstItem="WSH-8R-ovy" firstAttribute="leading" secondItem="PAE-q0-KHK" secondAttribute="trailing" constant="-42" id="sgc-4g-hh4"/>
                             <constraint firstAttribute="trailingMargin" secondItem="PAE-q0-KHK" secondAttribute="trailing" constant="-14" id="vO8-tO-8QF"/>
                             <constraint firstItem="org-dV-brl" firstAttribute="top" secondItem="PAE-q0-KHK" secondAttribute="bottom" constant="5" id="wfK-94-eif"/>
@@ -656,6 +662,7 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="9Tq-rc-s5V"/>
                                 <exclude reference="C5b-Og-24t"/>
                                 <exclude reference="QCX-Fl-Djw"/>
                                 <exclude reference="QQw-BV-vrZ"/>
@@ -665,9 +672,15 @@
                                 <exclude reference="Fc9-VY-i8f"/>
                                 <exclude reference="MOd-hq-XyS"/>
                                 <exclude reference="OFU-eg-s9S"/>
+                                <exclude reference="s2C-TH-JGh"/>
                                 <exclude reference="wfK-94-eif"/>
+                                <exclude reference="3Xa-Ga-CSF"/>
+                                <exclude reference="BVI-Gb-QBN"/>
                                 <exclude reference="JwM-Ce-EjF"/>
+                                <exclude reference="Les-NA-uFh"/>
                                 <exclude reference="N3h-Ur-FMB"/>
+                                <exclude reference="SM5-pe-5Fm"/>
+                                <exclude reference="Y2I-5e-e7z"/>
                                 <exclude reference="aEv-Gg-QXu"/>
                                 <exclude reference="c4E-oV-UFF"/>
                                 <exclude reference="fDY-ip-K8q"/>
