@@ -27,11 +27,7 @@ DataManager *_data;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-//    [[iCloud sharedCloud] setDelegate:self];
-//    [[iCloud sharedCloud] setVerboseLogging:YES];
-//    [[iCloud sharedCloud] setupiCloudDocumentSyncWithUbiquityContainer:nil];
-//    [[iCloud sharedCloud] init];
-//    
+
     self.window.tintColor = [UIColor whiteColor];
     
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
@@ -50,44 +46,6 @@ DataManager *_data;
     [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"fundoGradiente.jpg"] forBarMetrics:UIBarMetricsDefault];
 
     [application setStatusBarStyle:UIStatusBarStyleLightContent] ;
-//    [self uploadDocumentsToiCloud];
-//    NSDictionary *myDict;
-//    Item = [[item alloc] init];
-//    
-//    myDict = [Item lerArqJson:@"paises"];
-//
-//    if (myDict==nil) {
-//        NSLog(@"NAO EXISTE");
-//
-//        NSString *path1 = [[NSBundle mainBundle] pathForResource:@"paises" ofType:@".json"];
-//        
-//        NSLog(@"%@",path1);
-//        
-//        //Criando NSData e preenchendo com o conteúdo do arquivo data.json
-//        NSData *dataResponse = [[NSData alloc]initWithContentsOfFile:path1];
-//        
-//        NSError *error;
-//        
-//        NSDictionary *jsonSerialized = [NSJSONSerialization JSONObjectWithData:dataResponse
-//                                                                       options:NSJSONReadingMutableContainers
-//                                                                         error:&error];
-//        
-//        _myData = jsonSerialized[@"Jogos"];
-//        NSLog(@"mydata = %@",_myData);
-//        NSDictionary *dados = [[NSDictionary alloc]init];
-//        dados = [item LerArquivoJSon:@"paises"];
-//        
-//        [Item saveFileName:@"dados" conteudo:dados];
-//        
-//        //NSString *path2 = [[NSBundle mainBundle] pathForResource:@"dados" ofType:@".json"];
-//        
-//        //NSLog(@"%@",path2);
-//    }
-//    else {
-//    
-//        NSLog(@"%@",myDict);
-//        
-//    }
     return YES;
 }
 

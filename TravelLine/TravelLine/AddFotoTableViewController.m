@@ -179,9 +179,6 @@
     NSMutableDictionary *jMomentoEspecifico =[[NSMutableDictionary alloc]init];
     
     
-    //NSMutableArray *JAry=[[NSMutableArray alloc] initWithArray:[jsonDic[@"viagem"][_viagemEscolhida] objectForKey:@"momento"]];//salvo o array a ser manipulado
-    
-    //NSMutableDictionary *mom =[[NSMutableDictionary alloc]init];//Dicionario com lugar
     NSString *tipo = @"imagem";
     NSString *dataAtual = [Item horaAtual];
     NSString *tamanhoCell = @"";
@@ -198,8 +195,7 @@
     [JDic setObject:reversedArray2 forKey:@"momento"];
     [JAry setObject:JDic atIndexedSubscript:_viagemEscolhida];
     [jsonDic setObject:JAry forKey:@"viagem"];
-    //[JAry addObject:mom];//atribuicao do dicionario para o array
-    //[jsonDic setObject:JAry forKey:@"viagem"];//atribuicao do array para o dicionario principal
+
     _data.dados = jsonDic;
     [self atualizartabela];
 }
