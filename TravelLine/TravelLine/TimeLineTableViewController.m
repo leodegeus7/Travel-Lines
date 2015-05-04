@@ -285,7 +285,12 @@
         [self.navigationItem setRightBarButtonItem:addButton];
         addButton.enabled =false;
         addButton.tintColor = [UIColor clearColor];
-        editarViagem = [[UIBarButtonItem alloc] initWithTitle:@"\u2699" style:UIBarButtonItemStyleDone target:self action:@selector(editarViagem:)];
+        buttonSettings = [UIImage imageNamed:@"settings.png"];
+        UIImage *settingButtonMexida2 = [self imageWithImage:buttonSettings scaledToSize:CGSizeMake(27, 27)];
+        
+        editarViagem = [[UIBarButtonItem alloc] initWithImage:settingButtonMexida2 style:UIBarButtonItemStyleDone target:self action:@selector(editarViagem:)];
+        
+        
         
         [self.navigationItem setRightBarButtonItem:editarViagem];
         editarViagem.enabled =true;
@@ -568,7 +573,12 @@
         _myTextField.text = nil;
         self.navigationItem.rightBarButtonItem.tintColor = [UIColor clearColor];
         self.navigationItem.rightBarButtonItem.enabled = NO;
-        editarViagem = [[UIBarButtonItem alloc] initWithTitle:@"\u2699" style:UIBarButtonItemStyleDone target:self action:@selector(editarViagem:)];
+        buttonSettings = [UIImage imageNamed:@"settings.png"];
+        UIImage *settingButtonMexida2 = [self imageWithImage:buttonSettings scaledToSize:CGSizeMake(27, 27)];
+        
+        editarViagem = [[UIBarButtonItem alloc] initWithImage:settingButtonMexida2 style:UIBarButtonItemStyleDone target:self action:@selector(editarViagem:)];
+        
+        
         
         [self.navigationItem setRightBarButtonItem:editarViagem];
         editarViagem.enabled =true;
@@ -617,7 +627,12 @@
     self.navigationItem.rightBarButtonItem.tintColor = [UIColor clearColor];
     self.navigationItem.rightBarButtonItem.enabled = NO;
     self.navigationItem.leftBarButtonItem.tintColor = [UIColor clearColor];
-    editarViagem = [[UIBarButtonItem alloc] initWithTitle:@"\u2699" style:UIBarButtonItemStyleDone target:self action:@selector(editarViagem:)];
+    buttonSettings = [UIImage imageNamed:@"settings.png"];
+    UIImage *settingButtonMexida2 = [self imageWithImage:buttonSettings scaledToSize:CGSizeMake(27, 27)];
+    
+    editarViagem = [[UIBarButtonItem alloc] initWithImage:settingButtonMexida2 style:UIBarButtonItemStyleDone target:self action:@selector(editarViagem:)];
+    
+    
     
     [self.navigationItem setRightBarButtonItem:editarViagem];
     editarViagem.enabled =true;
