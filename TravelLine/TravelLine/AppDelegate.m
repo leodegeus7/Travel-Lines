@@ -43,7 +43,9 @@ DataManager *_data;
     NSLog(@"%@",pathjsondoc);
     NSString *pathjson;
     pathjson = [item acharoarqfile:@"paises.json"]; //achar o caminho do json nos documents
-    _data.dados = [Item lerArqJson2:@"paises" caminho:pathjson]; //alimentar meu NSDictionary com o json dos documents
+    NSDictionary *temp = [Item lerArqJson2:@"paises" caminho:pathjson];
+    
+    _data.dados = temp; //alimentar meu NSDictionary com o json dos documents
     NSLog(@"TESTE DE DATAMANAGER %@",_data.dados);
     [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"fundoGradiente.jpg"] forBarMetrics:UIBarMetricsDefault];
 
@@ -87,18 +89,6 @@ DataManager *_data;
 //        
 //    }
     return YES;
-}
-
--(void)uploadDocumentsToiCloud {
-    [[iCloud sharedCloud] uploadLocalOfflineDocumentsWithRepeatingHandler:^(NSString *fileName, NSError *error) {
-        if (error == nil) {
-            NSLog(@"");
-            NSLog(@"");
-            // This code block is called repeatedly until all files have been uploaded (or an upload has at least been attempted). Code here to use the NSString (the name of the uploaded file) which have been passed with the repeating handler
-        }
-    } completion:^{
-        // Completion handler could be used to tell the user that the upload has completed
-    }];
 }
 
 

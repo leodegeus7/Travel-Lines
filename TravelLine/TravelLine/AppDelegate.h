@@ -7,10 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "iCloud.h"
-#import "iCloudDocument.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate,iCloudDelegate>
+
+@interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 @property NSMutableDictionary *myData;

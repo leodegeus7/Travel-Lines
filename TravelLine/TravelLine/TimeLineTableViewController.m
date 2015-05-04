@@ -135,14 +135,6 @@
     [self.tableView reloadData];
 }
 
-- (TimeLineTableViewCell *)CelulaPrototipo
-{
-    if (!_celulaPrototipo)
-    {
-        _celulaPrototipo = [self.tableView dequeueReusableCellWithIdentifier:@"cellMomento"];
-    }
-    return _celulaPrototipo;
-}
 
 
 -(void)longPressRecognizer:(UISwipeGestureRecognizer *)gestureRecognizer{

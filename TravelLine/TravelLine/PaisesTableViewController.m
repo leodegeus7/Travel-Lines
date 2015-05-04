@@ -119,38 +119,6 @@
 
 }
 
-- (void)iCloudDidFinishInitializingWitUbiquityToken:(id)cloudToken withUbiquityContainer:(NSURL *)ubiquityContainer {
-    NSLog(@"Ubiquity container initialized. You may proceed to perform document operations.");
-}
-
-- (void)iCloudAvailabilityDidChangeToState:(BOOL)cloudIsAvailable withUbiquityToken:(id)ubiquityToken withUbiquityContainer:(NSURL *)ubiquityContainer {
-    if (!cloudIsAvailable) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"iCloud Unavailable" message:@"iCloud is no longer available. Make sure that you are signed into a valid iCloud account." delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
-        [alert show];
-        [self performSegueWithIdentifier:@"showWelcome" sender:self];
-    }
-}
-
-- (void)iCloudFilesDidChange:(NSMutableArray *)files withNewFileNames:(NSMutableArray *)fileNames {
-    // Get the query results
-    NSLog(@"Files: %@", fileNames);
-    
-    fileNameList = fileNames; // A list of the file names
-    fileObjectList = files; // A list of NSMetadata objects with detailed metadata
-    
-    [refreshControl endRefreshing];
-    [self.tableView reloadData];
-}
-
-- (void)refreshCloudList {
-    [[iCloud sharedCloud] updateFiles];
-}
-
-- (void)refreshCloudListAfterSetup {
-    // Reclaim delegate and then update files
-    [[iCloud sharedCloud] setDelegate:self];
-    [[iCloud sharedCloud] updateFiles];
-}
 
 
 
@@ -160,25 +128,6 @@
 
 
 
-
-
--(void)testariCloud {
-    BOOL cloudIsAvailable = [[iCloud sharedCloud]checkCloudAvailability];
-    if (cloudIsAvailable) {
-        NSLog(@"osiasoaisoisoaisA");
-    }
-}
-
-
--(void)uploadDocumentsToiCloud {
-    [[iCloud sharedCloud] uploadLocalOfflineDocumentsWithRepeatingHandler:^(NSString *fileName, NSError *error) {
-        if (error == nil) {
-            // This code block is called repeatedly until all files have been uploaded (or an upload has at least been attempted). Code here to use the NSString (the name of the uploaded file) which have been passed with the repeating handler
-        }
-    } completion:^{
-        // Completion handler could be used to tell the user that the upload has completed
-    }];
-}
 
 - (UIImage *)imageWithImage:(UIImage *)image scaledToSize:(CGSize)newSize {
     //UIGraphicsBeginImageContext(newSize);
