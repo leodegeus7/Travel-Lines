@@ -17,6 +17,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *imagePaisCamera;
 
 @property (weak, nonatomic) IBOutlet UIPickerView *picker;
-
+@property int teste;
 
 @end

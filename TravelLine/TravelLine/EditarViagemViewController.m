@@ -19,6 +19,7 @@
     NSArray *_pickerData;
     NSMutableArray *_pickerDataAnos;
     NSString *_anoEscohido;
+    NSInteger *teste;
 }
 
 @end
@@ -27,6 +28,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    teste=0;
     Item = [[item alloc]init];
     _paises = [[PaisesTableViewController alloc]init];
     _data = [DataManager sharedManager];
@@ -94,7 +96,7 @@
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
     _anoEscohido= [NSString stringWithFormat:@"%@",_pickerDataAnos[row]];
-    
+    teste++;
 }
 
 
@@ -184,6 +186,9 @@
     if (![_textfieldPais.text isEqualToString:@""]) {
         if (![_anoEscohido isEqualToString:@""]) {
             if (_data.temFoto) {
+                if (_anoEscohido == nil) {
+                    _anoEscohido=@"2015";
+                }
                 NSMutableArray *momento = [@[] mutableCopy];
                 [self armazenarDadosViagemnome:_textfieldPais.text array:momento ano:_anoEscohido];
                 [_paises atualizartabela];

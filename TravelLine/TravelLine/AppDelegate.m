@@ -44,8 +44,8 @@ DataManager *_data;
     NSString *pathjson;
     pathjson = [item acharoarqfile:@"paises.json"]; //achar o caminho do json nos documents
     NSDictionary *temp = [Item lerArqJson2:@"paises" caminho:pathjson];
-    
-    _data.dados = temp; //alimentar meu NSDictionary com o json dos documents
+    NSMutableDictionary *yetAnotherDict = [temp mutableCopy];
+    _data.dados = yetAnotherDict; //alimentar meu NSDictionary com o json dos documents
     NSLog(@"TESTE DE DATAMANAGER %@",_data.dados);
     [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"fundoGradiente.jpg"] forBarMetrics:UIBarMetricsDefault];
 
