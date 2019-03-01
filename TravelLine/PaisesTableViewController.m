@@ -56,8 +56,10 @@
     [self.tableView addGestureRecognizer:longPressGesture];
     longPressGesture.minimumPressDuration = 1.0f;
     UIImage *toolbar = [UIImage imageNamed:@"novaToolbar.png"];
-    UIImage *toolbarMexida = [self imageWithImage:toolbar scaledToSize:CGSizeMake(200, 130)];
-    self.navigationItem.titleView = [[UIImageView alloc] initWithImage:toolbarMexida];
+    UIImage *toolbarMexida = [self imageWithImage:toolbar scaledToSize:CGSizeMake(200, 160)];
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:toolbarMexida];
+    imageView.contentMode = UIViewContentModeCenter;
+    self.navigationItem.titleView = imageView;
     
     UIImage *itemCamera = [UIImage imageNamed:@"Camera Roll.png"];
     UIImage *itemMexido = [self imageWithImage:itemCamera scaledToSize:CGSizeMake(35, 35)];
