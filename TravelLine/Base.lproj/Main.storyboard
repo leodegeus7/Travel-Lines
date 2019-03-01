@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="xuK-M9-vqw">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="xuK-M9-vqw">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -153,10 +153,6 @@
                                             <rect key="frame" x="8" y="8" width="584" height="124"/>
                                             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </imageView>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.69999999999999973" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CqM-t6-Pev">
-                                            <rect key="frame" x="8" y="8" width="584" height="124"/>
-                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                        </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TaF-Cb-5BC">
                                             <rect key="frame" x="245" y="43" width="110" height="55"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="46"/>
@@ -169,6 +165,10 @@
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.69999999999999973" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CqM-t6-Pev">
+                                            <rect key="frame" x="8" y="8" width="584" height="124"/>
+                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </imageView>
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="centerX" secondItem="TaF-Cb-5BC" secondAttribute="centerX" id="2G9-EM-vxe"/>
@@ -262,7 +262,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="soH-A4-7Fz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="501" y="910"/>
+            <point key="canvasLocation" x="543" y="1024"/>
         </scene>
         <!--Root View Controller-->
         <scene sceneID="TId-vv-4ft">
@@ -577,7 +577,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MY5-CQ-nda" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1263" y="241"/>
+            <point key="canvasLocation" x="1305" y="247"/>
         </scene>
         <!--Zoom Image View Controller-->
         <scene sceneID="LHo-ub-eTb">
@@ -620,11 +620,11 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="MOd-hq-XyS"/>
-                                <exclude reference="s2C-TH-JGh"/>
                                 <exclude reference="3Xa-Ga-CSF"/>
                                 <exclude reference="SM5-pe-5Fm"/>
                                 <exclude reference="c4E-oV-UFF"/>
+                                <exclude reference="MOd-hq-XyS"/>
+                                <exclude reference="s2C-TH-JGh"/>
                             </mask>
                         </variation>
                     </view>
@@ -635,7 +635,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pCK-bd-bh6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1983" y="389"/>
+            <point key="canvasLocation" x="2119" y="247"/>
         </scene>
         <!--Title-->
         <scene sceneID="3lE-YI-b5p">
