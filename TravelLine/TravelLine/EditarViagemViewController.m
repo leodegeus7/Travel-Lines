@@ -19,6 +19,7 @@
     NSArray *_pickerData;
     NSMutableArray *_pickerDataAnos;
     NSString *_anoEscohido;
+    NSInteger *teste;
 }
 
 @end
@@ -27,6 +28,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    teste=0;
     Item = [[item alloc]init];
     _paises = [[PaisesTableViewController alloc]init];
     _data = [DataManager sharedManager];
@@ -46,12 +48,25 @@
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
     [dateFormatter setDateFormat:@"YYYY"];
     int i2 = [[dateFormatter stringFromDate:[NSDate date]] intValue];
-    NSLog(@"%d",i2);
+  //  NSLog(@"%d",i2);
     _pickerDataAnos = [[NSMutableArray alloc] init];
     for (int i1=i2; i1<=i2 & i1>=1920; i1--) {
         [_pickerDataAnos addObject:[NSString stringWithFormat:@"%d",i1]];
     }
+    
+    NSString *nomeArquivo = [NSString stringWithFormat:@"%@",_data.dados[@"viagem"][_viagemEscolhidaEditar][@"capa"]];
+    NSString *caminho = [item acharoarqfile:nomeArquivo];
+    //NSString *caminho = [[myData[1] objectAtIndex:indexPath.row] objectForKey: @"capa"];
+    NSLog(@"%@",caminho);
+    _imagePais.image = [self loadImage:caminho];
+    _textfieldPais.placeholder =  [NSString stringWithFormat:@"%@",_data.dados[@"viagem"][_viagemEscolhidaEditar][@"nome"]];
+}
 
+- (UIImage*)loadImage:(NSString *)caminho;
+{
+    
+    UIImage* image = [UIImage imageWithContentsOfFile:caminho];
+    return image;
 }
 
 
@@ -81,7 +96,7 @@
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
     _anoEscohido= [NSString stringWithFormat:@"%@",_pickerDataAnos[row]];
-    
+    teste++;
 }
 
 
@@ -171,6 +186,9 @@
     if (![_textfieldPais.text isEqualToString:@""]) {
         if (![_anoEscohido isEqualToString:@""]) {
             if (_data.temFoto) {
+                if (_anoEscohido == nil) {
+                    _anoEscohido=@"2015";
+                }
                 NSMutableArray *momento = [@[] mutableCopy];
                 [self armazenarDadosViagemnome:_textfieldPais.text array:momento ano:_anoEscohido];
                 [_paises atualizartabela];
@@ -225,6 +243,7 @@
     _data.dados = jsonDic;
     [_paises atualizartabela];
 }
+
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {

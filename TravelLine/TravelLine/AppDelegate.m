@@ -24,8 +24,12 @@
 DataManager *_data;
 
 
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+
+    self.window.tintColor = [UIColor whiteColor];
+    
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     _data = [DataManager sharedManager];
     Item = [[item alloc] init]; //alloc na classe item
@@ -35,51 +39,17 @@ DataManager *_data;
     NSLog(@"%@",pathjsondoc);
     NSString *pathjson;
     pathjson = [item acharoarqfile:@"paises.json"]; //achar o caminho do json nos documents
-    _data.dados = [Item lerArqJson2:@"paises" caminho:pathjson]; //alimentar meu NSDictionary com o json dos documents
+    NSDictionary *temp = [Item lerArqJson2:@"paises" caminho:pathjson];
+    NSMutableDictionary *yetAnotherDict = [temp mutableCopy];
+    _data.dados = yetAnotherDict; //alimentar meu NSDictionary com o json dos documents
     NSLog(@"TESTE DE DATAMANAGER %@",_data.dados);
     [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"fundoGradiente.jpg"] forBarMetrics:UIBarMetricsDefault];
 
     [application setStatusBarStyle:UIStatusBarStyleLightContent] ;
-    
-//    NSDictionary *myDict;
-//    Item = [[item alloc] init];
-//    
-//    myDict = [Item lerArqJson:@"paises"];
-//
-//    if (myDict==nil) {
-//        NSLog(@"NAO EXISTE");
-//
-//        NSString *path1 = [[NSBundle mainBundle] pathForResource:@"paises" ofType:@".json"];
-//        
-//        NSLog(@"%@",path1);
-//        
-//        //Criando NSData e preenchendo com o conteúdo do arquivo data.json
-//        NSData *dataResponse = [[NSData alloc]initWithContentsOfFile:path1];
-//        
-//        NSError *error;
-//        
-//        NSDictionary *jsonSerialized = [NSJSONSerialization JSONObjectWithData:dataResponse
-//                                                                       options:NSJSONReadingMutableContainers
-//                                                                         error:&error];
-//        
-//        _myData = jsonSerialized[@"Jogos"];
-//        NSLog(@"mydata = %@",_myData);
-//        NSDictionary *dados = [[NSDictionary alloc]init];
-//        dados = [item LerArquivoJSon:@"paises"];
-//        
-//        [Item saveFileName:@"dados" conteudo:dados];
-//        
-//        //NSString *path2 = [[NSBundle mainBundle] pathForResource:@"dados" ofType:@".json"];
-//        
-//        //NSLog(@"%@",path2);
-//    }
-//    else {
-//    
-//        NSLog(@"%@",myDict);
-//        
-//    }
     return YES;
 }
+
+
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {

@@ -26,12 +26,14 @@
     item *Item;
     UIBarButtonItem *addButton;
     UIBarButtonItem *salvarTexto;
-
+    UIBarButtonItem *settingButton;
     TimeLineTableViewCell *celulaPrototipo;
 
     UIBarButtonItem *editarViagem;
     UIToolbar *toolBar;
     PaisesTableViewController *paises;
+    UIImage *buttonSettings;
+    
 
 
     
@@ -50,27 +52,13 @@
     [self atualizartabela];
     self.title=[NSString stringWithFormat:@"%@",_data.dados[@"viagem"] [_viagemEscolhida][@"nome"]];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+
     NSLog(@"testeeeee %ld",_viagemEscolhida);
     CGRect newFrame = _myView2.frame;
     newFrame.size.height = 40;
     CGRect textfield = _myTextField.frame;
     textfield.size.height = 30;
-    //_myTextField.alpha =0;
-    
-//    self.navigationItem.rightBarButtonItem.tintColor = [UIColor clearColor];
-//    self.navigationItem.rightBarButtonItem.enabled = false;
-    
-//    salvarTexto = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(SalvarTexto:)];
-//    
-//    [self.navigationItem setRightBarButtonItem:salvarTexto];
-//
-//    salvarTexto.enabled =false;
-//    salvarTexto.tintColor = [UIColor clearColor];
+
     UILongPressGestureRecognizer *longPressGesture = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(longPressRecognizer:)];
     [self.tableView addGestureRecognizer:longPressGesture];
     longPressGesture.minimumPressDuration = 1.0f;
@@ -82,11 +70,12 @@
                                                  name:UIContentSizeCategoryDidChangeNotification object:nil];
     
 
+
+    buttonSettings = [UIImage imageNamed:@"settings.png"];
+    UIImage *settingButtonMexida2 = [self imageWithImage:buttonSettings scaledToSize:CGSizeMake(27, 27)];
+
+    editarViagem = [[UIBarButtonItem alloc] initWithImage:settingButtonMexida2 style:UIBarButtonItemStyleDone target:self action:@selector(editarViagem:)];
     
-//    editarViagem = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(SalvarTexto:)];
-//    editarViagem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(editarViagem:)];
-//    UIBarButtonItem *settingsButton = [[UIBarButtonItem alloc] initWithTitle:@"\u2699" style:UIBarButtonItemStylePlain target:self action:@selector(showSettings)];
-    editarViagem = [[UIBarButtonItem alloc] initWithTitle:@"\u2699" style:UIBarButtonItemStyleDone target:self action:@selector(editarViagem:)];
 
 
     [self.navigationItem setRightBarButtonItem:editarViagem];
@@ -103,10 +92,10 @@
 
 }
 
+
+
 - (UIImage *)imageWithImage:(UIImage *)image scaledToSize:(CGSize)newSize {
-    //UIGraphicsBeginImageContext(newSize);
-    // In next line, pass 0.0 to use the current device's pixel scaling factor (and thus account for Retina resolution).
-    // Pass 1.0 to force exact pixel size.
+
     UIGraphicsBeginImageContextWithOptions(newSize, NO, 0.0);
     [image drawInRect:CGRectMake(0, 0, newSize.width, newSize.height)];
     UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
@@ -126,14 +115,6 @@
     [self.tableView reloadData];
 }
 
-- (TimeLineTableViewCell *)CelulaPrototipo
-{
-    if (!_celulaPrototipo)
-    {
-        _celulaPrototipo = [self.tableView dequeueReusableCellWithIdentifier:@"cellMomento"];
-    }
-    return _celulaPrototipo;
-}
 
 
 -(void)longPressRecognizer:(UISwipeGestureRecognizer *)gestureRecognizer{
@@ -187,12 +168,7 @@
     self.tableView.estimatedRowHeight = 30.0; // for example. Set your average height
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     
-//    NSString *testeDoTipo = [NSString stringWithFormat:@"%@",[[myData[0][_viagemEscolhida][@"momento"] objectAtIndex:indexPath.row] objectForKey: @"tipo"]];
-//    if ([testeDoTipo isEqualToString:@"imagem"])
-//    {
-//        self.tableView.rowHeight =
-//    }
-    
+
     
     [self.tableView layoutIfNeeded];
     [self.tableView autoresizingMask];
@@ -248,16 +224,7 @@
     return momento.count;
 }
 
-//-(void)acaoDoBotao{
-//    [super setEditing:YES animated:YES];
-//    [self.tableView setEditing:YES animated:YES];
-//    [self.tableView reloadData];
-//    [self.navigationItem.leftBarButtonItem setTitle:@"Done"];
-//    [self.navigationItem.leftBarButtonItem setStyle:UIBarButtonItemStyleDone];
-//
-//
-//
-//}
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
@@ -285,12 +252,6 @@
         return imageCell;
     }
 
-
-//    NSMutableDictionary *teste;
-//    teste = _data.dados[@"viagem"][_viagemEscolhida][@"momento"];
-//    //cell.viagemLabel.text=[NSString stringWithFormat:@"%@",myData[indexPath.row][@"nome"]];
-    
-   // NSLog(@"DESCRICAO = %@",myData[1][_viagemEscolhida][@"momento"][0][@"descricao"]);
     return nil;
 }
 
@@ -299,7 +260,7 @@
     dvc.viagemEscolhidaEditar = _viagemEscolhida;
     
     if ([segue.identifier isEqualToString:@"editarViagem"]) {
-//        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+
         EditarViagemViewController *destViewController = segue.destinationViewController;
         destViewController.viagemEscolhidaEditar = _viagemEscolhida;
         
@@ -324,7 +285,12 @@
         [self.navigationItem setRightBarButtonItem:addButton];
         addButton.enabled =false;
         addButton.tintColor = [UIColor clearColor];
-        editarViagem = [[UIBarButtonItem alloc] initWithTitle:@"\u2699" style:UIBarButtonItemStyleDone target:self action:@selector(editarViagem:)];
+        buttonSettings = [UIImage imageNamed:@"settings.png"];
+        UIImage *settingButtonMexida2 = [self imageWithImage:buttonSettings scaledToSize:CGSizeMake(27, 27)];
+        
+        editarViagem = [[UIBarButtonItem alloc] initWithImage:settingButtonMexida2 style:UIBarButtonItemStyleDone target:self action:@selector(editarViagem:)];
+        
+        
         
         [self.navigationItem setRightBarButtonItem:editarViagem];
         editarViagem.enabled =true;
@@ -356,13 +322,6 @@
 }
 
 
-//- (IBAction)selectCamera:(id)sender {
-//    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
-//    picker.delegate = self;
-//    picker.allowsEditing = YES;
-//    picker.sourceType = UIImagePickerControllerSourceTypeCamera;
-//    [self presentViewController:picker animated:YES completion:NULL];
-//}
 
 
 
@@ -423,10 +382,7 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-//        cell.primeiraLinhaTimeLine.hidden = YES;
-//        cell.segundaLinhaTimeLine.hidden = YES;
-//        imageCell.primeiraLinhaTimeLine.hidden = YES;
-//        imageCell.segundaLinhaTimeLine.hidden = YES;
+
         [_data.dados[@"viagem"][_viagemEscolhida][@"momento"] removeObjectAtIndex:indexPath.row];
         // Delete the row from the data source
         [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
@@ -434,51 +390,6 @@
     }
 }
 
-
-
-/*
-// Override to support conditional editing of the table view.FH
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     NSString *testeDoTipo= [NSString stringWithFormat:@"%@",[[_data.dados[@"viagem"][_viagemEscolhida][@"momento"] objectAtIndex:indexPath.row] objectForKey: @"tipo"]];
@@ -518,26 +429,6 @@
     [self presentViewController:alertController animated:YES completion:nil];
 }
 
-//- (IBAction)addTexto:(id)sender {
-//    NSLog(@"oooi1");
-//    //[self.storyboard instantiateViewControllerWithIdentifier:@"texto"];
-//    CGRect newFrame = _myContainerView.frame;
-//    newFrame.size.height = 178;
-//    
-//    [UIView animateWithDuration:1.0
-//                     animations:^{
-//                         _myContainerView.frame = newFrame;
-//                     }];
-//    
-//
-//    
-//    
-//}
-
-//- (IBAction)addFoto:(id)sender {
-//
-//    NSLog(@"oooi2");
-//}
 
 
 
@@ -575,16 +466,12 @@
     [reversedArray addObject:jMomentoEspecifico];
     
     NSArray *reversedArray2 = [NSMutableArray arrayWithArray:[[reversedArray reverseObjectEnumerator] allObjects]];
-//    NSArray *reversedArray = [[JMomentoGeral reverseObjectEnumerator] allObjects];
-
-    
 
     
     [JDic setObject:reversedArray2 forKey:@"momento"];
     [JAry setObject:JDic atIndexedSubscript:_viagemEscolhida];
     [jsonDic setObject:JAry forKey:@"viagem"];
-    //[JAry addObject:mom];//atribuicao do dicionario para o array
-    //[jsonDic setObject:JAry forKey:@"viagem"];//atribuicao do array para o dicionario principal
+
     _data.dados = jsonDic;
     [self atualizartabela];
 }
@@ -625,49 +512,15 @@
     [JDic setObject:reversedArray2 forKey:@"momento"];
     [JAry setObject:JDic atIndexedSubscript:_viagemEscolhida];
     [jsonDic setObject:JAry forKey:@"viagem"];
-    //[JAry addObject:mom];//atribuicao do dicionario para o array
-    //[jsonDic setObject:JAry forKey:@"viagem"];//atribuicao do array para o dicionario principal
+
     _data.dados = jsonDic;
     [self atualizartabela];
     
     }
 
 
-
-//-(void)viewDidAppear:(BOOL)animated
-//{
-//    self.tableView.estimatedRowHeight = 70.0; // for example. Set your average height
-//    self.tableView.rowHeight = UITableViewAutomaticDimension;
-//    [self.tableView layoutIfNeeded];
-//    [self.tableView autoresizingMask];
-//    [self.tableView reloadData];
-//}
-
-
-//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    NSString *testeDoTipo = [NSString stringWithFormat:@"%@",[[myData[1][_viagemEscolhida][@"momento"] objectAtIndex:indexPath.row] objectForKey: @"tipo"]];
-//    if ([testeDoTipo isEqualToString:@"imagem"]) {
-//        int  height = (int) _celulaPrototipo.image.size.height;
-//        _celulaPrototipo.bounds = CGRectMake(0.0f, 0.0f, CGRectGetWidth(tableView.bounds), height);
-//        
-//        [_celulaPrototipo layoutIfNeeded];
-//        return _celulaPrototipo.image.size.height+1;
-//    }
-//    return 70;
-//}
-
-//- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    NSString *testeDoTipo = [NSString stringWithFormat:@"%@",[[myData[1][_viagemEscolhida][@"momento"] objectAtIndex:indexPath.row] objectForKey: @"tipo"]];
-//
-//    return UITableViewAutomaticDimension;
-//}
-
-
 -(void)mudarTabela{
     NSLog(@"oooi1");
-    //[self.storyboard instantiateViewControllerWithIdentifier:@"texto"];
     CGRect newFrame = _myView2.frame;
     newFrame.size.height = 180;
     
@@ -720,7 +573,12 @@
         _myTextField.text = nil;
         self.navigationItem.rightBarButtonItem.tintColor = [UIColor clearColor];
         self.navigationItem.rightBarButtonItem.enabled = NO;
-        editarViagem = [[UIBarButtonItem alloc] initWithTitle:@"\u2699" style:UIBarButtonItemStyleDone target:self action:@selector(editarViagem:)];
+        buttonSettings = [UIImage imageNamed:@"settings.png"];
+        UIImage *settingButtonMexida2 = [self imageWithImage:buttonSettings scaledToSize:CGSizeMake(27, 27)];
+        
+        editarViagem = [[UIBarButtonItem alloc] initWithImage:settingButtonMexida2 style:UIBarButtonItemStyleDone target:self action:@selector(editarViagem:)];
+        
+        
         
         [self.navigationItem setRightBarButtonItem:editarViagem];
         editarViagem.enabled =true;
@@ -741,21 +599,6 @@
 }
 
 
-
-//- (IBAction)buttonOk:(id)sender {
-//    CGRect newFrame = _myView2.frame;
-//    newFrame.size.height = 38;
-//    
-//    [UIView animateWithDuration:0.5
-//                     animations:^{
-//                         _myView2.frame = newFrame;
-//                     }];
-//    [self armazenarDadosViagemnome:_myTextField.text];
-//    [_myTextField resignFirstResponder];
-//    _myTextField.text = nil;
-//    self.navigationItem.rightBarButtonItem.tintColor = [UIColor clearColor];
-//    self.navigationItem.rightBarButtonItem.enabled = NO;
-//}
 
 - (IBAction)addText2:(id)sender {
     [self mudarTabela];
@@ -784,7 +627,12 @@
     self.navigationItem.rightBarButtonItem.tintColor = [UIColor clearColor];
     self.navigationItem.rightBarButtonItem.enabled = NO;
     self.navigationItem.leftBarButtonItem.tintColor = [UIColor clearColor];
-    editarViagem = [[UIBarButtonItem alloc] initWithTitle:@"\u2699" style:UIBarButtonItemStyleDone target:self action:@selector(editarViagem:)];
+    buttonSettings = [UIImage imageNamed:@"settings.png"];
+    UIImage *settingButtonMexida2 = [self imageWithImage:buttonSettings scaledToSize:CGSizeMake(27, 27)];
+    
+    editarViagem = [[UIBarButtonItem alloc] initWithImage:settingButtonMexida2 style:UIBarButtonItemStyleDone target:self action:@selector(editarViagem:)];
+    
+    
     
     [self.navigationItem setRightBarButtonItem:editarViagem];
     editarViagem.enabled =true;

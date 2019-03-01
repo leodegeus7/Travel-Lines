@@ -10,6 +10,7 @@
 		A74242601AE98C7D0019150B /* images.plist in Resources */ = {isa = PBXBuildFile; fileRef = A742425F1AE98C7D0019150B /* images.plist */; };
 		A74242621AEAD6820019150B /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A74242611AEAD6820019150B /* 1.jpg */; };
 		A74242651AEAE6F70019150B /* ImageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A74242641AEAE6F70019150B /* ImageTableViewCell.m */; };
+		A75AD3AA1AF2DE9D00FB172D /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = A75AD3A91AF2DE9D00FB172D /* settings.png */; };
 		CD160EF51AE03A4000575E06 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CD160EF41AE03A4000575E06 /* main.m */; };
 		CD160EF81AE03A4000575E06 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CD160EF71AE03A4000575E06 /* AppDelegate.m */; };
 		CD160EFB1AE03A4000575E06 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD160EFA1AE03A4000575E06 /* ViewController.m */; };
@@ -69,6 +70,7 @@
 		A74242611AEAD6820019150B /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
 		A74242631AEAE6F70019150B /* ImageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageTableViewCell.h; sourceTree = "<group>"; };
 		A74242641AEAE6F70019150B /* ImageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageTableViewCell.m; sourceTree = "<group>"; };
+		A75AD3A91AF2DE9D00FB172D /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
 		CD160EEF1AE03A4000575E06 /* TravelLine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravelLine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD160EF31AE03A4000575E06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CD160EF41AE03A4000575E06 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -294,6 +296,7 @@
 				CDB7F3981AEEBCE20033A541 /* tirarfoto.png */,
 				CDB306261AF1466600A21219 /* creditos.png */,
 				CDE45D3A1AEECF160077F647 /* right-arrow.png */,
+				A75AD3A91AF2DE9D00FB172D /* settings.png */,
 				CDBDF2821AE180ED004F83A1 /* paises.json */,
 			);
 			name = Resources;
@@ -348,10 +351,10 @@
 				TargetAttributes = {
 					CD160EEE1AE03A4000575E06 = {
 						CreatedOnToolsVersion = 6.3;
-						DevelopmentTeam = 4V6XCMA27T;
+						DevelopmentTeam = H7C2V5GHBN;
 						SystemCapabilities = {
 							com.apple.iCloud = {
-								enabled = 0;
+								enabled = 1;
 							};
 						};
 					};
@@ -395,6 +398,7 @@
 				CDB7F39B1AEEC0140033A541 /* fundoGradiente.jpg in Resources */,
 				CDBDF2831AE180ED004F83A1 /* paises.json in Resources */,
 				CD623DF91AEC0A5C00A03604 /* info.png in Resources */,
+				A75AD3AA1AF2DE9D00FB172D /* settings.png in Resources */,
 				CDB7F3911AEEB3BF0033A541 /* Image 27-04-15 at 15.10 (1).png in Resources */,
 				CDC739CC1AF00359000545A5 /* toolbar.png in Resources */,
 				CDB7F3861AEE6BF40033A541 /* camera.png in Resources */,
@@ -573,12 +577,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
+				CODE_SIGN_ENTITLEMENTS = TravelLine/TravelLine.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = TravelLine/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -586,12 +592,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
+				CODE_SIGN_ENTITLEMENTS = TravelLine/TravelLine.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = TravelLine/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

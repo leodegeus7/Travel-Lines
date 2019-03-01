@@ -24,6 +24,11 @@
     UIToolbar *toolBar;
     UIBarButtonItem *addButton;
     UIBarButtonItem *editarViagem;
+    NSString *fileText;
+    NSString *fileTitle;
+    NSMutableArray *fileNameList;
+    NSMutableArray *fileObjectList;
+    UIRefreshControl *refreshControl;
     
 }
 
@@ -36,8 +41,10 @@
 @synthesize managedObjectContext;
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
 
+
+    [super viewDidLoad];
+//    [self testariCloud];
     Item = [[item alloc]init];
     _data = [DataManager sharedManager]; //da um sharedmanager no ponteiro do DM
     [self atualizartabela];
@@ -57,42 +64,19 @@
     UIButton *botaoCamera;
     [botaoCamera setBackgroundImage:itemMexido forState:UIControlStateSelected];
     [botaoCamera setBackgroundImage:itemMexido forState:UIControlStateHighlighted];
-//    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-//    self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
-//    self.navigationItem.leftBarButtonItem.tintColor = [UIColor whiteColor];
+    
+    self.navigationController.navigationItem.leftBarButtonItem.tintColor = [UIColor whiteColor];
+    self.navigationController.navigationItem.rightBarButtonItem.tintColor = [UIColor whiteColor];
+    self.navigationItem.rightBarButtonItem.tintColor = [UIColor whiteColor];
+    self.navigationItem.leftBarButtonItem.tintColor = [UIColor whiteColor];
+    
+    [[UIBarButtonItem appearance] setTintColor:[UIColor whiteColor]];
+    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor]}];
     
     _itemBottom.image = itemMexido;
 
-//    self.navigationController.navigationBar.backgroundColor = [UIColor whiteColor];
-//    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-//    self.navigationController.navigationBar.translucent = NO;
     
 #pragma park  ALTERAR BACKGROUND DA VIEW
-//    UIImageView *tempImg = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 460)];
-//    [tempImg setImage:[UIImage imageNamed:@"IMG_0071.JPG"]];
-//    [testTableView setBackgroundView:tempImg];
-
-    
-//    UIColor *firstColor = [UIColor colorWithRed:255.0f/255.0f green:42.0f/255.0f blue:104.0f/255.0f alpha:1.0f];
-//    UIColor *secondColor = [UIColor colorWithRed:255.0f/255.0f green:90.0f/255.0f blue:58.0f/255.0f alpha:1.0f];
-//    
-//    NSArray *colors = [NSArray arrayWithObjects:(id)firstColor.CGColor, (id)secondColor.CGColor, nil];
-//    //NSArray *colors = [NSArray arrayWithObjects:(id)UIColorFromRGB(0xf16149).CGColor, (id)UIColorFromRGB(0xf14959).CGColor, nil];
-//
-//    [[CRGradientNavigationBar appearance] setBarTintGradientColors:colors];
-//    [[self.navigationController navigationBar] setTranslucent:NO]; // Remember, the default value is YES.
-
-//    
-//      UIColor *firstColor = [UIColor colorWithRed:0.0f/255.0f green:0.0f/255.0f blue:0.0f/255.0f alpha:1.0f];
-//      UIColor *secondColor = [UIColor colorWithRed:255.0f/255.0f green:90.0f/255.0f blue:58.0f/255.0f alpha:1.0f];
-//      CAGradientLayer *gradient = [CAGradientLayer layer];
-//      gradient.frame = self.navigationController.navigationBar.bounds;
-//      gradient.colors = [NSArray arrayWithObjects:(id)[firstColor CGColor], (id)[secondColor CGColor], nil];
-//    
-//      [self.navigationController.navigationBar.layer insertSublayer:gradient atIndex:0];    
-    
-    
-    
     self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:117.0/255.0 green:4.0/255.0 blue:32.0/255.0 alpha:1];
     self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:1];
 
@@ -101,24 +85,20 @@
     [self.navigationController.toolbar setBackgroundImage:[UIImage imageNamed:@"fundoGradienteBaixo.jpg"] forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsDefault];
     self.navigationController.toolbar.alpha= 0 ;
 
-
-
-    
-    
-
-    
-    
-    
-    
-
 }
 
 
 
+
+
+
+
+
+
+
+
 - (UIImage *)imageWithImage:(UIImage *)image scaledToSize:(CGSize)newSize {
-    //UIGraphicsBeginImageContext(newSize);
-    // In next line, pass 0.0 to use the current device's pixel scaling factor (and thus account for Retina resolution).
-    // Pass 1.0 to force exact pixel size.
+
     UIGraphicsBeginImageContextWithOptions(newSize, NO, 0.0);
     [image drawInRect:CGRectMake(0, 0, newSize.width, newSize.height)];
     UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
@@ -129,7 +109,6 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 -(void)longPressRecognizer:(UISwipeGestureRecognizer *)gestureRecognizer{
@@ -221,35 +200,17 @@
     PaisesTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellViagem" forIndexPath:indexPath];
     NSMutableDictionary *teste;
     teste = _data.dados;
-    //cell.viagemLabel.text=[NSString stringWithFormat:@"%@",myData[indexPath.row][@"nome"]];myData[1]
     NSString *nomeArquivo = [NSString stringWithFormat:@"%@",[[_data.dados[@"viagem"]  objectAtIndex:indexPath.row] objectForKey: @"capa" ]];
     NSString *caminho = [item acharoarqfile:nomeArquivo];
-    //NSString *caminho = [[myData[1] objectAtIndex:indexPath.row] objectForKey: @"capa"];
+
     NSLog(@"%@",caminho);
     cell.viagemImage2.image = [self loadImage:caminho];
-    UIImage *testeF = [self loadImage:caminho];
-    NSLog(@"%@", testeF);
-    cell.viagemLabel.text=[NSString stringWithFormat:@"%@",[[_data.dados[@"viagem"]  objectAtIndex:indexPath.row] objectForKey: @"nome"]];
+       cell.viagemLabel.text=[NSString stringWithFormat:@"%@",[[_data.dados[@"viagem"]  objectAtIndex:indexPath.row] objectForKey: @"nome"]];
     cell.anoLabel.text=[NSString stringWithFormat:@"%@",[[_data.dados[@"viagem"]  objectAtIndex:indexPath.row] objectForKey: @"ano"]];
 
     return cell;
 }
 
-//- (void)saveImage: (UIImage*)image
-//{
-//    if (image != nil)
-//    {
-//        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
-//                                                             NSUserDomainMask, YES);
-//        NSString *documentsDirectory = [paths objectAtIndex:0];
-//        NSString* path = [documentsDirectory stringByAppendingPathComponent:
-//                          @"test.png" ];
-//        NSData* data = UIImagePNGRepresentation(image);
-//        [data writeToFile:path atomically:YES];
-//        NSLog(@"caminho %@",path);
-//    }
-//}
-//
 - (UIImage*)loadImage:(NSString *)caminho;
 {
 
@@ -310,49 +271,6 @@
     [self.navigationController setToolbarHidden:YES animated:YES];
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 
 - (IBAction)ClickButtonAdd:(id)sender {
@@ -386,6 +304,7 @@
     viagem = _data.dados[@"viagem"];
     [self.tableView reloadData];
     [Item saveFileName:@"paises" conteudo:_data.dados];
+
 }
 - (IBAction)refresh:(id)sender {
     [self atualizartabela];
@@ -412,15 +331,7 @@
 - (BOOL)tableView:(UITableView *)tableview canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
     return YES;
 }
-//- (void) tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)targetIndexPath
-//{
-//    NSUInteger sourceIndex = [sourceIndexPath row];
-//    NSUInteger targetIndex = [targetIndexPath row];
-//    if (sourceIndex != targetIndex)
-//    {
-//        NSLog(@"LOOOOOCOOO");
-//    }
-//}
+
 
 
 @end
